@@ -8,8 +8,7 @@ import javax.swing.JPanel;
 
 public class Editor extends JPanel {
 	
-	//BONJOUR// 
-	//SALUT//
+	
    private JLabel labelWelcome;
    
 	private ImageIcon iconBackground;

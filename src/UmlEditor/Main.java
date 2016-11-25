@@ -24,9 +24,10 @@ public class Main {
 
 		JMenu file = new JMenu("File");
 		menubar.add(file);
-		JMenuItem newproject = new JMenuItem("New Project");
-		file.add(newproject);
-		JMenuItem save = new JMenuItem("Save");
+		JMenu ilyes = new JMenu("New");
+		file.add(ilyes);
+		JMenuItem newproject = new JMenuItem("New UML Project");
+		ilyes.add(newproject);
 		file.add(save);
 		JMenuItem exit = new JMenuItem("Exit");
 		file.add(exit);
