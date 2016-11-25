@@ -28,6 +28,7 @@ public class Main {
 		file.add(ilyes);
 		JMenuItem newproject = new JMenuItem("New UML Project");
 		ilyes.add(newproject);
+		JMenuItem save = new JMenuItem("Save");
 		file.add(save);
 		JMenuItem exit = new JMenuItem("Exit");
 		file.add(exit);
