@@ -54,6 +54,7 @@ public class Main {
 				frame.setAlwaysOnTop(true);
 				frame.setContentPane(projet);
 				frame.setJMenuBar(menubar);
+				frame.setResizable(false);
 			};}
 		);
 		
