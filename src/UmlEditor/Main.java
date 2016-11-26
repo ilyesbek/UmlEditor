@@ -44,6 +44,18 @@ public class Main {
 		JMenuItem about = new JMenuItem("About");
 		help.add(about);
 		
+		newproject.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				final JFrame frame = new JFrame("Editeur UML");
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setSize(1000,600);
+				frame.setVisible(true);
+				frame.setAlwaysOnTop(true);
+				frame.setContentPane(projet);
+				frame.setJMenuBar(menubar);
+			};}
+		);
 		
 		class exitaction implements ActionListener{
 			public void actionPerformed (ActionEvent e){
@@ -53,6 +65,7 @@ public class Main {
 		exit.addActionListener(new exitaction());
 		
 		editor = new Editor();
+		projet = new Projet();
 		
 		  fenetre.setContentPane(editor); //on associe la scene à la fenetre de l'application
 	      fenetre.setVisible(true);// pour que la fenetre soit visible
