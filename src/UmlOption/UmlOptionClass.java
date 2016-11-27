@@ -6,6 +6,7 @@ package UmlOption;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -142,10 +143,16 @@ class OptionTab2 extends JPanel{
 		   b4.add(close);
 		   
 		   JPanel b5 = new JPanel();
-		   b5.setLayout(new BoxLayout(b5, BoxLayout.PAGE_AXIS));
-		   b5.add(b2);
-		   b5.add(b3);
-		   b5.add(b4);
+		   b5.setLayout(new BoxLayout(b5, BoxLayout.LINE_AXIS));
+		   b5.add(list);
+		   b5.add(b1);
+		   
+		   JPanel b6 = new JPanel();
+		   b6.setLayout(new BoxLayout(b6, BoxLayout.PAGE_AXIS));
+		   b6.add(b5);
+		   b6.add(b2);
+		   b6.add(b3);
+		   b6.add(b4);
 		   
 		   
 			//event button click validate
@@ -160,6 +167,7 @@ class OptionTab2 extends JPanel{
 			  class closeListener implements ActionListener{
 				    
 				    public void actionPerformed(ActionEvent arg0) {
+				    	
 				      
 				    }
 				  }
@@ -180,6 +188,8 @@ class OptionTab3 extends JPanel {
 	
 	private JTextField textNameMethod;
 	private JTextField textTypeMethod;
+	
+	private JList list = new JList();
 	
 	OptionTab3(){
 		   JPanel b1 = new JPanel();
@@ -204,11 +214,18 @@ class OptionTab3 extends JPanel {
 		   b4.add(validate);
 		   b4.add(close);
 		   
+		   
 		   JPanel b5 = new JPanel();
-		   b5.setLayout(new BoxLayout(b5, BoxLayout.PAGE_AXIS));
-		   b5.add(b2);
-		   b5.add(b3);
-		   b5.add(b4);
+		   b5.setLayout(new BoxLayout(b5, BoxLayout.LINE_AXIS));
+		   b5.add(list);
+		   b5.add(b1);
+		   
+		   JPanel b6 = new JPanel();
+		   b6.setLayout(new BoxLayout(b6, BoxLayout.PAGE_AXIS));
+		   b6.add(b5);
+		   b6.add(b2);
+		   b6.add(b3);
+		   b6.add(b4);
 		   
 		   
 			//event button click validate
