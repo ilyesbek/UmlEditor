@@ -1,5 +1,6 @@
 package UmlEditor;
 import java.awt.Graphics;
+
 import java.awt.Graphics2D;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -10,7 +11,6 @@ public class MainWindow extends JPanel {
 	
 	
    private JLabel labelWelcome;
-   
 	private ImageIcon iconBackground;
 	private Image picture;
 	
@@ -19,7 +19,6 @@ public class MainWindow extends JPanel {
 	public MainWindow(){
 		
 		super();
-		
 		this.proprietesEditeur();
 		
 		this.xFond = -50;
