@@ -1,7 +1,7 @@
+/*Part Yacine*/
+
+/* this class show a window, to manipualte the entity, can add a entity,delete, change name of class ...*/
 package UmlOption;
-
-
-
 import java.awt.event.KeyEvent;
 
 import javax.swing.BoxLayout;
@@ -15,17 +15,17 @@ import javax.swing.JTextField;
 public class UmlOptionClass {
 
 	private JFrame windowOption;
-	JTabbedPane tabbedPane = new JTabbedPane(); // onglets 
+	JTabbedPane tabbedPane = new JTabbedPane();  
 	
 	UmlOptionClass (){
 		
     makeTab();
     
-	windowOption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //quand on ferme la fenetre, le programme s'arrete 
-	windowOption.setSize(1000, 600);// dimension de la fenetre
-	windowOption.setLocationRelativeTo(null);// pour que la fenetre soit centré
-	windowOption.setResizable(false);// pour redimensioner la fenetre
-	windowOption.setAlwaysOnTop(true);// pour que la fenetre reste au dessus des autres fenetre
+	windowOption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+	windowOption.setSize(1000, 600);
+	windowOption.setLocationRelativeTo(null);
+	windowOption.setResizable(false);
+	windowOption.setAlwaysOnTop(true);
 	}
 	
 	private void makeTab(){
@@ -59,7 +59,7 @@ class OptionTab1 extends JPanel{
 	
 	OptionTab1(){
 		   JPanel b1 = new JPanel();
-		    //On définit le layout en lui indiquant qu'il travaillera en ligne
+		  
 		   b1.setLayout(new BoxLayout(b1, BoxLayout.LINE_AXIS));
 		   b1.add(nameClass);
 		   b1.add(textNameClass);
@@ -95,7 +95,7 @@ class OptionTab2 extends JPanel{
 	
 	OptionTab2(){
 		   JPanel b1 = new JPanel();
-		    //On définit le layout en lui indiquant qu'il travaillera en ligne
+		 
 		   b1.setLayout(new BoxLayout(b1, BoxLayout.PAGE_AXIS));
 		   b1.add(newAttribute);
 		   b1.add(deleteAttribute);
@@ -143,7 +143,7 @@ class OptionTab3 extends JPanel{
 	
 	OptionTab3(){
 		   JPanel b1 = new JPanel();
-		    //On définit le layout en lui indiquant qu'il travaillera en ligne
+		
 		   b1.setLayout(new BoxLayout(b1, BoxLayout.PAGE_AXIS));
 		   b1.add(newMethod);
 		   b1.add(deleteMethod);
