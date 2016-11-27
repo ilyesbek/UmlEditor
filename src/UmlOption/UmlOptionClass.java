@@ -1,13 +1,17 @@
 /*Part Yacine*/
 
-/* this class show a window, to manipualte the entity, can add a entity,delete, change name of class ...*/
+/* this class show a window, to manipulate the entity, can add a entity,delete, change name of class ...*/
 package UmlOption;
-import java.awt.event.KeyEvent;
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
@@ -50,7 +54,7 @@ public class UmlOptionClass {
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);*/
 	}
 }
-class OptionTab1 extends JPanel{
+class OptionTab1 extends JPanel {
 	
 	private JButton validate = new JButton("Valider") ;
 	private JButton close= new JButton("Fermer");
@@ -75,6 +79,23 @@ class OptionTab1 extends JPanel{
 		   b3.add(b2);
 		        		   		 
 	}
+
+	//event button click validate
+	  class validateListener implements ActionListener{
+		    
+		    public void actionPerformed(ActionEvent arg0) {
+		      
+		    }
+		  }
+	  
+	  ///event button click close
+	  class closeListener implements ActionListener{
+		    
+		    public void actionPerformed(ActionEvent arg0) {
+		      
+		    }
+		  }
+
 }
 
 class OptionTab2 extends JPanel{
@@ -92,6 +113,8 @@ class OptionTab2 extends JPanel{
 	private JTextField textNameAttribute;
 	private JTextField textTypeAttribute;
 	private JTextField textValueAttribute;
+	
+	private JList list = new JList();
 	
 	OptionTab2(){
 		   JPanel b1 = new JPanel();
@@ -123,11 +146,28 @@ class OptionTab2 extends JPanel{
 		   b5.add(b2);
 		   b5.add(b3);
 		   b5.add(b4);
+		   
+		   
+			//event button click validate
+			  class validateListener implements ActionListener{
+				    
+				    public void actionPerformed(ActionEvent arg0) {
+				      
+				    }
+				  }
+			  
+			  ///event button click close
+			  class closeListener implements ActionListener{
+				    
+				    public void actionPerformed(ActionEvent arg0) {
+				      
+				    }
+				  }
 		        		   		 
 	}
 }
 
-class OptionTab3 extends JPanel{
+class OptionTab3 extends JPanel {
 	
 	private JButton validate=new JButton("Valider") ;
 	private JButton close = new JButton("Fermer");
@@ -169,6 +209,23 @@ class OptionTab3 extends JPanel{
 		   b5.add(b2);
 		   b5.add(b3);
 		   b5.add(b4);
+		   
+		   
+			//event button click validate
+			  class validateListener implements ActionListener{
+				    
+				    public void actionPerformed(ActionEvent arg0) {
+				      
+				    }
+				  }
+			  
+			  ///event button click close
+			  class closeListener implements ActionListener{
+				    
+				    public void actionPerformed(ActionEvent arg0) {
+				      
+				    }
+				  }
 		        		   		 
 	}
 }

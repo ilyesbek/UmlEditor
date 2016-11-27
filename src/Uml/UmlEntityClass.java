@@ -1,3 +1,6 @@
+/*Part Yacine*/
+
+/*With this class, we can creat a entity in JFrame*/
 package Uml;
 
 import java.awt.Color;

@@ -1,3 +1,5 @@
+/*Part Ilyes*/
+
 package UmlEditor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,12 +27,12 @@ public class Main {
 		
 		
 		
-		JFrame fenetre = new JFrame("Editeur UML"); // le nom de l'application
-		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //quand on ferme la fenetre, le programme s'arrete 
-		fenetre.setSize(1000, 600);// dimension de la fenetre
-		fenetre.setLocationRelativeTo(null);// pour que la fenetre soit centré
-		fenetre.setResizable(false);// pour redimensioner la fenetre
-		fenetre.setAlwaysOnTop(true);// pour que la fenetre reste au dessus des autres fenetre
+		JFrame fenetre = new JFrame("Editeur UML"); // Name of application
+		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+		fenetre.setSize(1000, 600);// dimension of window
+		fenetre.setLocationRelativeTo(null);// center window
+		fenetre.setResizable(false);
+		fenetre.setAlwaysOnTop(true);//So that the window remains above the other windows
 		
 
 		JMenu file = new JMenu("File");
@@ -68,11 +70,7 @@ public class Main {
 			};}
 		);
 		
-		
-		
-		
-		
-		
+				
 		button.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
@@ -100,8 +98,8 @@ public class Main {
 		projet = new Project();
 		classDiagram = new ClassDiagram();
 		
-		  fenetre.setContentPane(mainWindow); //on associe la scene à la fenetre de l'application
-	      fenetre.setVisible(true);// pour que la fenetre soit visible
+		  fenetre.setContentPane(mainWindow); // We associate the scene with the window of the application
+	      fenetre.setVisible(true);// To make the window visible
 	      fenetre.setJMenuBar(menubar);
 	}
 
