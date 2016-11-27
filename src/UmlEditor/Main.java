@@ -9,7 +9,8 @@ import javax.swing.JMenuItem;
 
 public class Main {
 	
-	public static Editor editor;
+	public static MainWindow mainWindow;
+	public static Project projet;
 
 	public static void main(String[] args) {
 		JMenuBar menubar = new JMenuBar();
@@ -24,10 +25,10 @@ public class Main {
 
 		JMenu file = new JMenu("File");
 		menubar.add(file);
-		JMenu ilyes = new JMenu("New");
-		file.add(ilyes);
-		JMenuItem newproject = new JMenuItem("New UML Project");
-		ilyes.add(newproject);
+		JMenu newProject = new JMenu("New");
+		file.add(newProject);
+		JMenuItem newUmlProject = new JMenuItem("New UML Project");
+		newProject.add(newUmlProject);
 		JMenuItem save = new JMenuItem("Save");
 		file.add(save);
 		JMenuItem exit = new JMenuItem("Exit");
@@ -44,7 +45,7 @@ public class Main {
 		JMenuItem about = new JMenuItem("About");
 		help.add(about);
 		
-		newproject.addActionListener(new ActionListener() {
+		newUmlProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				final JFrame frame = new JFrame("Editeur UML");
@@ -65,10 +66,10 @@ public class Main {
 		}
 		exit.addActionListener(new exitaction());
 		
-		editor = new Editor();
-		projet = new Projet();
+		mainWindow = new MainWindow();
+		projet = new Project();
 		
-		  fenetre.setContentPane(editor); //on associe la scene à la fenetre de l'application
+		  fenetre.setContentPane(mainWindow); //on associe la scene à la fenetre de l'application
 	      fenetre.setVisible(true);// pour que la fenetre soit visible
 	      fenetre.setJMenuBar(menubar);
 	}

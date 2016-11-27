@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Editor extends JPanel {
+public class MainWindow extends JPanel {
 	
 	
    private JLabel labelWelcome;
@@ -16,7 +16,7 @@ public class Editor extends JPanel {
 	
 	private int xFond;
 	
-	public Editor(){
+	public MainWindow(){
 		
 		super();
 		

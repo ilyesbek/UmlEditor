@@ -1,3 +1,5 @@
+package UmlEditor;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -5,7 +7,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class Projet extends JPanel {
+public class Project extends JPanel {
 	
 	
 	private ImageIcon icoFond;
@@ -14,13 +16,13 @@ public class Projet extends JPanel {
 	private int xFond;
 	
 	
-	public Projet(){
+	public Project(){
 	
 		super();
 		
       this.xFond = -50;
 		
-		icoFond = new ImageIcon(getClass().getResource("/image/fondBlanc.png"));
+		icoFond = new ImageIcon(getClass().getResource("/image/Background.png"));
 		this.imgFond =this.icoFond.getImage();
 	}
 	
