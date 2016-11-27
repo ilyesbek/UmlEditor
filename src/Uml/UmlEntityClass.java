@@ -1,4 +1,4 @@
-package UmlClass;
+package Uml;
 
 import java.awt.Color;
 import java.awt.Point;
@@ -10,12 +10,12 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class PanelUmlClass extends JPanel{
+public class UmlEntityClass extends JPanel{
 
   private Point initialClick;
   private JFrame parent;
   
-	PanelUmlClass(){
+	UmlEntityClass(){
 		super();
 		this.setBorder(BorderFactory.createLineBorder(Color.black)); // change border to black
 		this.setBackground(Color.WHITE);//change background to white
