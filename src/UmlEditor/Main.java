@@ -24,6 +24,7 @@ public class Main {
 		
 		
 		
+		
 		JFrame fenetre = new JFrame("Editeur UML"); // le nom de l'application
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //quand on ferme la fenetre, le programme s'arrete 
 		fenetre.setSize(1000, 600);// dimension de la fenetre
@@ -58,24 +59,24 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				
 				final JFrame frame = new JFrame("Editeur UML");
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setSize(1000,600);
 				frame.setVisible(true);
 				frame.setAlwaysOnTop(true);
 				frame.setContentPane(projet);
-				frame.setJMenuBar(menubar);
 				frame.setResizable(false);
 				frame.add(button);
 			};}
 		);
 		
+		
+		
+		
+		
+		
 		button.addActionListener(new ActionListener(){
-
-			
 			public void actionPerformed(ActionEvent e) {
 				
 				final JFrame diagram = new JFrame("Diagramme de Classes");
-				diagram.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				diagram.setSize(1000,600);
 				diagram.setVisible(true);
 				diagram.setAlwaysOnTop(true);
