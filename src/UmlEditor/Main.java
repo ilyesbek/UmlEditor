@@ -12,7 +12,6 @@ public class Main {
 	public static MainWindow mainWindow;
 	public static Project projet;
 
-
 	public static void main(String[] args) {
 		JMenuBar menubar = new JMenuBar();
 		
