@@ -2,6 +2,7 @@ package UmlEditor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -11,9 +12,17 @@ public class Main {
 	
 	public static MainWindow mainWindow;
 	public static Project projet;
+	public static ClassDiagram classDiagram;
 
 	public static void main(String[] args) {
 		JMenuBar menubar = new JMenuBar();
+		
+		JButton button = new JButton();
+		button.setText("Diagramme de Classes");
+		button.setBounds(100, 200, 180, 20);
+		
+		
+		
 		
 		JFrame fenetre = new JFrame("Editeur UML"); // le nom de l'application
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //quand on ferme la fenetre, le programme s'arrete 
@@ -56,8 +65,28 @@ public class Main {
 				frame.setContentPane(projet);
 				frame.setJMenuBar(menubar);
 				frame.setResizable(false);
+				frame.add(button);
 			};}
 		);
+		
+		button.addActionListener(new ActionListener(){
+
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				final JFrame diagram = new JFrame("Diagramme de Classes");
+				diagram.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				diagram.setSize(1000,600);
+				diagram.setVisible(true);
+				diagram.setAlwaysOnTop(true);
+				diagram.setContentPane(classDiagram);
+				diagram.setJMenuBar(menubar);
+				diagram.setResizable(false);
+				
+				
+			}
+			
+		});
 		
 		class exitaction implements ActionListener{
 			public void actionPerformed (ActionEvent e){
@@ -68,6 +97,7 @@ public class Main {
 		
 		mainWindow = new MainWindow();
 		projet = new Project();
+		classDiagram = new ClassDiagram();
 		
 		  fenetre.setContentPane(mainWindow); //on associe la scene à la fenetre de l'application
 	      fenetre.setVisible(true);// pour que la fenetre soit visible
