@@ -13,12 +13,12 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class UmlEntityClass extends JPanel{
+public abstract class  UmlAbstractModel extends JPanel{
 
   private Point initialClick;
   private JFrame parent;
   
-	UmlEntityClass(){
+	UmlAbstractModel(){
 		super();
 		this.setBorder(BorderFactory.createLineBorder(Color.black)); // change border to black
 		this.setBackground(Color.WHITE);//change background to white
