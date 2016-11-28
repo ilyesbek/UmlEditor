@@ -17,12 +17,12 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-public class UmlOptionClass {
+public class UmlOptionClass extends JPanel{
 
-	private JFrame windowOption;
+	private JFrame windowOption = new JFrame ("Option");
 	JTabbedPane tabbedPane = new JTabbedPane();  
 	
-	UmlOptionClass (){
+	public UmlOptionClass (){
 		
     makeTab();
     
@@ -31,6 +31,9 @@ public class UmlOptionClass {
 	windowOption.setLocationRelativeTo(null);
 	windowOption.setResizable(false);
 	windowOption.setAlwaysOnTop(true);
+	
+	windowOption.setContentPane(this);
+	windowOption.setVisible(true);
 	}
 	
 	private void makeTab(){
