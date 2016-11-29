@@ -1,9 +1,11 @@
 package UmlEditor;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -16,6 +18,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		JMenuBar menubar = new JMenuBar();
+		
+		JLabel label = new JLabel();
 		
 		JButton button = new JButton();
 		button.setText("Diagramme de Classes");
@@ -83,6 +87,8 @@ public class Main {
 				diagram.setContentPane(classDiagram);
 				diagram.setJMenuBar(menubar);
 				diagram.setResizable(false);
+				diagram.setLayout(new BorderLayout());
+				diagram.add(label,BorderLayout.WEST);
 				
 				
 			}
