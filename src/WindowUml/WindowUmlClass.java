@@ -1,19 +1,24 @@
-package UmlEditor;
+/*Part Ilyes and Yacine*/
+
+package WindowUml;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
-public class ClassDiagram extends JPanel {
+public class WindowUmlClass extends JPanel {
 	
+	 private JFrame frame = new JFrame("Diagramme de class");
 	
 	private ImageIcon icoFond;
 	private Image imgFond;
 	private int xFond;
 	
-	public ClassDiagram(){
+	public WindowUmlClass(final JMenuBar menubar){
 		
 		
 		super();
@@ -22,9 +27,14 @@ public class ClassDiagram extends JPanel {
 			
 			icoFond = new ImageIcon(getClass().getResource("/image/Background.png"));
 			this.imgFond =this.icoFond.getImage();
-		
-		
-	}
+			
+			frame.setSize(1000,600);
+			frame.setVisible(true);
+			frame.setAlwaysOnTop(true);
+			frame.setContentPane(this);
+			frame.setResizable(false);
+			frame.setJMenuBar(menubar);
+}
 	
 public void paintComponent(Graphics g) {
 		

@@ -1,18 +1,21 @@
+/*Part Ilyes*/
+
 package UmlEditor;
 import java.awt.Graphics;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MainWindow extends JPanel {
 	
-	
+   
    private JLabel labelWelcome;
-	private ImageIcon iconBackground;
-	private Image picture;
+   private ImageIcon iconBackground;
+   private Image picture;
 	
 	private int xFond;
 	
@@ -25,6 +28,7 @@ public class MainWindow extends JPanel {
 		
 		iconBackground = new ImageIcon(getClass().getResource("/image/background.png"));
 		this.picture=this.iconBackground.getImage();
+
 	}
 	
 	
