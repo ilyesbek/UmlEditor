@@ -20,25 +20,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		JMenuBar menubar = new JMenuBar();
-<<<<<<< HEAD
-		
-		JLabel label = new JLabel();
-		
-		JButton button = new JButton();
-		button.setText("Diagramme de Classes");
-		button.setBounds(100, 200, 180, 20);
-		
-		
-		
-		
-		
+			
 		JFrame fenetre = new JFrame("Editeur UML"); // le nom de l'application
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //quand on ferme la fenetre, le programme s'arrete 
 		fenetre.setSize(1000, 600);// dimension de la fenetre
 		fenetre.setLocationRelativeTo(null);// pour que la fenetre soit centré
 		fenetre.setResizable(false);// pour redimensioner la fenetre
 		fenetre.setAlwaysOnTop(true);// pour que la fenetre reste au dessus des autres fenetre
-=======
 						
 		JFrame frame = new JFrame("Editeur UML"); // Name of application
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
@@ -46,7 +34,6 @@ public class Main {
 		frame.setLocationRelativeTo(null);// center window
 		frame.setResizable(false);
 		frame.setAlwaysOnTop(true);//So that the window remains above the other windows
->>>>>>> entityClass
 		
 
 		JMenu file = new JMenu("File");
@@ -76,33 +63,8 @@ public class Main {
 				projet = new UmlProject(menubar);	 /*transfert parameteter*/	
 			};}
 		);
-<<<<<<< HEAD
 		
 		
-		
-		
-		
-		
-		button.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-				final JFrame diagram = new JFrame("Diagramme de Classes");
-				diagram.setSize(1000,600);
-				diagram.setVisible(true);
-				diagram.setAlwaysOnTop(true);
-				diagram.setContentPane(classDiagram);
-				diagram.setJMenuBar(menubar);
-				diagram.setResizable(false);
-				diagram.setLayout(new BorderLayout());
-				diagram.add(label,BorderLayout.WEST);
-				
-				
-			}
-			
-		});
-=======
-						
->>>>>>> entityClass
 		
 		class exitaction implements ActionListener{
 			public void actionPerformed (ActionEvent e){
