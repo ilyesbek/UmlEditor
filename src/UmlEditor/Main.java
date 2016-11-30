@@ -18,11 +18,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		JMenuBar menubar = new JMenuBar();
-		
-		JButton button = new JButton();
-		button.setText("Diagramme de Classes");
-		button.setBounds(100, 200, 180, 20);
-		
+	
 		
 		
 		
@@ -58,20 +54,13 @@ public class Main {
 		help.add(about);
 		
 		newUmlProject.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				final JFrame frame = new JFrame("Editeur UML");
-				frame.setSize(1000,600);
-				frame.setVisible(true);
-				frame.setAlwaysOnTop(true);
-				frame.setContentPane(projet);
-				frame.setResizable(false);
-				frame.add(button);
+			public void actionPerformed(ActionEvent e) {			
+				projet = new Project();		
 			};}
 		);
 		
 				
-		button.addActionListener(new ActionListener(){
+	/*	button.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				
 				final JFrame diagram = new JFrame("Diagramme de Classes");
@@ -85,7 +74,7 @@ public class Main {
 				
 			}
 			
-		});
+		});*/
 		
 		class exitaction implements ActionListener{
 			public void actionPerformed (ActionEvent e){
@@ -95,7 +84,6 @@ public class Main {
 		exit.addActionListener(new exitaction());
 		
 		mainWindow = new MainWindow();
-		projet = new Project();
 		classDiagram = new ClassDiagram();
 		
 		  fenetre.setContentPane(mainWindow); // We associate the scene with the window of the application

@@ -1,6 +1,5 @@
-/*Part Ilyes*/
-
-package UmlEditor;
+/*Yacine and ilyes */
+package UmlWindow;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -12,42 +11,39 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Project extends JPanel {
-	
-    private JFrame frame = new JFrame("Choix diagramme");
-	private  JButton button = new JButton();
-		
+public class WindowUmlClass extends JPanel {
 	private JLabel DiagramChoice;
 	
 	private ImageIcon icoFond;
 	private Image imgFond;
 	
+	JButton button = new JButton();
+    JFrame frame = new JFrame();
 	
 	private int xFond;
 	
 	
-	public Project(){
+	public WindowUmlClass(){
 	
 		super();
 		
 		this.proprietesProjet();
 		
-      this.xFond = -50;
+        this.xFond = -50;
 		
 		icoFond = new ImageIcon(getClass().getResource("/image/Background.png"));
 		this.imgFond =this.icoFond.getImage();
-
+		
 		button.setText("Diagramme de Classes");
-		button.setBounds(100, 200, 180, 20);
+		button.setBounds(100, 200, 180, 20);	
 		
 		frame.setSize(1000,600);
-		frame.setVisible(true);
 		frame.setAlwaysOnTop(true);
-		frame.setContentPane(this);
 		frame.setResizable(false);
+		frame.setVisible(true); 
+		frame.setContentPane(this);
 		frame.add(button);
-
-	}
+      }
 	
 	
 private void proprietesProjet(){
@@ -73,5 +69,6 @@ public void paintComponent(Graphics g) {
 		g2.drawImage(this.imgFond, this.xFond, 0, null);
 	}
 
-
+ 
+	
 }
