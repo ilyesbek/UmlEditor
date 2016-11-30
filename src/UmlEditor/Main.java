@@ -20,13 +20,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		JMenuBar menubar = new JMenuBar();
-			
-		JFrame fenetre = new JFrame("Editeur UML"); // le nom de l'application
-		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //quand on ferme la fenetre, le programme s'arrete 
-		fenetre.setSize(1000, 600);// dimension de la fenetre
-		fenetre.setLocationRelativeTo(null);// pour que la fenetre soit centré
-		fenetre.setResizable(false);// pour redimensioner la fenetre
-		fenetre.setAlwaysOnTop(true);// pour que la fenetre reste au dessus des autres fenetre
 						
 		JFrame frame = new JFrame("Editeur UML"); // Name of application
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
