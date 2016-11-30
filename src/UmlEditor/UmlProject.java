@@ -1,21 +1,28 @@
-/*Part Ilyes*/
+/*Part Ilyes and Yacine*/
 
 package UmlEditor;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
-public class Project extends JPanel {
+import UmlOption.UmlOptionClass;
+import WindowUml.WindowUmlClass;
+
+public class UmlProject extends JPanel {
 	
     private JFrame frame = new JFrame("Choix diagramme");
-	private  JButton button = new JButton();
+	private  JButton buttonUmlClass = new JButton();
+	private WindowUmlClass windowUmlClass ;
 		
 	private JLabel DiagramChoice;
 	
@@ -26,7 +33,7 @@ public class Project extends JPanel {
 	private int xFond;
 	
 	
-	public Project(){
+	public UmlProject(final JMenuBar menubar){
 	
 		super();
 		
@@ -37,15 +44,20 @@ public class Project extends JPanel {
 		icoFond = new ImageIcon(getClass().getResource("/image/Background.png"));
 		this.imgFond =this.icoFond.getImage();
 
-		button.setText("Diagramme de Classes");
-		button.setBounds(100, 200, 180, 20);
+	    buttonUmlClass .setText("Diagramme de Classes");
+	    buttonUmlClass .setBounds(100, 200, 180, 20);
 		
 		frame.setSize(1000,600);
 		frame.setVisible(true);
 		frame.setAlwaysOnTop(true);
 		frame.setContentPane(this);
 		frame.setResizable(false);
-		frame.add(button);
+		frame.add(buttonUmlClass);
+		
+		buttonUmlClass.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {			
+				 windowUmlClass = new WindowUmlClass(menubar);	/*passe the parametre to Uml Class*/	
+			};});
 
 	}
 	

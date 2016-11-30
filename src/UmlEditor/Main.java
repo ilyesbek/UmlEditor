@@ -13,22 +13,18 @@ import javax.swing.JMenuItem;
 public class Main {
 	
 	public static MainWindow mainWindow;
-	public static Project projet;
-	public static ClassDiagram classDiagram;
+	public static UmlProject projet;
+
 
 	public static void main(String[] args) {
 		JMenuBar menubar = new JMenuBar();
-	
-		
-		
-		
-		
-		JFrame fenetre = new JFrame("Editeur UML"); // Name of application
-		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-		fenetre.setSize(1000, 600);// dimension of window
-		fenetre.setLocationRelativeTo(null);// center window
-		fenetre.setResizable(false);
-		fenetre.setAlwaysOnTop(true);//So that the window remains above the other windows
+						
+		JFrame frame = new JFrame("Editeur UML"); // Name of application
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+		frame.setSize(1000, 600);// dimension of window
+		frame.setLocationRelativeTo(null);// center window
+		frame.setResizable(false);
+		frame.setAlwaysOnTop(true);//So that the window remains above the other windows
 		
 
 		JMenu file = new JMenu("File");
@@ -55,26 +51,10 @@ public class Main {
 		
 		newUmlProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
-				projet = new Project();		
+				projet = new UmlProject(menubar);	 /*transfert parameteter*/	
 			};}
 		);
-		
-				
-	/*	button.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-				final JFrame diagram = new JFrame("Diagramme de Classes");
-				diagram.setSize(1000,600);
-				diagram.setVisible(true);
-				diagram.setAlwaysOnTop(true);
-				diagram.setContentPane(classDiagram);
-				diagram.setJMenuBar(menubar);
-				diagram.setResizable(false);
-				
-				
-			}
-			
-		});*/
+						
 		
 		class exitaction implements ActionListener{
 			public void actionPerformed (ActionEvent e){
@@ -83,12 +63,11 @@ public class Main {
 		}
 		exit.addActionListener(new exitaction());
 		
-		mainWindow = new MainWindow();
-		classDiagram = new ClassDiagram();
+   		mainWindow = new MainWindow();
 		
-		  fenetre.setContentPane(mainWindow); // We associate the scene with the window of the application
-	      fenetre.setVisible(true);// To make the window visible
-	      fenetre.setJMenuBar(menubar);
+   		  frame.setContentPane(mainWindow); // We associate the scene with the window of the application
+   		  frame.setVisible(true);// To make the window visible
+   		  frame.setJMenuBar(menubar);
 	}
 
 }
