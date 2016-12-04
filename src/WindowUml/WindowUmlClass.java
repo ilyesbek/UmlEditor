@@ -2,6 +2,7 @@
 
 package WindowUml;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -47,6 +48,7 @@ public void paintComponent(Graphics g) {
 		g2.drawImage(this.imgFond, this.xFond, 0, null);
 		g2.drawRect(10, 10, 100, 520);
 		g2.drawRect(880, 10, 100, 520);
+		
 	}
 
 

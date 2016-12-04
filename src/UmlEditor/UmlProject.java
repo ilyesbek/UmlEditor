@@ -25,6 +25,7 @@ public class UmlProject extends JPanel {
 	private WindowUmlClass windowUmlClass ;
 		
 	private JLabel DiagramChoice;
+	private JLabel DiagramType;
 	
 	private ImageIcon icoFond;
 	private Image imgFond;
@@ -45,7 +46,7 @@ public class UmlProject extends JPanel {
 		this.imgFond =this.icoFond.getImage();
 
 	    buttonUmlClass .setText("Diagramme de Classes");
-	    buttonUmlClass .setBounds(100, 200, 180, 20);
+	    buttonUmlClass .setBounds(100, 280, 180, 20);
 		
 		frame.setSize(1000,600);
 		frame.setVisible(true);
@@ -67,6 +68,7 @@ private void proprietesProjet(){
 		
 		this.setLayout(null);
 		this.proprietesEtiquette();
+		this.proprietesEtiquette1();
 	}
 	
 	
@@ -76,6 +78,13 @@ private void proprietesProjet(){
 		this.DiagramChoice.setBounds(400, 100, 700, 50);
 		this.DiagramChoice.setText("Choisissez un type de diagramme ");
 		this.add(DiagramChoice);
+	}
+	
+	private void proprietesEtiquette1(){
+		DiagramType = new JLabel();
+		this.DiagramType.setBounds(125, 200, 700, 50);
+		this.DiagramType.setText("Diagrame de structures");
+		this.add(DiagramType);
 	}
 	
 public void paintComponent(Graphics g) {
