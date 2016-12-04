@@ -1,7 +1,7 @@
 /*Part Ilyes*/
 
 package UmlEditor;
-import java.awt.BorderLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -25,7 +25,7 @@ public class Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
 		frame.setSize(1000, 600);// dimension of window
 		frame.setLocationRelativeTo(null);// center window
-		frame.setResizable(false);
+		frame.setResizable(false);// not reseizable
 		frame.setAlwaysOnTop(true);//So that the window remains above the other windows
 		
 

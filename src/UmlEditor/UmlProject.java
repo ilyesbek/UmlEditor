@@ -50,6 +50,7 @@ public class UmlProject extends JPanel {
 		frame.setSize(1000,600);
 		frame.setVisible(true);
 		frame.setAlwaysOnTop(true);
+		frame.setLocationRelativeTo(null);
 		frame.setContentPane(this);
 		frame.setResizable(false);
 		frame.add(buttonUmlClass);
