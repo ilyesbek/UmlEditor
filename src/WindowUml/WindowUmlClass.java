@@ -1,55 +1,96 @@
 /*Part Ilyes and Yacine*/
 
 package WindowUml;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Color;
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
-public class WindowUmlClass extends JPanel {
+public class WindowUmlClass extends JFrame {
 	
-	 private JFrame frame = new JFrame("Diagramme de classe");
+	// private JFrame frame = new JFrame("Diagramme de classe");
 	
-	private ImageIcon icoFond;
-	private Image imgFond;
-	private int xFond;
+	 
+    private JLabel label;
+    private JPanel panelLeft = new JPanel();
+    private JPanel panelRight = new JPanel();
 	
 	public WindowUmlClass(final JMenuBar menubar){
-		
-		
+			
 		super();
 		
-	      this.xFond = -50;
-			
-			icoFond = new ImageIcon(getClass().getResource("/image/Background.png"));
-			this.imgFond =this.icoFond.getImage();
-			
-			frame.setSize(1000,600);
-			frame.setVisible(true);
-			frame.setAlwaysOnTop(true);
-			frame.setContentPane(this);
-			frame.setResizable(false);
-			frame.setLocationRelativeTo(null);
-			frame.setJMenuBar(menubar);
-			
-			
+		panelLeft.setLayout(new BoxLayout(panelLeft, BoxLayout.PAGE_AXIS)); // component to bell will add in vertical
+
+		
+	    getContentPane().setBackground(Color.WHITE); // change background to white
+	    panelLeft.setBackground(Color.WHITE); // change panelLeft to white
+	    panelRight.setBackground(Color.WHITE); // change panelRight to white
+	    	
+		setSize(1000,600);
+	    setVisible(true);
+	    setAlwaysOnTop(true);
+	    setResizable(false);
+		setLocationRelativeTo(null);
+		setJMenuBar(menubar);
+		insertPanel(panelLeft,panelRight);
+		this.add(panelLeft,BorderLayout.LINE_START); // add panel left in left jframe
+		this.add(panelRight,BorderLayout.LINE_END);// add pannel right in right jframe
+					
 }
 	
-public void paintComponent(Graphics g) {
-		
-		super.paintComponent(g);
-		Graphics g2 = (Graphics2D)g;
-		
-		g2.drawImage(this.imgFond, this.xFond, 0, null);
-		g2.drawRect(10, 10, 100, 520);
-		g2.drawRect(880, 10, 100, 520);
-		
-	}
+
+public void insertPanel(JPanel  panelLeft,JPanel panelRight)
+{
+	
+	  try {
+	       JButton buttonLeft1 =new JButton(new ImageIcon(getClass().getClassLoader()
+             .getResource("image/1.jpg")));
+	       JButton buttonLeft2 =new JButton(new ImageIcon(getClass().getClassLoader()
+	               .getResource("image/2.jpg")));
+	       JButton buttonLeft3 =new JButton(new ImageIcon(getClass().getClassLoader()
+	               .getResource("image/3.png")));
+	       JButton buttonLeft4 =new JButton(new ImageIcon(getClass().getClassLoader()
+	               .getResource("image/4.png")));
+	       
+	       JButton buttonClass =new JButton(new ImageIcon(getClass().getClassLoader()	    		   
+	               .getResource("image/class.png")));
+	       
+		  panelLeft.add(buttonLeft1);		  
+		  panelLeft.add(Box.createVerticalGlue());  // add space beetwen component
+		  
+		  panelLeft.add(buttonLeft2);
+		  panelLeft.add(Box.createVerticalGlue());
+		  
+		  panelLeft.add(buttonLeft3);
+		  panelLeft.add(Box.createVerticalGlue());
+		  
+		  panelLeft.add(buttonLeft4);
+		  panelLeft.add(Box.createVerticalGlue());
+		 	 
+		  panelRight.add(buttonClass);
+		  
+	  } catch (Exception ex) {
+		    System.out.println(ex);
+		  }
+	  
+
+}
+
 
 
 }
