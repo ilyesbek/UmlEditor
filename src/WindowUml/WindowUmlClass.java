@@ -23,10 +23,10 @@ import javax.swing.JPanel;
 
 public class WindowUmlClass extends JFrame {
 	
-	// private JFrame frame = new JFrame("Diagramme de classe");
+	private JFrame frame = new JFrame("Diagramme de classe");
 	
 	 
-   // private JLabel label;
+   
     private JPanel panelLeft = new JPanel();
     private JPanel panelRight = new JPanel();
 	
@@ -97,12 +97,7 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 	  
 
 }
-public void paintComponent(Graphics g){
-	super.paintComponents(g);
-	Graphics g2 = (Graphics2D)g;
-	
-	g2.drawRect(800, 500, 200, 50);
-}
+
 
 
 
