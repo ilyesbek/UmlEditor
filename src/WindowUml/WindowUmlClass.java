@@ -26,7 +26,7 @@ public class WindowUmlClass extends JFrame {
 	// private JFrame frame = new JFrame("Diagramme de classe");
 	
 	 
-    private JLabel label;
+   // private JLabel label;
     private JPanel panelLeft = new JPanel();
     private JPanel panelRight = new JPanel();
 	
@@ -40,6 +40,7 @@ public class WindowUmlClass extends JFrame {
 	    getContentPane().setBackground(Color.WHITE); // change background to white
 	    panelLeft.setBackground(Color.WHITE); // change panelLeft to white
 	    panelRight.setBackground(Color.WHITE); // change panelRight to white
+	    
 	    	
 		setSize(1000,600);
 	    setVisible(true);
@@ -58,37 +59,49 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 {
 	
 	  try {
-	       JButton buttonLeft1 =new JButton(new ImageIcon(getClass().getClassLoader()
+	       JLabel LabelLeft1 =new JLabel(new ImageIcon(getClass().getClassLoader()
              .getResource("image/1.jpg")));
-	       JButton buttonLeft2 =new JButton(new ImageIcon(getClass().getClassLoader()
-	               .getResource("image/2.jpg")));
-	       JButton buttonLeft3 =new JButton(new ImageIcon(getClass().getClassLoader()
-	               .getResource("image/3.png")));
-	       JButton buttonLeft4 =new JButton(new ImageIcon(getClass().getClassLoader()
-	               .getResource("image/4.png")));
 	       
-	       JButton buttonClass =new JButton(new ImageIcon(getClass().getClassLoader()	    		   
+	       JLabel LabelLeft2 =new JLabel(new ImageIcon(getClass().getClassLoader()
+	               .getResource("image/2.jpg")));
+	       JLabel LabelLeft3 =new JLabel(new ImageIcon(getClass().getClassLoader()
+	               .getResource("image/3.png")));
+	       JLabel LabelLeft4 =new JLabel(new ImageIcon(getClass().getClassLoader()
+	               .getResource("image/4.png")));
+	       JLabel Labelleft5 = new JLabel(new ImageIcon(getClass().getClassLoader()
+	    		   .getResource("image/heritage.png")));
+	       
+	       JLabel LabelClass =new JLabel(new ImageIcon(getClass().getClassLoader()	    		   
 	               .getResource("image/class.png")));
 	       
-		  panelLeft.add(buttonLeft1);		  
+		  panelLeft.add(LabelLeft1);	
 		  panelLeft.add(Box.createVerticalGlue());  // add space beetwen component
 		  
-		  panelLeft.add(buttonLeft2);
+		  panelLeft.add(LabelLeft2);
 		  panelLeft.add(Box.createVerticalGlue());
 		  
-		  panelLeft.add(buttonLeft3);
+		  panelLeft.add(LabelLeft3);
 		  panelLeft.add(Box.createVerticalGlue());
 		  
-		  panelLeft.add(buttonLeft4);
+		  panelLeft.add(LabelLeft4);
 		  panelLeft.add(Box.createVerticalGlue());
-		 	 
-		  panelRight.add(buttonClass);
+		  
+		  panelLeft.add(Labelleft5);
+		  panelLeft.add(Box.createVerticalGlue());
+		 
+		  panelRight.add(LabelClass);
 		  
 	  } catch (Exception ex) {
 		    System.out.println(ex);
 		  }
 	  
 
+}
+public void paintComponent(Graphics g){
+	super.paintComponents(g);
+	Graphics g2 = (Graphics2D)g;
+	
+	g2.drawRect(800, 500, 200, 50);
 }
 
 
