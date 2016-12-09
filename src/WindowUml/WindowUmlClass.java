@@ -23,7 +23,6 @@ import javax.swing.JPanel;
 
 public class WindowUmlClass extends JFrame {
 	
-	private JFrame frame = new JFrame("Diagramme de classe");
 	
 	 
    
@@ -59,37 +58,38 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 {
 	
 	  try {
-	       JLabel LabelLeft1 =new JLabel(new ImageIcon(getClass().getClassLoader()
-             .getResource("image/1.jpg")));
+	       JLabel labelLeft1 =new JLabel(new ImageIcon(getClass().getClassLoader()
+             .getResource("image/aggregation.png")));
 	       
-	       JLabel LabelLeft2 =new JLabel(new ImageIcon(getClass().getClassLoader()
-	               .getResource("image/2.jpg")));
-	       JLabel LabelLeft3 =new JLabel(new ImageIcon(getClass().getClassLoader()
-	               .getResource("image/3.png")));
-	       JLabel LabelLeft4 =new JLabel(new ImageIcon(getClass().getClassLoader()
-	               .getResource("image/4.png")));
-	       JLabel Labelleft5 = new JLabel(new ImageIcon(getClass().getClassLoader()
+	       JLabel labelLeft2 =new JLabel(new ImageIcon(getClass().getClassLoader()
+	               .getResource("image/composition.png")));
+	       JLabel labelLeft3 =new JLabel(new ImageIcon(getClass().getClassLoader()
+	               .getResource("image/dependance.png")));
+	       JLabel labelLeft4 =new JLabel(new ImageIcon(getClass().getClassLoader()
+	               .getResource("image/association.png")));
+	       JLabel labelleft5 = new JLabel(new ImageIcon(getClass().getClassLoader()
 	    		   .getResource("image/heritage.png")));
 	       
-	       JLabel LabelClass =new JLabel(new ImageIcon(getClass().getClassLoader()	    		   
+	       JLabel labelClass =new JLabel(new ImageIcon(getClass().getClassLoader()	    		   
 	               .getResource("image/class.png")));
 	       
-		  panelLeft.add(LabelLeft1);	
+		  panelLeft.add(labelLeft1);	
 		  panelLeft.add(Box.createVerticalGlue());  // add space beetwen component
 		  
-		  panelLeft.add(LabelLeft2);
+		  panelLeft.add(labelLeft2);
 		  panelLeft.add(Box.createVerticalGlue());
 		  
-		  panelLeft.add(LabelLeft3);
+		  panelLeft.add(labelLeft3);
 		  panelLeft.add(Box.createVerticalGlue());
 		  
-		  panelLeft.add(LabelLeft4);
+		  panelLeft.add(labelLeft4);
 		  panelLeft.add(Box.createVerticalGlue());
 		  
-		  panelLeft.add(Labelleft5);
+		  panelLeft.add(labelleft5);
 		  panelLeft.add(Box.createVerticalGlue());
-		 
-		  panelRight.add(LabelClass);
+		  
+		  panelRight.add(labelClass);
+
 		  
 	  } catch (Exception ex) {
 		    System.out.println(ex);
