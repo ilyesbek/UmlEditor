@@ -9,6 +9,10 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.Color;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -21,36 +25,54 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
+import Uml.UmlEntityClass;
+
 public class WindowUmlClass extends JFrame {
 	
 	
-	 
+	private int currentCompenent=0; 
    
     private JPanel panelLeft = new JPanel();
     private JPanel panelRight = new JPanel();
-	
+    private JPanel panelCenter= new JPanel();
+    
 	public WindowUmlClass(final JMenuBar menubar){
 			
 		super();
 		
 		panelLeft.setLayout(new BoxLayout(panelLeft, BoxLayout.PAGE_AXIS)); // component to bell will add in vertical
-
+        panelCenter.setLayout(null);
 		
 	    getContentPane().setBackground(Color.WHITE); // change background to white
 	    panelLeft.setBackground(Color.WHITE); // change panelLeft to white
 	    panelRight.setBackground(Color.WHITE); // change panelRight to white
-	    
+	    panelCenter.setBackground(Color.RED); // change panelCenter to white   
 	    	
-		setSize(1000,600);
+		setSize(800,600);
 	    setVisible(true);
 	    setAlwaysOnTop(true);
-	    setResizable(false);
 		setLocationRelativeTo(null);
 		setJMenuBar(menubar);
 		insertPanel(panelLeft,panelRight);
 		this.add(panelLeft,BorderLayout.LINE_START); // add panel left in left jframe
+		this.add(panelCenter,BorderLayout.CENTER);// add pannel right in right jframe	
 		this.add(panelRight,BorderLayout.LINE_END);// add pannel right in right jframe
-					
+
+		panelCenter.addMouseListener(new MouseAdapter()  
+		  {  
+		      public void mouseClicked(MouseEvent e)  
+		      {  
+		    	  if(currentCompenent==6){
+		    		 UmlEntityClass umlClass = new UmlEntityClass (panelCenter);
+		    		  panelCenter.add(umlClass);
+		    		  panelCenter.revalidate();
+		    		  panelCenter.repaint();
+		    		  currentCompenent=0;System.out.println("Xpanel : "+panelRight.getX());
+		    	  }
+
+		      }  
+		  }); 
+		
 }
 	
 
@@ -89,11 +111,21 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		  panelLeft.add(Box.createVerticalGlue());
 		  
 		  panelRight.add(labelClass);
+		  
+		  labelClass.addMouseListener(new MouseAdapter()  
+		  {  
+		      public void mouseClicked(MouseEvent e)  
+		      {  
+		    	  currentCompenent=6;
+
+		      }  
+		  }); 
 
 		  
 	  } catch (Exception ex) {
 		    System.out.println(ex);
 		  }
+
 	  
 
 }

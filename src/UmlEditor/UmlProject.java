@@ -57,7 +57,7 @@ public class UmlProject extends JPanel {
 		frame.add(buttonUmlClass);
 		
 		buttonUmlClass.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {			
+			public void actionPerformed(ActionEvent e) {	
 				 windowUmlClass = new WindowUmlClass(menubar);	/*passe the parametre to Uml Class*/	
 			};});
 
