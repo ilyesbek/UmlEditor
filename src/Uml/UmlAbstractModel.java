@@ -21,10 +21,10 @@ public  abstract class  UmlAbstractModel extends JPanel{
 
 	public UmlAbstractModel(JPanel parent){
 		super();
-		x=parent.getX();
-		y=parent.getY();
+		x=parent.getWidth();
+		y=parent.getHeight();
 
-this.setLocation(580, 200);		
+this.setLocation(0,0);		
 		this.setBorder(BorderFactory.createLineBorder(Color.black)); // change border to black
 		this.setBackground(Color.WHITE);//change background to white
 		this.setSize(100,100);
@@ -37,23 +37,24 @@ this.setLocation(580, 200);
 	  addMouseMotionListener (new MouseMotionAdapter(){
 		  @Override
 		  public void mouseDragged(MouseEvent e) {
-		if(e.getX() > 0 && e.getX() < parent.getWidth() && e.getY() > 0 && e.getY() < parent.getHeight())	
-		{
+	
 			 //get location of Window
-			  int thisX = x;
+			 /* int thisX = x;
 			  int thisY = y;
 			  
 			  //determine how much the mouse moved since the initial click
 			  
 			  int xMoved = (thisX + e.getX()) - (thisX + initialClick.x);
-			  int yMoved =  (thisY + e.getY()) - (thisY + initialClick.y);
+			  int yMoved =  (thisY + e.getY()) - (thisY + initialClick.y);*/
+			int thisX= e.getX() -  initialClick .x;
+			int thisY= e.getY() -  initialClick .y;
 				System.out.println("Xmo ; "+e.getX()+" Ymo : "+e.getY());
 			  //move Window to this position
-			  int X = thisX +xMoved;
-			   int Y = thisY + yMoved;
+			  /*int X = thisX +xMoved;
+			   int Y = thisY + yMoved;*/
 	           // parent.setLocation(X,Y);
-			  movePanel(e.getX(),e.getY());
-		  }
+			  movePanel(thisX,thisY);
+		  
 		  }
 	  });	
 	}
@@ -62,8 +63,12 @@ this.setLocation(580, 200);
 	
 public void movePanel(int x,int y)
    {
-	System.out.println("X: "+this.getX()+" Y :"+y);
-	   this.setLocation(x,y);
+	int moveX=x+this.getX();
+	int moveY=y+this.getY();
+	
+	System.out.println("X: "+ moveX+" Y :"+moveY);
+	if(moveX+this.getWidth() < this.x && moveX > 0  && moveY+this.getHeight() < this.y &&  moveY > 0 )
+	   this.setLocation( moveX,moveY);
    }
 
 }
