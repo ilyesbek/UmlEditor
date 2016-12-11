@@ -94,8 +94,8 @@ class OptionTab2 extends JPanel{
 	private JButton validate=new JButton("Valider") ;
 	private JButton close = new JButton("Fermer");
 	
-	private JButton newAttribute=new JButton("Nouvvelle attribut") ;
-	private JButton deleteAttribute = new JButton("Supprimer attributer") ;
+	private JButton buttonNewAttribute=new JButton("Ajouter attribut") ;
+	private JButton buttonDeleteAttribute = new JButton("Supprimer attributer") ;
 	
 	private JLabel labelNameAttribute= new JLabel ("Nom attribut : ");
 	private JLabel labelTypeAttribute= new JLabel ("Type attribut : ");
@@ -111,18 +111,18 @@ class OptionTab2 extends JPanel{
 		   JPanel b1 = new JPanel();
 		 
 		   b1.setLayout(new BoxLayout(b1, BoxLayout.PAGE_AXIS));
-		   b1.add(newAttribute);
-		   b1.add(deleteAttribute);
+		   b1.add(buttonNewAttribute);
+		   b1.add(buttonDeleteAttribute);
 		   
 		   
-		   JPanel b2 = new JPanel();
-		   b2.setLayout(new BoxLayout(b2, BoxLayout.LINE_AXIS));
+	      JPanel b2 = new JPanel();
+		   b2.setLayout(new BoxLayout(b2, BoxLayout.PAGE_AXIS));
 		   b2.add(labelNameAttribute);
 		   b2.add(labelTypeAttribute);
 		   b2.add(labelValueAttribute);
 		   
 		   JPanel b3 = new JPanel();
-		   b3.setLayout(new BoxLayout(b3, BoxLayout.LINE_AXIS));
+		   b3.setLayout(new BoxLayout(b3, BoxLayout.PAGE_AXIS));
 		   b3.add(textNameAttribute);
 		   b3.add(textTypeAttribute);
 		   b3.add(textValueAttribute);
@@ -138,13 +138,18 @@ class OptionTab2 extends JPanel{
 		   b5.add(b1);
 		   
 		   JPanel b6 = new JPanel();
-		   b6.setLayout(new BoxLayout(b6, BoxLayout.PAGE_AXIS));
-		   b6.add(b5);
+		   b6.setLayout(new BoxLayout(b6, BoxLayout.LINE_AXIS));
 		   b6.add(b2);
 		   b6.add(b3);
-		   b6.add(b4);
 		   
-		   add(b6);
+		   
+		   JPanel b7 = new JPanel();
+		   b7.setLayout(new BoxLayout(b7, BoxLayout.PAGE_AXIS));
+		   b7.add(b5);
+		   b7.add(b6);
+		   b7.add(b4);
+		   
+		   add(b7);
 			//event button click validate
 			  class validateListener implements ActionListener{
 				    
@@ -170,8 +175,8 @@ class OptionTab3 extends JPanel {
 	private JButton validate=new JButton("Valider") ;
 	private JButton close = new JButton("Fermer");
 	
-	private JButton newMethod=new JButton("Nouvelle methode") ;
-	private JButton deleteMethod = new JButton("Supprimer methode") ;
+	private JButton buttonNewMethod=new JButton("Ajouter methode") ;
+	private JButton buttonDeleteMethod = new JButton("Supprimer methode") ;
 	
 	private JLabel labelNameMethod = new JLabel ("Nom attribut : ");
 	private JLabel labelTypeMethod= new JLabel ("Type Methode  : ");
@@ -185,17 +190,17 @@ class OptionTab3 extends JPanel {
 		   JPanel b1 = new JPanel();
 		
 		   b1.setLayout(new BoxLayout(b1, BoxLayout.PAGE_AXIS));
-		   b1.add(newMethod);
-		   b1.add(deleteMethod);
+		   b1.add(buttonNewMethod);
+		   b1.add(buttonDeleteMethod);
 		   
 		   
 		   JPanel b2 = new JPanel();
-		   b2.setLayout(new BoxLayout(b2, BoxLayout.LINE_AXIS));
+		   b2.setLayout(new BoxLayout(b2, BoxLayout.PAGE_AXIS));
 		   b2.add(labelNameMethod);
 		   b2.add(labelTypeMethod);
 		   
 		   JPanel b3 = new JPanel();
-		   b3.setLayout(new BoxLayout(b3, BoxLayout.LINE_AXIS));
+		   b3.setLayout(new BoxLayout(b3, BoxLayout.PAGE_AXIS));
 		   b3.add(textNameMethod);
 		   b3.add(textTypeMethod);
 		   
@@ -211,13 +216,17 @@ class OptionTab3 extends JPanel {
 		   b5.add(b1);
 		   
 		   JPanel b6 = new JPanel();
-		   b6.setLayout(new BoxLayout(b6, BoxLayout.PAGE_AXIS));
-		   b6.add(b5);
+		   b6.setLayout(new BoxLayout(b6, BoxLayout.LINE_AXIS));
 		   b6.add(b2);
 		   b6.add(b3);
-		   b6.add(b4);
 		   
-		   add(b6);
+		   JPanel b7 = new JPanel();
+		   b7.setLayout(new BoxLayout(b7, BoxLayout.PAGE_AXIS));
+		   b7.add(b5);
+		   b7.add(b6);
+		   b7.add(b4);
+		   
+		   add(b7);
 			//event button click validate
 			  class validateListener implements ActionListener{
 				    
