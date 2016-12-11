@@ -21,7 +21,7 @@ public class UmlEntityClass extends UmlAbstractModel{
 		this.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent e) { 
 		    	  if(e.getClickCount()==2){
-		           // UmlOptionClass windowOptionClass = new UmlOptionClass();
+		             UmlOptionClass windowOptionClass = new UmlOptionClass();
 		            //windowOptionClass.setVisible(true);
 		    		  System.out.println("sss");
 		         }

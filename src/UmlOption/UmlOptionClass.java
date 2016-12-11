@@ -19,31 +19,29 @@ import javax.swing.JTextField;
 
 public class UmlOptionClass extends JFrame{
 
-	JTabbedPane tabbedPane = new JTabbedPane();  
+	private JTabbedPane tabbedPane = new JTabbedPane();  
 	
 	public UmlOptionClass (){
 		
-   // makeTab();
-    
-	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+   makeTab();
+   add(tabbedPane);
+   
+	setDefaultCloseOperation(EXIT_ON_CLOSE); 
 	setSize(400,400);
 	setLocationRelativeTo(null);
-	setResizable(false);
 	setAlwaysOnTop(true);
-	setContentPane(this);
 	setVisible(true);
 	}
 	
 	 private void makeTab(){
-
 		tabbedPane.addTab("Classe", new OptionTab1());
 		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
-		tabbedPane.addTab("Attributs", new OptionTab2());
-		;
-		/*tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
+		/*tabbedPane.addTab("Attributs", new OptionTab2());
+		
+		tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
-		JComponent panel3 = makeTextPanel("Panel #3");
+	/	JComponent panel3 = makeTextPanel("Panel #3");
 		tabbedPane.addTab("Tab 3", icon, panel3,
 		                  "Still does nothing");
 		tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
@@ -56,33 +54,34 @@ public class UmlOptionClass extends JFrame{
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);*/
 	}
 }
+
 class OptionTab1 extends JPanel {
 	
 	private JButton validate = new JButton("Valider") ;
 	private JButton close= new JButton("Fermer");
 	private JLabel nameClass = new JLabel("Nom de classe : ");
-	private JTextField textNameClass;
+	private JTextField textNameClass = new  JTextField();
 	
-	OptionTab1(){
-		   JPanel b1 = new JPanel();
-		  
+	 OptionTab1(){
+		  JPanel b1 = new JPanel();	  
 		   b1.setLayout(new BoxLayout(b1, BoxLayout.LINE_AXIS));
 		   b1.add(nameClass);
 		   b1.add(textNameClass);
-		    
+		   
 		   JPanel b2 = new JPanel();
-		   b2.setLayout(new BoxLayout(b1, BoxLayout.LINE_AXIS));
+		   b2.setLayout(new BoxLayout(b2, BoxLayout.LINE_AXIS));
 		   b2.add(validate);
 		   b2.add(close);
 		   
-		   JPanel b3 = new JPanel();
+		  JPanel b3 = new JPanel();
 		   b3.setLayout(new BoxLayout(b3, BoxLayout.PAGE_AXIS));
 		   b3.add(b1);
 		   b3.add(b2);
-		        		   		 
+		        		   	
+		add(b3);  
 	}
 
-	//event button click validate
+	/*//event button click validate
 	  class validateListener implements ActionListener{
 		    
 		    public void actionPerformed(ActionEvent arg0) {
@@ -96,11 +95,11 @@ class OptionTab1 extends JPanel {
 		    public void actionPerformed(ActionEvent arg0) {
 		      
 		    }
-		  }
+		  }*/
 
 }
 
-class OptionTab2 extends JPanel{
+/*class OptionTab2 extends JPanel{
 	
 	private JButton validate=new JButton("Valider") ;
 	private JButton close = new JButton("Fermer");
@@ -174,9 +173,9 @@ class OptionTab2 extends JPanel{
 				  }
 		        		   		 
 	}
-}
+}*/
 
-class OptionTab3 extends JPanel {
+/*class OptionTab3 extends JPanel {
 	
 	private JButton validate=new JButton("Valider") ;
 	private JButton close = new JButton("Fermer");
@@ -246,4 +245,4 @@ class OptionTab3 extends JPanel {
 				  }
 		        		   		 
 	}
-}
+}*/
