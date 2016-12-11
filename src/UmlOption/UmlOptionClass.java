@@ -37,21 +37,11 @@ public class UmlOptionClass extends JFrame{
 		tabbedPane.addTab("Classe", new OptionTab1());
 		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
-		/*tabbedPane.addTab("Attributs", new OptionTab2());
-		
+		tabbedPane.addTab("Attributs", new OptionTab2());	
 		tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
-	/	JComponent panel3 = makeTextPanel("Panel #3");
-		tabbedPane.addTab("Tab 3", icon, panel3,
-		                  "Still does nothing");
+		tabbedPane.addTab("Methode", new OptionTab3());
 		tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
-
-		JComponent panel4 = makeTextPanel(
-		        "Panel #4 (has a preferred size of 410 x 50).");
-		panel4.setPreferredSize(new Dimension(410, 50));
-		tabbedPane.addTab("Tab 4", icon, panel4,
-		                      "Does nothing at all");
-		tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);*/
 	}
 }
 
@@ -81,7 +71,7 @@ class OptionTab1 extends JPanel {
 		add(b3);  
 	}
 
-	/*//event button click validate
+	//event button click validate
 	  class validateListener implements ActionListener{
 		    
 		    public void actionPerformed(ActionEvent arg0) {
@@ -95,11 +85,11 @@ class OptionTab1 extends JPanel {
 		    public void actionPerformed(ActionEvent arg0) {
 		      
 		    }
-		  }*/
+		  }
 
 }
 
-/*class OptionTab2 extends JPanel{
+class OptionTab2 extends JPanel{
 	
 	private JButton validate=new JButton("Valider") ;
 	private JButton close = new JButton("Fermer");
@@ -111,9 +101,9 @@ class OptionTab1 extends JPanel {
 	private JLabel labelTypeAttribute= new JLabel ("Type attribut : ");
 	private JLabel labelValueAttribute= new JLabel ("Valeur attribut : ");
 	
-	private JTextField textNameAttribute;
-	private JTextField textTypeAttribute;
-	private JTextField textValueAttribute;
+	private JTextField textNameAttribute = new  JTextField();
+	private JTextField textTypeAttribute = new  JTextField();
+	private JTextField textValueAttribute = new  JTextField();
 	
 	private JList list = new JList();
 	
@@ -154,7 +144,7 @@ class OptionTab1 extends JPanel {
 		   b6.add(b3);
 		   b6.add(b4);
 		   
-		   
+		   add(b6);
 			//event button click validate
 			  class validateListener implements ActionListener{
 				    
@@ -173,9 +163,9 @@ class OptionTab1 extends JPanel {
 				  }
 		        		   		 
 	}
-}*/
+}
 
-/*class OptionTab3 extends JPanel {
+class OptionTab3 extends JPanel {
 	
 	private JButton validate=new JButton("Valider") ;
 	private JButton close = new JButton("Fermer");
@@ -186,8 +176,8 @@ class OptionTab1 extends JPanel {
 	private JLabel labelNameMethod = new JLabel ("Nom attribut : ");
 	private JLabel labelTypeMethod= new JLabel ("Type Methode  : ");
 	
-	private JTextField textNameMethod;
-	private JTextField textTypeMethod;
+	private JTextField textNameMethod = new  JTextField();
+	private JTextField textTypeMethod = new  JTextField();
 	
 	private JList list = new JList();
 	
@@ -227,7 +217,7 @@ class OptionTab1 extends JPanel {
 		   b6.add(b3);
 		   b6.add(b4);
 		   
-		   
+		   add(b6);
 			//event button click validate
 			  class validateListener implements ActionListener{
 				    
@@ -245,4 +235,4 @@ class OptionTab1 extends JPanel {
 				  }
 		        		   		 
 	}
-}*/
+}
