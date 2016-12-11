@@ -15,14 +15,12 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
-import UmlOption.UmlOptionClass;
 import WindowUml.WindowUmlClass;
 
 public class UmlProject extends JPanel {
 	
     private JFrame frame = new JFrame("Choix diagramme");
 	private  JButton buttonUmlClass = new JButton();
-	private WindowUmlClass windowUmlClass ;
 		
 	private JLabel DiagramChoice;
 	private JLabel DiagramType;
@@ -58,7 +56,7 @@ public class UmlProject extends JPanel {
 		
 		buttonUmlClass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
-				 windowUmlClass = new WindowUmlClass(menubar);	/*passe the parametre to Uml Class*/	
+				WindowUmlClass  windowUmlClass = new WindowUmlClass(menubar);	/*passe the parametre to Uml Class*/	
 			};});
 
 	}

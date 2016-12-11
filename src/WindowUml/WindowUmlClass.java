@@ -4,22 +4,11 @@ package WindowUml;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.Color;
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
@@ -67,9 +56,8 @@ public class WindowUmlClass extends JFrame {
 		    		  panelCenter.add(umlClass);
 		    		  panelCenter.revalidate();
 		    		  panelCenter.repaint();
-		    		  currentCompenent=0;System.out.println("Xpanel : "+panelRight.getX());
+		    		  currentCompenent=0;
 		    	  }
-
 		      }  
 		  }); 
 		

@@ -17,26 +17,24 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-public class UmlOptionClass extends JPanel{
+public class UmlOptionClass extends JFrame{
 
-	private JFrame windowOption = new JFrame ("Option");
 	JTabbedPane tabbedPane = new JTabbedPane();  
 	
 	public UmlOptionClass (){
 		
-    makeTab();
+   // makeTab();
     
-	windowOption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-	windowOption.setSize(1000, 600);
-	windowOption.setLocationRelativeTo(null);
-	windowOption.setResizable(false);
-	windowOption.setAlwaysOnTop(true);
-	
-	windowOption.setContentPane(this);
-	windowOption.setVisible(true);
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+	setSize(400,400);
+	setLocationRelativeTo(null);
+	setResizable(false);
+	setAlwaysOnTop(true);
+	setContentPane(this);
+	setVisible(true);
 	}
 	
-	private void makeTab(){
+	 private void makeTab(){
 
 		tabbedPane.addTab("Classe", new OptionTab1());
 		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
