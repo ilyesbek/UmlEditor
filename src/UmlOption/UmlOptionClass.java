@@ -30,7 +30,7 @@ public class UmlOptionClass extends JFrame{
     makeTab();
     add(tabbedPane);
    
-	setDefaultCloseOperation(EXIT_ON_CLOSE); 
+	//setDefaultCloseOperation(EXIT_ON_CLOSE); 
 	setSize(400,400);
 	setLocationRelativeTo(null);
 	setAlwaysOnTop(true);
@@ -91,10 +91,13 @@ class OptionTab1 extends JPanel {
 		    
 		    public void actionPerformed(ActionEvent arg0) {
 		      
+		    	
 		    }
 		  }
 
 }
+
+
 
 class OptionTab2 extends JPanel{
 	
@@ -257,7 +260,7 @@ class OptionTab3 extends JPanel {
 			  class validateListener implements ActionListener{
 				    
 				    public void actionPerformed(ActionEvent arg0) {
-				      
+				     
 				    }
 				  }
 			  
