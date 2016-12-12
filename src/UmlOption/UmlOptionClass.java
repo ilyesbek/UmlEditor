@@ -28,7 +28,7 @@ public class UmlOptionClass extends JFrame{
 
 	private JTabbedPane tabbedPane = new JTabbedPane();  
 	
-	public UmlOptionClass (DefaultListModel modelClass,DefaultListModel modelAttribute, DefaultListModel modelMethod){
+	public UmlOptionClass (DefaultListModel<String> modelClass,DefaultListModel<String> modelAttribute, DefaultListModel<String> modelMethod){
 		
     makeTab(modelClass,modelAttribute,modelMethod);
     add(tabbedPane);
@@ -39,7 +39,7 @@ public class UmlOptionClass extends JFrame{
 	setVisible(true);
 	}
 	
-	 private void makeTab (DefaultListModel modelClass, DefaultListModel modelAttribute, DefaultListModel modelMethod){
+	 private void makeTab (DefaultListModel<String> modelClass, DefaultListModel<String> modelAttribute, DefaultListModel<String> modelMethod){
 		tabbedPane.addTab("Classe", new OptionTab1(modelClass));
 		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
@@ -57,7 +57,7 @@ class OptionTab1 extends JPanel {
 	private JLabel nameClass = new JLabel("Nom de classe : ");
 	private JTextField textNameClass = new  JTextField();
 	
-	 OptionTab1(DefaultListModel modelClass){
+	 OptionTab1(DefaultListModel<String> modelClass){
 		 
 		  this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		 
@@ -94,7 +94,7 @@ class OptionTab2 extends JPanel{
 	private JButton validate=new JButton("Valider") ;
 		
 	private String[] stringVisibility = { "Public", "Privé", "Protégé", "Implementation"};
-	private JComboBox boxVisibility = new JComboBox(stringVisibility);
+	private JComboBox<String>  boxVisibility = new JComboBox<String> (stringVisibility);
 	
 	private JButton buttonNewAttribute = new JButton("Ajouter un attribut") ;
 	private JButton buttonDeleteAttribute = new JButton("Supprimer attribut") ;
@@ -107,10 +107,10 @@ class OptionTab2 extends JPanel{
 	private JTextField textTypeAttribute = new  JTextField();
 	private JTextField textValueAttribute = new  JTextField();
 	
-	private DefaultListModel model = new DefaultListModel();
-	private JList list = new JList(model);
+	private DefaultListModel<String> model = new DefaultListModel<String> ();
+	private JList<String>  list = new JList<String>  (model);
 	
-	OptionTab2(DefaultListModel modelAttribute){		
+	OptionTab2(DefaultListModel<String> modelAttribute){		
 		
 	   	this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 	   	
@@ -201,7 +201,6 @@ class OptionTab2 extends JPanel{
 					 modelAttribute.clear();						 
 					 for(int i = 0; i < model.getSize(); i++) 
 						  modelAttribute.addElement(model.getElementAt(i));
-					 
 				  }
 				});
 			  
@@ -219,10 +218,10 @@ class OptionTab3 extends JPanel {
 	
 	private JButton validate = new JButton("Valider") ;	
 
-	DefaultListModel model = new DefaultListModel();	
+	DefaultListModel<String> model = new DefaultListModel<String> ();	
 	
 	String[] stringVisibility = { "Public", "Privé", "Protégé", "Implementation"};
-	JComboBox boxVisibility = new JComboBox(stringVisibility);	
+	JComboBox<String>  boxVisibility = new JComboBox<String>  (stringVisibility);	
 	
 	private JButton buttonNewMethod=new JButton("Ajoute une methode") ;
 	private JButton buttonDeleteMethod = new JButton("Supprimer methode") ;
@@ -233,9 +232,9 @@ class OptionTab3 extends JPanel {
 	private JTextField textNameMethod = new  JTextField();
 	private JTextField textTypeMethod = new  JTextField();
 	
-	private JList list = new JList(model);
+	private JList<String>  list = new JList<String>  (model);
 	
-	OptionTab3( DefaultListModel modelMethod){
+	OptionTab3( DefaultListModel<String>  modelMethod){
 		
 	       this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 	    	

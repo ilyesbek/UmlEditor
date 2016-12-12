@@ -4,7 +4,6 @@
 package Uml;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -14,8 +13,6 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.JTabbedPane;
-import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 
@@ -26,13 +23,13 @@ import UmlOption.UmlOptionClass;
 
 public class UmlEntityClass extends UmlAbstractModel{
 	
-	private DefaultListModel modelClass = new DefaultListModel();	
-	private DefaultListModel modelAttribute = new DefaultListModel();	
-	private DefaultListModel modelMethod = new DefaultListModel();	
+	private DefaultListModel<String> modelClass = new DefaultListModel<String>();	
+	private DefaultListModel<String> modelAttribute = new DefaultListModel<String>();	
+	private DefaultListModel<String> modelMethod = new DefaultListModel<String>();	
 	
-	private JList listClass = new JList(modelClass);  
-	private JList listAttribute = new JList(modelAttribute);  
-	private JList listMethod = new JList(modelMethod);  
+	private JList<String> listClass = new JList<String>(modelClass);  
+	private JList<String> listAttribute = new JList<String>(modelAttribute);  
+	private JList<String> listMethod = new JList<String>(modelMethod);  
 	
 	 public UmlEntityClass(JPanel panel){
 		super(panel);
