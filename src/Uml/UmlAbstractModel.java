@@ -4,6 +4,7 @@
 package Uml;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -30,6 +31,7 @@ this.setLocation(0,0);
 	  addMouseListener(new MouseAdapter(){
 		   public void mousePressed(MouseEvent e) {
 			   initialClick = e.getPoint();
+			setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			   getComponentAt(initialClick);		   
 		   }
 	  });
@@ -38,14 +40,11 @@ this.setLocation(0,0);
 		  public void mouseDragged(MouseEvent e) {
 	
 			int thisX= e.getX() -  initialClick .x;
-			int thisY= e.getY() -  initialClick .y;
-			
+			int thisY= e.getY() -  initialClick .y;	
   		     movePanel(thisX,thisY);
 		  }
 	  });	
-	}
-	
-	
+	}	
 	
 public void movePanel(int x,int y)
    {
