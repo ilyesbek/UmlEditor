@@ -3,10 +3,12 @@
 /*This class represent a Entity for uml class*/
 package Uml;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -49,7 +51,8 @@ public class UmlEntityClass extends UmlAbstractModel{
 	    		
 		add(listClass);
         add(new JSeparator(SwingConstants.HORIZONTAL));
-		add(listAttribute);	
+		add(listAttribute,BorderLayout.LINE_START);	
+		add(Box.createHorizontalGlue());
 		add(new JSeparator(SwingConstants.HORIZONTAL));
 		add(listMethod);
 	    	   

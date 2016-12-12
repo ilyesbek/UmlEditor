@@ -33,7 +33,7 @@ public class UmlOptionClass extends JFrame{
     makeTab(modelClass,modelAttribute,modelMethod);
     add(tabbedPane);
 
-	setSize(400,400);
+	setSize(600,600);
 	setLocationRelativeTo(null);
 	setAlwaysOnTop(true);
 	setVisible(true);
@@ -84,15 +84,6 @@ class OptionTab1 extends JPanel {
 				});
 		   
 	}
-
-	//event button click validate
-	  class validateListener implements ActionListener{
-		    
-		    public void actionPerformed(ActionEvent arg0) {
-		      
-		    }
-		  }
-	  
 	  
 }
 
@@ -214,6 +205,12 @@ class OptionTab2 extends JPanel{
 				  }
 				});
 			  
+			  buttonDeleteAttribute.addActionListener(new ActionListener(){
+				  public void actionPerformed(ActionEvent event){
+					      model.remove(list.getSelectedIndex());				 
+				  }
+				});
+			  
 			  
 	}
 }
@@ -307,9 +304,7 @@ class OptionTab3 extends JPanel {
 				    		default : break;
 				    		}
 				    		row+= textNameMethod.getText()+" () :  "+textTypeMethod.getText();				    		     
-				    	    model.addElement(row);	
-				    	    
-				    	 
+				    	    model.addElement(row);			    	 
 				    	}
 				  }
 				});
@@ -321,5 +316,12 @@ class OptionTab3 extends JPanel {
 							  modelMethod.addElement(model.getElementAt(i));				 
 				  }
 				});
+			  
+			  buttonDeleteMethod.addActionListener(new ActionListener(){
+				  public void actionPerformed(ActionEvent event){
+					      model.remove(list.getSelectedIndex());				 
+				  }
+				});
 		       }
+	
 }
