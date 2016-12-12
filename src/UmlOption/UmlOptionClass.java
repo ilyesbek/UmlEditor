@@ -28,26 +28,25 @@ public class UmlOptionClass extends JFrame{
 
 	private JTabbedPane tabbedPane = new JTabbedPane();  
 	
-	public UmlOptionClass (){
+	public UmlOptionClass (DefaultListModel modelClass,DefaultListModel modelAttribute, DefaultListModel modelMethod){
 		
-    makeTab();
+    makeTab(modelClass,modelAttribute,modelMethod);
     add(tabbedPane);
-   
-	//setDefaultCloseOperation(EXIT_ON_CLOSE); 
+
 	setSize(400,400);
 	setLocationRelativeTo(null);
 	setAlwaysOnTop(true);
 	setVisible(true);
 	}
 	
-	 private void makeTab(){
-		tabbedPane.addTab("Classe", new OptionTab1());
+	 private void makeTab (DefaultListModel modelClass, DefaultListModel modelAttribute, DefaultListModel modelMethod){
+		tabbedPane.addTab("Classe", new OptionTab1(modelClass));
 		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
-		tabbedPane.addTab("Attributs", new OptionTab2());	
+		tabbedPane.addTab("Attributs", new OptionTab2(modelAttribute));	
 		tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
-		tabbedPane.addTab("Methode", new OptionTab3());
+		tabbedPane.addTab("Methode", new OptionTab3(modelMethod));
 		tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 	}
 }
@@ -58,7 +57,7 @@ class OptionTab1 extends JPanel {
 	private JLabel nameClass = new JLabel("Nom de classe : ");
 	private JTextField textNameClass = new  JTextField();
 	
-	 OptionTab1(){
+	 OptionTab1(DefaultListModel modelClass){
 		 
 		  this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		 
@@ -73,6 +72,17 @@ class OptionTab1 extends JPanel {
 		   add(Box.createRigidArea(new Dimension(40,50)));
 		   add(validate);		     
 		   add(Box.createRigidArea(new Dimension(40,50)));
+		      		   
+			  validate.addActionListener(new ActionListener(){
+				  public void actionPerformed(ActionEvent event){
+					if(!textNameClass.getText().isEmpty())  {
+						 modelClass.clear();
+						 modelClass.addElement(textNameClass.getText());
+					}
+		         
+				  }
+				});
+		   
 	}
 
 	//event button click validate
@@ -91,11 +101,9 @@ class OptionTab1 extends JPanel {
 class OptionTab2 extends JPanel{
 	
 	private JButton validate=new JButton("Valider") ;
-	
-	DefaultListModel model = new DefaultListModel();	
-	
-	String[] stringVisibility = { "Public", "Privé", "Protégé", "Implementation"};
-	JComboBox boxVisibility = new JComboBox(stringVisibility);
+		
+	private String[] stringVisibility = { "Public", "Privé", "Protégé", "Implementation"};
+	private JComboBox boxVisibility = new JComboBox(stringVisibility);
 	
 	private JButton buttonNewAttribute = new JButton("Ajouter un attribut") ;
 	private JButton buttonDeleteAttribute = new JButton("Supprimer attribut") ;
@@ -108,12 +116,15 @@ class OptionTab2 extends JPanel{
 	private JTextField textTypeAttribute = new  JTextField();
 	private JTextField textValueAttribute = new  JTextField();
 	
-	
+	private DefaultListModel model = new DefaultListModel();
 	private JList list = new JList(model);
 	
-	OptionTab2(){
+	OptionTab2(DefaultListModel modelAttribute){		
 		
 	   	this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+	   	
+	    for(int i = 0; i < modelAttribute.getSize(); i++) 
+			 model.addElement(modelAttribute.getElementAt(i));		
 		
 	       list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		   list.setVisibleRowCount(-1);		 
@@ -165,14 +176,6 @@ class OptionTab2 extends JPanel{
 		   add(validate);
 		   add(Box.createRigidArea(new Dimension(20,40)));
 		  
-			//event button click validate
-			  class validateListener implements ActionListener{
-				    
-				    public void actionPerformed(ActionEvent arg0) {
-				    	
-				    }
-				  }
-			  
 			  // event button ajouter un attribut click		  
 			  buttonNewAttribute.addActionListener(new ActionListener(){
 				  public void actionPerformed(ActionEvent event){
@@ -198,9 +201,16 @@ class OptionTab2 extends JPanel{
 				    		row+= textNameAttribute.getText()+" :  "+textTypeAttribute.getText();
 				    		     if(!textValueAttribute.getText().isEmpty())
 				    		    	 row+=" = "+textValueAttribute.getText();
-				    		     
 				    	    model.addElement(row);	     
 				    	}
+				  }
+				});
+			  validate.addActionListener(new ActionListener(){
+				  public void actionPerformed(ActionEvent event){
+					 modelAttribute.clear();						 
+					 for(int i = 0; i < model.getSize(); i++) 
+						  modelAttribute.addElement(model.getElementAt(i));
+					 
 				  }
 				});
 			  
@@ -210,23 +220,32 @@ class OptionTab2 extends JPanel{
 
 class OptionTab3 extends JPanel {
 	
-	private JButton validate = new JButton("Valider") ;
+	private JButton validate = new JButton("Valider") ;	
+
+	DefaultListModel model = new DefaultListModel();	
+	
+	String[] stringVisibility = { "Public", "Privé", "Protégé", "Implementation"};
+	JComboBox boxVisibility = new JComboBox(stringVisibility);	
 	
 	private JButton buttonNewMethod=new JButton("Ajoute une methode") ;
 	private JButton buttonDeleteMethod = new JButton("Supprimer methode") ;
 	
-	private JLabel labelNameMethod = new JLabel ("Nom attribut  :  ");
+	private JLabel labelNameMethod = new JLabel ("Nom Methode :  ");
 	private JLabel labelTypeMethod = new JLabel ("Type Methode  :  ");
 	
 	private JTextField textNameMethod = new  JTextField();
 	private JTextField textTypeMethod = new  JTextField();
 	
-	private JList list = new JList();
+	private JList list = new JList(model);
 	
-	OptionTab3(){
+	OptionTab3( DefaultListModel modelMethod){
 		
 	       this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 	    	
+	       for(int i = 0; i < modelMethod.getSize(); i++) 
+				 model.addElement(modelMethod.getElementAt(i));
+			 
+			
 		   JPanel b1 = new JPanel();	
 		   b1.setLayout(new BoxLayout(b1, BoxLayout.PAGE_AXIS));
 		   b1.add(buttonNewMethod);
@@ -250,6 +269,8 @@ class OptionTab3 extends JPanel {
 		   b2.add(b2_1);
 		   b2.add(Box.createRigidArea(new Dimension(40,40)));
 		   b2.add(b2_2);
+		   b2.add(Box.createRigidArea(new Dimension(40,40)));
+		   b2.add(boxVisibility);
 		  	    
 		   JPanel b3 = new JPanel();
 		   b3.setLayout(new BoxLayout(b3, BoxLayout.LINE_AXIS));
@@ -263,13 +284,42 @@ class OptionTab3 extends JPanel {
 		   add(Box.createRigidArea(new Dimension(20,40)));
 		   add(validate);
 		   add(Box.createRigidArea(new Dimension(20,40)));
-			//event button click validate
-			  class validateListener implements ActionListener{
-				    
-				    public void actionPerformed(ActionEvent arg0) {
-				     
-				    }
-				  }		  
-		        		   		 
-	}
+			  
+			  buttonNewMethod.addActionListener(new ActionListener(){
+				  public void actionPerformed(ActionEvent event){
+					  if(textNameMethod.getText().isEmpty() && textTypeMethod.getText().isEmpty()){
+				    		JOptionPane.showMessageDialog(null, "Veuillez remplir les champs", "Warning",JOptionPane.WARNING_MESSAGE);
+				    	}
+				    	else{
+			    		
+				    		String row ="";
+				    		
+				    		switch (boxVisibility.getSelectedIndex()){
+				    		case 0 : row+="+ ";
+				    		break;
+				    		case 1 : row+="- ";
+				    		break;
+				    		case 2 : row+="# ";
+				    		break;
+				    		case 3 : row+="~ ";
+				    		break;
+				    		
+				    		default : break;
+				    		}
+				    		row+= textNameMethod.getText()+" () :  "+textTypeMethod.getText();				    		     
+				    	    model.addElement(row);	
+				    	    
+				    	 
+				    	}
+				  }
+				});
+			  
+			  validate.addActionListener(new ActionListener(){
+				  public void actionPerformed(ActionEvent event){
+					   modelMethod.clear();						 
+						 for(int i = 0; i < model.getSize(); i++) 
+							  modelMethod.addElement(model.getElementAt(i));				 
+				  }
+				});
+		       }
 }
