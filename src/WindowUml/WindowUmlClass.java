@@ -44,7 +44,7 @@ public class WindowUmlClass extends JFrame {
 		setJMenuBar(menubar);
 		insertPanel(panelLeft,panelRight);
 		this.add(panelLeft,BorderLayout.LINE_START); // add panel left in left jframe
-		this.add(panelCenter,BorderLayout.CENTER);// add pannel right in right jframe	
+		this.add(panelCenter,BorderLayout.CENTER);// add pannel right in center jframe	
 		this.add(panelRight,BorderLayout.LINE_END);// add pannel right in right jframe
 
 		panelCenter.addMouseListener(new MouseAdapter()  
