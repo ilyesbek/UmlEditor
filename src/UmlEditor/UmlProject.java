@@ -49,7 +49,7 @@ public class UmlProject extends JPanel {
 	    buttonUmlClass .setBounds(100, 280, 180, 20);
 	    
 	    buttonUmlUseCase .setText("Diagramme de Cas D'utilisation");
-		buttonUmlUseCase .setBounds(450, 281, 180, 20);
+		buttonUmlUseCase .setBounds(450, 281, 220, 20);
 		
 		frame.setSize(1000,600);
 		frame.setVisible(true);
