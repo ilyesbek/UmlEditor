@@ -62,4 +62,7 @@ public class UmlEntityClass extends UmlAbstractModel{
 		});
 		
 	}
+	 public String getTitle(){
+		 return modelClass.getElementAt(0);
+	 }
 }

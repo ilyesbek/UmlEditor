@@ -4,17 +4,28 @@ package WindowUml;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.geom.Line2D;
+import java.util.ArrayList;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 import Uml.UmlEntityClass;
+import Uml.UmlNode;
+import UmlOption.UmlOptionNodeChoice;
 
 public class WindowUmlClass extends JFrame {
 	
@@ -23,7 +34,12 @@ public class WindowUmlClass extends JFrame {
    
     private JPanel panelLeft = new JPanel();
     private JPanel panelRight = new JPanel();
-    private JPanel panelCenter= new JPanel();
+    private PanelCenter panelCenter= new PanelCenter ();
+    
+    private ArrayList<UmlEntityClass> listUmlEntityClass = new ArrayList<UmlEntityClass>();
+    
+    private int posUmlClass1;
+    private int posUmlClass2;
     
 	public WindowUmlClass(final JMenuBar menubar){
 			
@@ -35,8 +51,8 @@ public class WindowUmlClass extends JFrame {
 	    getContentPane().setBackground(Color.WHITE); // change background to white
 	    panelLeft.setBackground(Color.WHITE); // change panelLeft to white
 	    panelRight.setBackground(Color.WHITE); // change panelRight to white
-	    panelCenter.setBackground(Color.RED); // change panelCenter to white   
-	    	
+	    panelCenter.setBackground(Color.WHITE); // change panelCenter to white   
+	
 		setSize(800,600);
 	    setVisible(true);
 	    setAlwaysOnTop(true);
@@ -51,23 +67,43 @@ public class WindowUmlClass extends JFrame {
 		  {  
 		      public void mouseClicked(MouseEvent e)  
 		      {  
-		    	  if(currentCompenent==6){
-		    		 UmlEntityClass umlClass = new UmlEntityClass (panelCenter);
-		    		  panelCenter.add(umlClass);
-		    		  panelCenter.revalidate();
-		    		  panelCenter.repaint();
-		    		  currentCompenent=0;
+		    	  
+		    	  if(currentCompenent==4){
+		    		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass);
+			    		 currentCompenent=0;
+		    		    /*if(posUmlClass1>0){
+			           		  for(int i = 0; i<listUmlEntityClass.size();++i){
+				    			  if(listUmlEntityClass.get(i).contains(e.getPoint())){
+				    				posUmlClass2=i;
+				    				break;
+				    			  }
+				    		  }
+			           		 UmlNode relation = new UmlNode (listUmlEntityClass.get(posUmlClass1),listUmlEntityClass.get(posUmlClass2)); 
+			               }   
+		    		    else {System.out.println("ss");
+		    		  for(int i = 0; i<listUmlEntityClass.size();++i){
+		    			  if(listUmlEntityClass.get(i).contains(e.getPoint())){
+		    				posUmlClass1=i;
+		    				break;
+		    			  }
+		    		  }*
+		    		 }*/
 		    	  }
-		      }  
+		      else if(currentCompenent==6){
+		    		 UmlEntityClass umlClass = new UmlEntityClass (panelCenter);
+		    		 listUmlEntityClass.add(umlClass);
+		    		 panelCenter.add(umlClass);
+		    		 panelCenter.revalidate();
+		    	     panelCenter.repaint();
+		    		 currentCompenent=0;
+		    	  }
+		      } 	      
 		  }); 
-		
-}
-	
+}	
 
 public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 {
-	
-	  try {
+		  try {
 	       JLabel labelLeft1 =new JLabel(new ImageIcon(getClass().getClassLoader()
              .getResource("image/aggregation.png")));
 	       
@@ -105,21 +141,18 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		      public void mouseClicked(MouseEvent e)  
 		      {  
 		    	  currentCompenent=6;
-
 		      }  
-		  }); 
-
-		  
+		  });
+		  labelLeft4.addMouseListener(new MouseAdapter()  
+		  {  
+		      public void mouseClicked(MouseEvent e)  
+		      {  
+		    	  currentCompenent=4;
+       	      }  
+		  }); 	  
 	  } catch (Exception ex) {
 		    System.out.println(ex);
 		  }
-
-	  
-
-}
-
-
-
-
+}  
 }
 
