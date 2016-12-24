@@ -13,35 +13,40 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import WindowUml.PanelCenter;
+
 public  abstract class  UmlAbstractModel extends JPanel{
 
   private Point initialClick;
   private int parentX;
   private int parentY;
 
-	public UmlAbstractModel(JPanel parent){
+	public UmlAbstractModel(PanelCenter parent){
 		super();
-		parentX=parent.getWidth();
-		parentY=parent.getHeight();
+		parentX = parent.getWidth();
+		parentY = parent.getHeight();
 
 this.setLocation(0,0);		
 		this.setBorder(BorderFactory.createLineBorder(Color.black)); // change border to black
 		this.setBackground(Color.WHITE);//change background to white
 		this.setSize(100,100);
+		
 	  addMouseListener(new MouseAdapter(){
 		   public void mousePressed(MouseEvent e) {
 			   initialClick = e.getPoint();
 			setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			   getComponentAt(initialClick);		   
+			   getComponentAt(initialClick);	
 		   }
 	  });
 	  addMouseMotionListener (new MouseMotionAdapter(){
 		  @Override
 		  public void mouseDragged(MouseEvent e) {
-	
+	       
 			int thisX= e.getX() -  initialClick .x;
 			int thisY= e.getY() -  initialClick .y;	
-  		     movePanel(thisX,thisY);
+  		     movePanel(thisX,thisY);//UmlNode.call=true;
+  		     parent.repaint();
+  		     System.out.println(parent.relation.size());
 		  }
 	  });	
 	}	

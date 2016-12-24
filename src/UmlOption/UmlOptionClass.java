@@ -208,9 +208,7 @@ class OptionTab2 extends JPanel{
 				  public void actionPerformed(ActionEvent event){
 					      model.remove(list.getSelectedIndex());				 
 				  }
-				});
-			  
-			  
+				});			  
 	}
 }
 
