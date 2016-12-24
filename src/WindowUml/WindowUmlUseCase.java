@@ -2,11 +2,6 @@ package WindowUml;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -17,7 +12,11 @@ import javax.swing.JPanel;
 
 public class WindowUmlUseCase extends JFrame {
 
-	 private JPanel panelLeft = new JPanel();
+	 /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel panelLeft = new JPanel();
 	 private JPanel panelRight = new JPanel();
 	 private JPanel panelCenter= new JPanel();
 	 

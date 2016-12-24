@@ -20,7 +20,11 @@ import WindowUml.WindowUmlUseCase;
 
 public class UmlProject extends JPanel {
 	
-    private JFrame frame = new JFrame("Choix diagramme");
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JFrame frame = new JFrame("Choix diagramme");
 	private  JButton buttonUmlClass = new JButton();
 	private  JButton buttonUmlUseCase = new JButton();
 		

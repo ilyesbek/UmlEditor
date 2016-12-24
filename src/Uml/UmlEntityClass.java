@@ -11,7 +11,6 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
-import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
@@ -24,6 +23,10 @@ import WindowUml.PanelCenter;
 
 public class UmlEntityClass extends UmlAbstractModel{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private DefaultListModel<String> modelClass = new DefaultListModel<String>();	
 	private DefaultListModel<String> modelAttribute = new DefaultListModel<String>();	
 	private DefaultListModel<String> modelMethod = new DefaultListModel<String>();	

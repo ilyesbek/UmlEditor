@@ -17,7 +17,11 @@ import WindowUml.PanelCenter;
 
 public  abstract class  UmlAbstractModel extends JPanel{
 
-  private Point initialClick;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private Point initialClick;
   private int parentX;
   private int parentY;
 

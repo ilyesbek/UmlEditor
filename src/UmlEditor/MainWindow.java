@@ -12,7 +12,11 @@ import javax.swing.JPanel;
 public class MainWindow extends JPanel {
 	
    
-   private JLabel labelWelcome;
+   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private JLabel labelWelcome;
    private ImageIcon iconBackground;
    private Image picture;
 	

@@ -19,7 +19,12 @@ import WindowUml.PanelCenter;
 
 public class UmlOptionNodeChoice extends JDialog {
 	
- public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityClass> listUmlEntityClass){
+ /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityClass> listUmlEntityClass){
 	 
 	JPanel panel = new JPanel (); 
 	 
