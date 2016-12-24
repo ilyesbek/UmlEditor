@@ -13,14 +13,13 @@ import javax.swing.JPanel;
 
 public class UmlNode {
 
-	
+	public static boolean call = true ;
 	public static void addDraw(JPanel panelCenter, UmlEntityClass umlClass1, UmlEntityClass umlClass2) {
 		// TODO Auto-generated method stub
 		Graphics2D g = (Graphics2D) panelCenter.getGraphics();
-		g.drawLine(0,0,500,500);System.out.println("sss");
+		g.drawLine(0,0,500,500);
 		panelCenter.repaint();
 		panelCenter.revalidate();
 	}
-
-
+	
 }

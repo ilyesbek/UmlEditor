@@ -10,7 +10,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -23,7 +22,6 @@ public class UmlOptionNodeChoice extends JDialog {
  public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityClass> listUmlEntityClass){
 	 
 	JPanel panel = new JPanel (); 
-	//panel.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 	 
 	 ArrayList<String>listTitleEntity = new  ArrayList<String>();
 	 
@@ -55,15 +53,15 @@ public class UmlOptionNodeChoice extends JDialog {
 	   panel.add(b2);	 
 	   panel.add(buttonValidate);
 	   add(panel);
-	    setSize(200,200);
-	    setVisible(true);
-	    setAlwaysOnTop(true);
-		setLocationRelativeTo(null);
+	   setSize(200,200);
+	   setVisible(true);
+	   setAlwaysOnTop(true);
+	   setLocationRelativeTo(null);
 		
 		  buttonValidate.addActionListener(new ActionListener(){
 			  public void actionPerformed(ActionEvent event){
-			  //  UmlNode node = new UmlNode (panelCenter,listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()));
-			   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()));
+				   UmlNode.call=true;
+		    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()));
 			  }
 			});
  }

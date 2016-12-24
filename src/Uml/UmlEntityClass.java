@@ -17,6 +17,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 
 import UmlOption.UmlOptionClass;
+import WindowUml.PanelCenter;
 
 
 
@@ -31,7 +32,7 @@ public class UmlEntityClass extends UmlAbstractModel{
 	private JList<String> listAttribute = new JList<String>(modelAttribute);  
 	private JList<String> listMethod = new JList<String>(modelMethod);  
 	
-	 public UmlEntityClass(JPanel panel){
+	 public UmlEntityClass(PanelCenter panel){
 		super(panel);
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));

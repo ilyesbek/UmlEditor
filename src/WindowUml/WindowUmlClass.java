@@ -30,6 +30,11 @@ import UmlOption.UmlOptionNodeChoice;
 public class WindowUmlClass extends JFrame {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int currentCompenent=0; 
    
     private JPanel panelLeft = new JPanel();
@@ -38,10 +43,8 @@ public class WindowUmlClass extends JFrame {
     
     private ArrayList<UmlEntityClass> listUmlEntityClass = new ArrayList<UmlEntityClass>();
     
-    private int posUmlClass1;
-    private int posUmlClass2;
     
-	public WindowUmlClass(final JMenuBar menubar){
+    public WindowUmlClass(final JMenuBar menubar){
 			
 		super();
 		
