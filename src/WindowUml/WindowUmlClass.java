@@ -63,27 +63,27 @@ public class WindowUmlClass extends JFrame {
 		      public void mouseClicked(MouseEvent e)  
 		      {  
 		    	  
-		    	  if(currentCompenent==4){
-		    		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass);
+		    	  if(currentCompenent==1){
+		    		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
 			    		 currentCompenent=0;
-		    		    /*if(posUmlClass1>0){
-			           		  for(int i = 0; i<listUmlEntityClass.size();++i){
-				    			  if(listUmlEntityClass.get(i).contains(e.getPoint())){
-				    				posUmlClass2=i;
-				    				break;
-				    			  }
-				    		  }
-			           		 UmlNode relation = new UmlNode (listUmlEntityClass.get(posUmlClass1),listUmlEntityClass.get(posUmlClass2)); 
-			               }   
-		    		    else {System.out.println("ss");
-		    		  for(int i = 0; i<listUmlEntityClass.size();++i){
-		    			  if(listUmlEntityClass.get(i).contains(e.getPoint())){
-		    				posUmlClass1=i;
-		    				break;
-		    			  }
-		    		  }*
-		    		 }*/
 		    	  }
+		    	  else if(currentCompenent==2){
+			   		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
+				    		 currentCompenent=0;
+			    	  } 
+		    	  else if(currentCompenent==3){
+			   		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
+				    		 currentCompenent=0;
+			    	  } 
+		    	  else if(currentCompenent==4){
+		    		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
+			    		 currentCompenent=0;
+		    	  }
+		    	  else if(currentCompenent==5){
+			   		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
+				    		 currentCompenent=0;
+			    	  } 
+		    		    
 		      else if(currentCompenent==6){
 		    		 UmlEntityClass umlClass = new UmlEntityClass (panelCenter);
 		    		 listUmlEntityClass.add(umlClass);

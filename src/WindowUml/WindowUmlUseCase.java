@@ -18,7 +18,7 @@ public class WindowUmlUseCase extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel panelLeft = new JPanel();
 	 private JPanel panelRight = new JPanel();
-	 private JPanel panelCenter= new JPanel();
+	 private PanelCenter panelCenter= new PanelCenter();
 	 
 	 
 	 public WindowUmlUseCase(final JMenuBar menubar){

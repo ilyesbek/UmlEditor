@@ -50,7 +50,6 @@ this.setLocation(0,0);
 			int thisY= e.getY() -  initialClick .y;	
   		     movePanel(thisX,thisY);//UmlNode.call=true;
   		     parent.repaint();
-  		     System.out.println(parent.relation.size());
 		  }
 	  });	
 	}	

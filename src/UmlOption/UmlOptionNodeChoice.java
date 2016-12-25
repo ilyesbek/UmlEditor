@@ -13,6 +13,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Uml.TypeRelation;
 import Uml.UmlEntityClass;
 import Uml.UmlNode;
 import WindowUml.PanelCenter;
@@ -24,7 +25,7 @@ public class UmlOptionNodeChoice extends JDialog {
 	 */
 	private static final long serialVersionUID = 1L;
 
-public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityClass> listUmlEntityClass){
+public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityClass> listUmlEntityClass, int currentCompenent){
 	 
 	JPanel panel = new JPanel (); 
 	 
@@ -65,8 +66,16 @@ public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityClass> li
 		
 		  buttonValidate.addActionListener(new ActionListener(){
 			  public void actionPerformed(ActionEvent event){
-				   UmlNode.call=true;
-		    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()));
+				  if(currentCompenent==1)
+			    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.aggregation);
+				  if(currentCompenent==2)
+			    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.composition);
+				  if(currentCompenent==3)
+			    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.dependance);				  
+				  else if(currentCompenent==4)
+		    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.association);
+				  if(currentCompenent==5)
+			    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.heritage);
 			  }
 			});
  }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import Uml.TypeRelation;
 import Uml.UmlEntityClass;
 import Uml.UmlRelation;
 
@@ -20,8 +21,8 @@ public ArrayList<UmlRelation> relation = new ArrayList<UmlRelation>();
 		super();
 	}
 	
-	public  void addDraw(UmlEntityClass umlClass1, UmlEntityClass umlClass2) {
-		relation.add(new UmlRelation(umlClass1,umlClass2));
+	public  void addDraw(UmlEntityClass umlClass1, UmlEntityClass umlClass2,TypeRelation typeRelation) {
+		relation.add(new UmlRelation(umlClass1,umlClass2,typeRelation));
         repaint();
 	}
 	
