@@ -52,43 +52,42 @@ public class WindowUmlUseCase extends JFrame {
 	 public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 	 {
 		 try {
-		       JLabel labelLeft1 = new JLabel(new ImageIcon(getClass().getClassLoader()
-	             .getResource("image/aggregation.png")));
 		       
-		       JLabel labelLeft2 = new JLabel(new ImageIcon(getClass().getClassLoader()
-		               .getResource("image/composition.png")));
-		       JLabel labelLeft3 = new JLabel(new ImageIcon(getClass().getClassLoader()
+		       
+		       
+		       JLabel labelLeft1 = new JLabel(new ImageIcon(getClass().getClassLoader()
 		               .getResource("image/dependance.png")));
-		       JLabel labelLeft4 = new JLabel(new ImageIcon(getClass().getClassLoader()
+		       JLabel labelLeft2 = new JLabel(new ImageIcon(getClass().getClassLoader()
 		               .getResource("image/association.png")));
-		       JLabel labelleft5 = new JLabel(new ImageIcon(getClass().getClassLoader()
+		       JLabel labelleft3 = new JLabel(new ImageIcon(getClass().getClassLoader()
 		    		   .getResource("image/heritage.png")));
 		       
 		       JLabel labelStigMan = new JLabel(new ImageIcon(getClass().getClassLoader()	    		   
 		               .getResource("image/stigman.png")));
 		       JLabel labelCircle =new JLabel(new ImageIcon(getClass().getClassLoader()
 		    		   .getResource("image/circle.png")));
+		       JLabel labelNode = new JLabel(new ImageIcon(getClass().getClassLoader()
+		    		   .getResource("image/node.png")));
 		    		   
 		       
-			  panelLeft.add(labelLeft1);	
-			  panelLeft.add(Box.createVerticalGlue());  // add space beetwen component
+
+			  
+			  panelLeft.add(labelLeft1);
+			  panelLeft.add(Box.createVerticalGlue());
 			  
 			  panelLeft.add(labelLeft2);
 			  panelLeft.add(Box.createVerticalGlue());
 			  
-			  panelLeft.add(labelLeft3);
-			  panelLeft.add(Box.createVerticalGlue());
-			  
-			  panelLeft.add(labelLeft4);
-			  panelLeft.add(Box.createVerticalGlue());
-			  
-			  panelLeft.add(labelleft5);
+			  panelLeft.add(labelleft3);
 			  panelLeft.add(Box.createVerticalGlue());
 			  
 			  panelRight.add(labelStigMan);
 			  panelRight.add(Box.createVerticalGlue());
 			  
 			  panelRight.add(labelCircle);
+			  panelRight.add(Box.createVerticalGlue());
+			  
+			  panelRight.add(labelNode);
 			  panelRight.add(Box.createVerticalGlue());
 			  
 			 
