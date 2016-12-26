@@ -39,7 +39,7 @@ public class WindowUmlUseCase extends JFrame {
 	 public WindowUmlUseCase(final JMenuBar menubar){
 		 
 		 super();
-			
+	   
 			panelLeft.setLayout(new BoxLayout(panelLeft, BoxLayout.PAGE_AXIS)); // component to bell will add in vertical
 			panelRight.setLayout(new BoxLayout(panelRight, BoxLayout.PAGE_AXIS));
 	        panelCenter.setLayout(null);
@@ -48,7 +48,8 @@ public class WindowUmlUseCase extends JFrame {
 		    panelLeft.setBackground(Color.WHITE); // change panelLeft to white
 		    panelRight.setBackground(Color.WHITE); // change panelRight to white
 		    panelCenter.setBackground(Color.WHITE); // change panelCenter to Red
-		    		    		    
+		    
+			setTitle("Diagramme cas du'tilisation");
 			setSize(800,600);
 		    setVisible(true);
 		    setAlwaysOnTop(true);

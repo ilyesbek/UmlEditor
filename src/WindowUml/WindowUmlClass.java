@@ -46,6 +46,7 @@ public class WindowUmlClass extends JFrame {
 	    panelRight.setBackground(Color.WHITE); // change panelRight to white
 	    panelCenter.setBackground(Color.WHITE); // change panelCenter to white   
 	
+		setTitle("Diagramme de classe");
 		setSize(800,600);
 	    setVisible(true);
 	    setAlwaysOnTop(true);
