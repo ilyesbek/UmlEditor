@@ -71,7 +71,7 @@ public class WindowUmlUseCase extends JFrame {
 				    		 currentCompenent=0;
 			    	  }
 			    	  else if(currentCompenent==2){
-				   		//  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlUseCase,currentCompenent);
+				   		   UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlUseCase,listUmlUseCaseActor,listUmlUseCaseCircle,currentCompenent);
 					    		 currentCompenent=0;
 				    	  } 
 			    	  else if(currentCompenent==3){
@@ -149,6 +149,15 @@ public class WindowUmlUseCase extends JFrame {
 			  panelRight.add(Box.createVerticalGlue());
 			  
 			 
+			  
+			  labelLeft2.addMouseListener(new MouseAdapter()  
+			  {  
+			      public void mouseClicked(MouseEvent e)  
+			      {  
+			    	  currentCompenent=2;
+	       	      }  
+			  }); 
+			  
 			  labelStigMan.addMouseListener(new MouseAdapter()  
 			  {  
 			      public void mouseClicked(MouseEvent e)  

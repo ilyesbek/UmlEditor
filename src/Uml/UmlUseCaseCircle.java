@@ -6,12 +6,12 @@ import javax.swing.JLabel;
 
 import WindowUml.PanelCenter;
 
-public class UmlUseCaseCircle extends UmlAbstractModel {
+public class UmlUseCaseCircle extends Uml {
 	
 	
 	private static final long serialVersionUID = 1L;
 
-	private JLabel labelTitlCircle = new JLabel("Information");
+	private JLabel labelTitleCircle = new JLabel("Information");
 	public UmlUseCaseCircle(PanelCenter parent) {
 		super(parent);
 		this.setSize(200,200);
@@ -19,6 +19,6 @@ public class UmlUseCaseCircle extends UmlAbstractModel {
 	}
 	 public String getTitle()
 	 {
-		 return labelTitlCircle.getText();
+		 return labelTitleCircle.getText();
 	 }
 }

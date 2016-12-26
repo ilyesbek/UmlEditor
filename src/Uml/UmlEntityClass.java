@@ -21,7 +21,7 @@ import WindowUml.PanelCenter;
 
 
 
-public class UmlEntityClass extends UmlAbstractModel{
+public class UmlEntityClass extends Uml{
 	
 	/**
 	 * 

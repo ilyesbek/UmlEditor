@@ -17,24 +17,24 @@ import WindowUml.PanelCenter;
  *
  */
 
-public class UmlUseCase extends UmlAbstractModel {
+public class UmlUseCase extends Uml{
 	/**
 	 * 
 	 */
 private static final long serialVersionUID = 1L;
-private JLabel labelTitleUseCase = new JLabel ("Cas utilisation");	
+private JLabel labelTitle = new JLabel ("Cas utilisation");	
 
 	public UmlUseCase(PanelCenter parent) {
 		super(parent);
 		
 		
-		labelTitleUseCase.setLocation(this.getX()+this.getWidth()/2,labelTitleUseCase.getHeight()+this.getHeight());
+		labelTitle.setLocation(this.getX()+this.getWidth()/2,labelTitle.getHeight()+this.getHeight());
 		this.setSize(300,300);
-		this.add(labelTitleUseCase);
+		this.add(labelTitle);
 		this.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent e) { 
 		    	  if(e.getClickCount()==2){
-		             new UmlOptionUseCase(labelTitleUseCase);  
+		             new UmlOptionUseCase(labelTitle);  
 		         }
 		    }
 		});
@@ -42,7 +42,7 @@ private JLabel labelTitleUseCase = new JLabel ("Cas utilisation");
 	}
 	 public String getTitle()
 	 {
-		 return labelTitleUseCase.getText();
+		 return labelTitle.getText();
 	 }
 
 }

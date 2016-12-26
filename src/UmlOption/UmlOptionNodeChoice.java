@@ -14,8 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Uml.TypeRelation;
+import Uml.Uml;
 import Uml.UmlEntityClass;
 import Uml.UmlNode;
+import Uml.UmlUse;
 import Uml.UmlUseCase;
 import Uml.UmlUseCaseActor;
 import Uml.UmlUseCaseCircle;
@@ -140,11 +142,46 @@ public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> listUm
 		
 		  buttonValidate.addActionListener(new ActionListener(){
 			  public void actionPerformed(ActionEvent event){
-				/*  if(currentCompenent==1)
-			    	  panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.aggregation);
-				  if(currentCompenent==2)
-			       panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.composition);
-				  if(currentCompenent==3)
+				  Uml umlUseCase1 = null;
+				  Uml umlUseCase2 = null;
+				  
+				  
+					 for(int i = 0; i < listUmlUseCase.size(); ++i)
+						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlUseCase.get(i).getTitle() || listTitleUseCaseAll.get(boxClass2.getSelectedIndex())==listUmlUseCase.get(i).getTitle())
+						  {
+							  if(umlUseCase1==null){
+								   umlUseCase1=(UmlUseCase)listUmlUseCase.get(i);System.out.println("1");}
+							  else if(umlUseCase2==null){
+								  umlUseCase2=(UmlUseCase)listUmlUseCase.get(i);System.out.println("2");}
+							  else break;
+						  }
+					 
+					 for(int i = 0; i < listUmlUseCaseActor.size(); ++i)
+						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlUseCaseActor.get(i).getTitle())
+						  {
+							  if(umlUseCase1==null)
+								   umlUseCase1=listUmlUseCaseActor.get(i);
+							  else if(umlUseCase2!=null)
+								  umlUseCase2=listUmlUseCaseActor.get(i);
+							  else break;
+						  }
+
+					 for(int i = 0; i < listUmlUseCaseActor.size(); ++i)
+						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlUseCaseCircle.get(i).getTitle())
+						  {
+							  if(umlUseCase1==null)
+								   umlUseCase1=listUmlUseCaseCircle.get(i);
+							  else if(umlUseCase2==null)
+								  umlUseCase2=listUmlUseCaseCircle.get(i);
+							  else break;
+						  }
+						 
+					 System.out.println("2");
+			 // if(currentCompenent==1)
+			    	//  panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.aggregation);
+				  if(currentCompenent==2){
+			       panelCenter.addDraw(umlUseCase1,umlUseCase2,TypeRelation.association);}
+				/*  if(currentCompenent==3)
 			    	 panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.dependance);				  
 				  else if(currentCompenent==4)
 		    	  panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.association);
