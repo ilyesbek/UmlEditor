@@ -11,7 +11,7 @@ import WindowUml.PanelCenter;
 
 /**
  * @author Yacine
- * This  class represent a rectacle use case
+ * This  class represent a rectangle use case
  */
 
 public class UmlUseCase extends Uml{

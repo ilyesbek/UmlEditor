@@ -120,7 +120,7 @@ public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> listUm
 	listTitleUseCaseAll.addAll(listTitleUseCaseCircle);
 	listTitleUseCaseAll.addAll(listTitleUseCaseActor);
 	
-     String [] array = listTitleUseCaseAll.toArray(new String[ listTitleUseCase.size()+ listTitleUseCase.size()]);  
+     String [] array = listTitleUseCaseAll.toArray(new String[listTitleUseCaseAll.size()]);  
 	 JComboBox<String>  boxClass1 = new JComboBox<String> (array);
      JComboBox<String>  boxClass2 = new JComboBox<String> (array);
   
@@ -154,25 +154,25 @@ public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> listUm
 					 for(int i = 0; i < listUmlUseCase.size(); ++i)
 						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlUseCase.get(i).getTitle() || listTitleUseCaseAll.get(boxClass2.getSelectedIndex())==listUmlUseCase.get(i).getTitle())
 						  {
-							  if(umlUseCase1==null){
-								   umlUseCase1=listUmlUseCase.get(i);System.out.println("1");}
-							  else if(umlUseCase2==null){
-								  umlUseCase2=listUmlUseCase.get(i);System.out.println("2");}
+							  if(umlUseCase1==null)
+								   umlUseCase1=listUmlUseCase.get(i);
+							  else if(umlUseCase2==null)
+								  umlUseCase2=listUmlUseCase.get(i);
 							  else break;
 						  }
 					 
 					 for(int i = 0; i < listUmlUseCaseActor.size(); ++i)
-						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlUseCaseActor.get(i).getTitle())
+						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlUseCaseActor.get(i).getTitle() || listTitleUseCaseAll.get(boxClass2.getSelectedIndex())==listUmlUseCaseActor.get(i).getTitle() )
 						  {
 							  if(umlUseCase1==null)
 								   umlUseCase1=listUmlUseCaseActor.get(i);
-							  else if(umlUseCase2!=null)
+							  else if(umlUseCase2==null)
 								  umlUseCase2=listUmlUseCaseActor.get(i);
 							  else break;
 						  }
 
-					 for(int i = 0; i < listUmlUseCaseActor.size(); ++i)
-						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlUseCaseCircle.get(i).getTitle())
+					 for(int i = 0; i < listUmlUseCaseCircle.size(); ++i)
+						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlUseCaseCircle.get(i).getTitle() || listTitleUseCaseAll.get(boxClass2.getSelectedIndex())==listUmlUseCaseCircle.get(i).getTitle() )
 						  {
 							  if(umlUseCase1==null)
 								   umlUseCase1=listUmlUseCaseCircle.get(i);
@@ -181,11 +181,10 @@ public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> listUm
 							  else break;
 						  }
 						 
-					 System.out.println("2");
 			 // if(currentCompenent==1)
 			    	//  panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.aggregation);
-				  if(currentCompenent==2){
-			       panelCenter.addDraw(umlUseCase1,umlUseCase2,TypeRelation.association);}
+				  if(currentCompenent==2)
+			       panelCenter.addDraw(umlUseCase1,umlUseCase2,TypeRelation.association);
 				/*  if(currentCompenent==3)
 			    	 panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.dependance);				  
 				  else if(currentCompenent==4)

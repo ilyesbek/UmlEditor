@@ -1,7 +1,10 @@
 package Uml;
 
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -23,6 +26,7 @@ public class UmlUseCaseActor extends Uml{
        
 	public UmlUseCaseActor(PanelCenter parent) {
 		super(parent);
+		this.setBorder(BorderFactory.createLineBorder(Color.white));
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		this.add(labelImageActor);
 		this.add(labelTitle);

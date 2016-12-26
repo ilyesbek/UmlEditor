@@ -21,7 +21,7 @@ public class UmlOptionUseCaseActor extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private JButton validate = new JButton("Valider") ;
-	private JLabel nameUseCase = new JLabel("Nom du system : ");
+	private JLabel nameUseCase = new JLabel("Nom de l'acteur : ");
 	private JTextField textNameUseCase = new  JTextField();
 
 	public	UmlOptionUseCaseActor(JLabel label){
