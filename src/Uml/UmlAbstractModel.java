@@ -33,7 +33,7 @@ private Point initialClick;
 this.setLocation(0,0);		
 		this.setBorder(BorderFactory.createLineBorder(Color.black)); // change border to black
 		this.setBackground(Color.WHITE);//change background to white
-		this.setSize(100,100);
+	
 		
 	  addMouseListener(new MouseAdapter(){
 		   public void mousePressed(MouseEvent e) {

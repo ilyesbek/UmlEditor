@@ -37,7 +37,7 @@ public class UmlEntityClass extends UmlAbstractModel{
 	
 	 public UmlEntityClass(PanelCenter panel){
 		super(panel);
-		
+		this.setSize(120,150);
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		
 		listClass.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -60,7 +60,7 @@ public class UmlEntityClass extends UmlAbstractModel{
 		this.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent e) { 
 		    	  if(e.getClickCount()==2){
-		             UmlOptionClass windowOptionClass = new UmlOptionClass(modelClass,modelAttribute,modelMethod);  
+		             new UmlOptionClass(modelClass,modelAttribute,modelMethod);  
 		         }
 		    }
 		});
