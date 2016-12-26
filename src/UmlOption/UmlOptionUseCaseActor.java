@@ -12,18 +12,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ *  Author Yacine
+ *  When click in Actor diagram use
+ */
+
 public class UmlOptionUseCaseActor extends JFrame{
-	/**
-	 * Author Yacine
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private JButton validate = new JButton("Valider") ;
 	private JLabel nameUseCase = new JLabel("Nom du system : ");
 	private JTextField textNameUseCase = new  JTextField();
 
 	public	UmlOptionUseCaseActor(JLabel label){
-	 
-		
+	 		
 		setSize(400,400);
 		setLocationRelativeTo(null);
 		setAlwaysOnTop(true);
@@ -46,8 +48,5 @@ public class UmlOptionUseCaseActor extends JFrame{
 				}	         
 			  }
 			});
-	   
-	}	
-	
-
-}
+	   	}	
+	}

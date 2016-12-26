@@ -1,4 +1,3 @@
-/*Part Ilyes and Yacine*/
 
 package WindowUml;
 
@@ -18,13 +17,12 @@ import javax.swing.JPanel;
 
 import Uml.UmlEntityClass;
 import UmlOption.UmlOptionNodeChoice;
+/**
+*Author Yacine and Ilyes
+*This class represent a window for Uml Class
+*/
+public class WindowUmlClass extends JFrame {		
 
-public class WindowUmlClass extends JFrame {
-	
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private int currentCompenent=0; 
@@ -64,23 +62,23 @@ public class WindowUmlClass extends JFrame {
 		      {  
 		    	  
 		    	  if(currentCompenent==1){
-		    		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
+		    		  new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
 			    		 currentCompenent=0;
 		    	  }
 		    	  else if(currentCompenent==2){
-			   		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
+			   		  new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    	  else if(currentCompenent==3){
-			   		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
+			   		  new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    	  else if(currentCompenent==4){
-		    		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
+		    		  new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
 			    		 currentCompenent=0;
 		    	  }
 		    	  else if(currentCompenent==5){
-			   		  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
+			   		  new UmlOptionNodeChoice(panelCenter,listUmlEntityClass,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    		    

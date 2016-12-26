@@ -1,12 +1,12 @@
 package Uml;
 
 import WindowUml.PanelCenter;
+/**
+ *  Author yacine
+ */
 
 public class Uml extends UmlAbstractModel{
 
-	/**
-	 *  author yacine
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	public Uml (PanelCenter panel){

@@ -18,11 +18,12 @@ import javax.swing.JPanel;
 import WindowUml.WindowUmlClass;
 import WindowUml.WindowUmlUseCase;
 
+/**
+ *  Author ilyes
+ *  Menu choose diagram
+ */
 public class UmlProject extends JPanel {
 	
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JFrame frame = new JFrame("Choix diagramme");
 	private  JButton buttonUmlClass = new JButton();
@@ -66,7 +67,7 @@ public class UmlProject extends JPanel {
 		
 		buttonUmlClass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
-				WindowUmlClass  windowUmlClass = new WindowUmlClass(menubar);	/*passe the parametre to Uml Class*/
+				new WindowUmlClass(menubar);
 				dispose();
 			};});
 		
@@ -74,7 +75,7 @@ public class UmlProject extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e1) {
-				WindowUmlUseCase windowUmlUseCase = new WindowUmlUseCase(menubar);
+				new WindowUmlUseCase(menubar);
 				dispose();
 				
 			};});

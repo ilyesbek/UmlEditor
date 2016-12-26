@@ -24,11 +24,13 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
+/**
+ *  Author Yacine
+ *  When double click in entity, this menu appear
+ */
+
 public class UmlOptionClass extends JFrame{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTabbedPane tabbedPane = new JTabbedPane();  
 	
@@ -57,9 +59,6 @@ public class UmlOptionClass extends JFrame{
 
 class OptionTab1 extends JPanel {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JButton validate = new JButton("Valider") ;
 	private JLabel nameClass = new JLabel("Nom de classe : ");
@@ -90,18 +89,11 @@ class OptionTab1 extends JPanel {
 		         
 				  }
 				});
-		   
-	}
-	  
-}
-
-
+		   	}
+ }
 
 class OptionTab2 extends JPanel{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JButton validate=new JButton("Valider") ;
@@ -227,9 +219,6 @@ class OptionTab2 extends JPanel{
 
 class OptionTab3 extends JPanel {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JButton validate = new JButton("Valider") ;	
@@ -338,5 +327,4 @@ class OptionTab3 extends JPanel {
 				  }
 				});
 		       }
-	
 }

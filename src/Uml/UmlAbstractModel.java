@@ -1,6 +1,4 @@
-/*Part Yacine*/
 
-/*With this class, we can creat a entity in JFrame*/
 package Uml;
 
 import java.awt.Color;
@@ -15,11 +13,12 @@ import javax.swing.JPanel;
 
 import WindowUml.PanelCenter;
 
+/**
+	 * Author Yacine 
+	 * this class represent a abstract representation for all composant Uml
+	 */
 public  abstract class  UmlAbstractModel extends JPanel{
 
-  /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 private Point initialClick;
   private int parentX;
@@ -62,5 +61,4 @@ public void movePanel(int x,int y)
 	if(moveX+this.getWidth() < this.parentX && moveX > 0  && moveY+this.getHeight() < this.parentY &&  moveY > 0 )
 	   this.setLocation( moveX,moveY);
    }
-
 }

@@ -2,23 +2,19 @@ package Uml;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
-import UmlOption.UmlOptionUseCase;
 import UmlOption.UmlOptionUseCaseActor;
 import WindowUml.PanelCenter;
 
+/**
+ *  Author yacine
+ *  * This  class represent a Actor use case
+ */
+
 public class UmlUseCaseActor extends Uml{
 
-	
-	/**
-	 * 
-	 */
-	
 	private static final long serialVersionUID = 1L;
 	private JLabel labelTitle = new JLabel ("Acteur");	
   private JLabel labelImageActor =new JLabel(new ImageIcon(getClass().getClassLoader()	    		   

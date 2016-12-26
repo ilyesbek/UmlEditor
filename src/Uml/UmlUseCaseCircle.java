@@ -1,10 +1,12 @@
 package Uml;
 
-import java.util.ArrayList;
-
 import javax.swing.JLabel;
-
 import WindowUml.PanelCenter;
+
+/**
+ *  Author yacine
+ *  * This  class represent a Circle use case
+ */
 
 public class UmlUseCaseCircle extends Uml {
 	

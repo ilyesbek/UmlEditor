@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 import Uml.TypeRelation;
-import Uml.UmlEntityClass;
+import Uml.Uml;
 import Uml.UmlRelation;
-import Uml.UmlUse;
 
+/**
+*Author Yacine
+*This class represent a Panel center, in this, we can add a component Uml etc ... , and be dragged it
+*/
 public class PanelCenter extends JPanel{
 	
-/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 public ArrayList<UmlRelation> relation = new ArrayList<UmlRelation>();
 
@@ -22,13 +22,8 @@ public ArrayList<UmlRelation> relation = new ArrayList<UmlRelation>();
 		super();
 	}
 	
-	public  void addDraw(UmlEntityClass umlClass1, UmlEntityClass umlClass2,TypeRelation typeRelation) {
-		relation.add(new UmlRelation(umlClass1,umlClass2,typeRelation));
-        repaint();
-	}
-	
-	public  void addDraw(UmlUse umlUseCase1, UmlUse umlUseCase2,TypeRelation typeRelation) {
-		relation.add(new UmlRelation(umlUseCase1,umlUseCase2,typeRelation));
+	public  void addDraw(Uml uml1, Uml uml2,TypeRelation typeRelation) {
+		relation.add(new UmlRelation(uml1,uml2,typeRelation));
         repaint();
 	}
 	

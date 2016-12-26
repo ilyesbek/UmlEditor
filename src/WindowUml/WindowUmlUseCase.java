@@ -13,18 +13,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
-
-import Uml.UmlEntityClass;
 import Uml.UmlUseCase;
 import Uml.UmlUseCaseActor;
 import Uml.UmlUseCaseCircle;
 import UmlOption.UmlOptionNodeChoice;
 
+/**
+ * Author Yacine and Ilyes
+ * This class represent a window for Uml Use Case
+ */
+
 public class WindowUmlUseCase extends JFrame {
 
-	 /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel panelLeft = new JPanel();
 	 private JPanel panelRight = new JPanel();
@@ -47,10 +47,8 @@ public class WindowUmlUseCase extends JFrame {
 	        getContentPane().setBackground(Color.WHITE); // change background to white
 		    panelLeft.setBackground(Color.WHITE); // change panelLeft to white
 		    panelRight.setBackground(Color.WHITE); // change panelRight to white
-		    panelCenter.setBackground(Color.RED); // change panelCenter to Red
-		    
-		    
-		    
+		    panelCenter.setBackground(Color.WHITE); // change panelCenter to Red
+		    		    		    
 			setSize(800,600);
 		    setVisible(true);
 		    setAlwaysOnTop(true);
@@ -71,7 +69,7 @@ public class WindowUmlUseCase extends JFrame {
 				    		 currentCompenent=0;
 			    	  }
 			    	  else if(currentCompenent==2){
-				   		   UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlUseCase,listUmlUseCaseActor,listUmlUseCaseCircle,currentCompenent);
+				   		   new UmlOptionNodeChoice(panelCenter,listUmlUseCase,listUmlUseCaseActor,listUmlUseCaseCircle,currentCompenent);
 					    		 currentCompenent=0;
 				    	  } 
 			    	  else if(currentCompenent==3){
@@ -110,9 +108,7 @@ public class WindowUmlUseCase extends JFrame {
 	 public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 	 {
 		 try {
-		       
-		       
-		       
+		       		       		       
 		       JLabel labelLeft1 = new JLabel(new ImageIcon(getClass().getClassLoader()
 		               .getResource("image/dependance.png")));
 		       JLabel labelLeft2 = new JLabel(new ImageIcon(getClass().getClassLoader()
@@ -126,10 +122,8 @@ public class WindowUmlUseCase extends JFrame {
 		    		   .getResource("image/circle.png")));
 		       JLabel labelNode = new JLabel(new ImageIcon(getClass().getClassLoader()
 		    		   .getResource("image/node.png")));
-		    		   
+		    		   		       
 		       
-
-			  
 			  panelLeft.add(labelLeft1);
 			  panelLeft.add(Box.createVerticalGlue());
 			  
@@ -180,8 +174,4 @@ public class WindowUmlUseCase extends JFrame {
 			  }
 
 	 }
-	 
-	 
-	
-
 }

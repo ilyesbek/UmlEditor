@@ -18,14 +18,13 @@ import javax.swing.SwingConstants;
 import UmlOption.UmlOptionClass;
 import WindowUml.PanelCenter;
 
-
-
+/**
+ * Author Yacine
+ * This class represent a entity Class
+ */
 
 public class UmlEntityClass extends Uml{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private DefaultListModel<String> modelClass = new DefaultListModel<String>();	
 	private DefaultListModel<String> modelAttribute = new DefaultListModel<String>();	

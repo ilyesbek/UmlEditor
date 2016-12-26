@@ -5,29 +5,23 @@ package Uml;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.JLabel;
-
-import UmlOption.UmlOptionClass;
 import UmlOption.UmlOptionUseCase;
 import WindowUml.PanelCenter;
 
 /**
  * @author Yacine
- *
+ * This  class represent a rectacle use case
  */
 
 public class UmlUseCase extends Uml{
-	/**
-	 * 
-	 */
+
 private static final long serialVersionUID = 1L;
 private JLabel labelTitle = new JLabel ("Cas utilisation");	
 
 	public UmlUseCase(PanelCenter parent) {
 		super(parent);
-		
-		
+				
 		labelTitle.setLocation(this.getX()+this.getWidth()/2,labelTitle.getHeight()+this.getHeight());
 		this.setSize(300,300);
 		this.add(labelTitle);
@@ -38,11 +32,9 @@ private JLabel labelTitle = new JLabel ("Cas utilisation");
 		         }
 		    }
 		});
-						
-	}
+}
 	 public String getTitle()
 	 {
 		 return labelTitle.getText();
 	 }
-
 }

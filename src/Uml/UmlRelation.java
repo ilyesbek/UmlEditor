@@ -4,34 +4,28 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
+/**
+ * @author Yacine
+ * *With this class, we can draw in panel center
+ */   
 
 public class UmlRelation {
-
-	   private UmlEntityClass n1;
-       private UmlEntityClass n2;
-       
-       private UmlUse useCase1;
-       private UmlUse useCase2;
+  
+       private Uml uml1;
+       private Uml uml2;
        
        private TypeRelation typeRelation;
        
-       public UmlRelation(UmlEntityClass n1, UmlEntityClass n2,TypeRelation type) {
-           this.n1 = n1;
-           this.n2 = n2;
+       public UmlRelation(Uml uml1, Uml uml2,TypeRelation type) {
+           this.uml1 = uml1;
+           this.uml2 = uml2;
            typeRelation = type;
        }
-       
-       public UmlRelation(UmlUse umlUseCase1, UmlUse umlUseCase2,TypeRelation  type) {
-           this.useCase1 = umlUseCase1;
-           this.useCase2 = umlUseCase2;
-           typeRelation = type;
-       }
-       
-       
+      
        public void draw(Graphics g) {
     	   
-           Point p1 = useCase1.getLocation();
-           Point p2 =useCase2.getLocation();
+           Point p1 = uml1.getLocation();
+           Point p2 =uml2.getLocation();
            g.setColor(Color.darkGray);
            if(typeRelation == TypeRelation.association)
            g.drawLine(p1.x, p1.y, p2.x, p2.y);

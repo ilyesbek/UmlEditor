@@ -16,18 +16,19 @@ import javax.swing.JPanel;
 import Uml.TypeRelation;
 import Uml.Uml;
 import Uml.UmlEntityClass;
-import Uml.UmlNode;
-import Uml.UmlUse;
 import Uml.UmlUseCase;
 import Uml.UmlUseCaseActor;
 import Uml.UmlUseCaseCircle;
 import WindowUml.PanelCenter;
 
+/**
+ *  Author Yacine
+ *  when click in Association
+ */
+
 public class UmlOptionNodeChoice extends JDialog {
 	
- /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	/*UmlClass*/
@@ -72,16 +73,20 @@ public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityClass> li
 		
 		  buttonValidate.addActionListener(new ActionListener(){
 			  public void actionPerformed(ActionEvent event){
+				  
+				  Uml entityClass1=listUmlEntityClass.get(boxClass1.getSelectedIndex());
+				  Uml entityClass2=listUmlEntityClass.get(boxClass2.getSelectedIndex());
+				  
 				  if(currentCompenent==1)
-			    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.aggregation);
+			    	   panelCenter.addDraw(entityClass1,entityClass2,TypeRelation.aggregation);
 				  if(currentCompenent==2)
-			    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.composition);
+			    	   panelCenter.addDraw(entityClass1,entityClass2,TypeRelation.composition);
 				  if(currentCompenent==3)
-			    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.dependance);				  
+			    	   panelCenter.addDraw(entityClass1,entityClass2,TypeRelation.dependance);				  
 				  else if(currentCompenent==4)
-		    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.association);
+		    	   panelCenter.addDraw(entityClass1,entityClass2,TypeRelation.association);
 				  if(currentCompenent==5)
-			    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.heritage);
+			    	   panelCenter.addDraw(entityClass1,entityClass2,TypeRelation.heritage);
 			  }
 			});
  }
@@ -150,9 +155,9 @@ public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> listUm
 						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlUseCase.get(i).getTitle() || listTitleUseCaseAll.get(boxClass2.getSelectedIndex())==listUmlUseCase.get(i).getTitle())
 						  {
 							  if(umlUseCase1==null){
-								   umlUseCase1=(UmlUseCase)listUmlUseCase.get(i);System.out.println("1");}
+								   umlUseCase1=listUmlUseCase.get(i);System.out.println("1");}
 							  else if(umlUseCase2==null){
-								  umlUseCase2=(UmlUseCase)listUmlUseCase.get(i);System.out.println("2");}
+								  umlUseCase2=listUmlUseCase.get(i);System.out.println("2");}
 							  else break;
 						  }
 					 
@@ -190,5 +195,4 @@ public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> listUm
 			  }
 			});
  }
-
 }
