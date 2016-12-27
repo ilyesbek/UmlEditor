@@ -60,7 +60,7 @@ public class UmlProject extends JPanel {
 		buttonUmlUseCase .setBounds(450, 281, 220, 20);
 		
 	    buttonUmlObject .setText("Diagramme d'objet");
-	    buttonUmlObject .setBounds(600, 280, 240, 20);
+	    buttonUmlObject .setBounds(100, 320, 180, 20);
 		
 		frame.setSize(1000,600);
 		frame.setVisible(true);

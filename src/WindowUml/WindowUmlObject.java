@@ -40,6 +40,7 @@ public class WindowUmlObject extends JFrame{
 	   super();
 		
 		panelLeft.setLayout(new BoxLayout(panelLeft, BoxLayout.PAGE_AXIS)); // component to bell will add in vertical
+		panelRight.setLayout(new BoxLayout(panelRight, BoxLayout.PAGE_AXIS));
        panelCenter.setLayout(null);
 		
 	    getContentPane().setBackground(Color.WHITE); // change background to white
@@ -111,8 +112,13 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 	       JLabel labelleft5 = new JLabel(new ImageIcon(getClass().getClassLoader()
 	    		   .getResource("image/heritage.png")));
 	       
-	       JLabel labelClass =new JLabel(new ImageIcon(getClass().getClassLoader()	    		   
+	       JLabel labelClass = new JLabel(new ImageIcon(getClass().getClassLoader()	    		   
 	               .getResource("image/class.png")));
+	       JLabel labelCircle = new JLabel(new ImageIcon(getClass().getClassLoader()
+	    		   .getResource("image/circle.png")));
+	       
+	       JLabel labelNode = new JLabel(new ImageIcon(getClass().getClassLoader()
+	    		   .getResource("image/node.png")));
 	       
 		  panelLeft.add(labelLeft1);	
 		  panelLeft.add(Box.createVerticalGlue());  // add space beetwen component
@@ -130,6 +136,13 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		  panelLeft.add(Box.createVerticalGlue());
 		  
 		  panelRight.add(labelClass);
+		  panelRight.add(Box.createVerticalGlue());
+		  
+		  panelRight.add(labelCircle);
+		  panelRight.add(Box.createVerticalGlue());
+		  
+		  panelRight.add(labelNode);
+		  
 		  
 		  labelClass.addMouseListener(new MouseAdapter()  
 		  {  
