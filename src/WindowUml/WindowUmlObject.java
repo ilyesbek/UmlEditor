@@ -15,9 +15,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 import Uml.EnumEntity;
-import Uml.UmlEntityClass;
 import Uml.UmlEntityObject;
-import UmlOption.UmlOptionNodeChoice;
+import UmlOption.UmlOptionRelationChoice;
+
+/**
+*Author Yacine and Ilyes
+*This class represent a window for Uml Object
+*/
 
 public class WindowUmlObject extends JFrame{
 
@@ -60,23 +64,23 @@ public class WindowUmlObject extends JFrame{
 		      {  
 		    	  
 		    	  if(currentCompenent==1){
-		    		  new UmlOptionNodeChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
+		    		  new UmlOptionRelationChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
 			    		 currentCompenent=0;
 		    	  }
 		    	  else if(currentCompenent==2){
-			   		  new UmlOptionNodeChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
+			   		  new UmlOptionRelationChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    	  else if(currentCompenent==3){
-			   		  new UmlOptionNodeChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
+			   		  new UmlOptionRelationChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    	  else if(currentCompenent==4){
-		    		  new UmlOptionNodeChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
+		    		  new UmlOptionRelationChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
 			    		 currentCompenent=0;
 		    	  }
 		    	  else if(currentCompenent==5){
-			   		  new UmlOptionNodeChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
+			   		  new UmlOptionRelationChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    		    

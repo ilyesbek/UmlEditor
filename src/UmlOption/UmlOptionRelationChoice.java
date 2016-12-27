@@ -28,14 +28,13 @@ import WindowUml.PanelCenter;
  *  when click in Association
  */
 
-public class UmlOptionNodeChoice extends JDialog {
+public class UmlOptionRelationChoice extends JDialog {
 	
-
 	private static final long serialVersionUID = 1L;
 	
 /*Create relation object and class*/
 
-public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityObject> listUmlEntityObject,ArrayList<UmlEntityClass> listUmlEntityClass, EnumEntity enumEntity, int currentCompenent){
+public UmlOptionRelationChoice (PanelCenter panelCenter,ArrayList<UmlEntityObject> listUmlEntityObject,ArrayList<UmlEntityClass> listUmlEntityClass, EnumEntity enumEntity, int currentCompenent){
 
 	JPanel panel = new JPanel (); 
 	 
@@ -111,7 +110,7 @@ public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityObject> l
  }
 
 /*UmlUseCase*/
-public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> listUmlUseCase, ArrayList<UmlUseCaseActor> listUmlUseCaseActor ,ArrayList<UmlUseCaseCircle> listUmlUseCaseCircle,int currentCompenent){
+public UmlOptionRelationChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> listUmlUseCase, ArrayList<UmlUseCaseActor> listUmlUseCaseActor ,ArrayList<UmlUseCaseCircle> listUmlUseCaseCircle,int currentCompenent){
 	 
 	JPanel panel = new JPanel (); 
 	 

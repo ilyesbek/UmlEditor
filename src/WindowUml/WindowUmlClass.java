@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 
 import Uml.EnumEntity;
 import Uml.UmlEntityClass;
-import UmlOption.UmlOptionNodeChoice;
+import UmlOption.UmlOptionRelationChoice;
 /**
 *Author Yacine and Ilyes
 *This class represent a window for Uml Class
@@ -64,23 +64,23 @@ public class WindowUmlClass extends JFrame {
 		      {  
 		    	  
 		    	  if(currentCompenent==1){
-		    		  new UmlOptionNodeChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
+		    		  new UmlOptionRelationChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
 			    		 currentCompenent=0;
 		    	  }
 		    	  else if(currentCompenent==2){
-			   		  new UmlOptionNodeChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
+			   		  new UmlOptionRelationChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    	  else if(currentCompenent==3){
-			   		  new UmlOptionNodeChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
+			   		  new UmlOptionRelationChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    	  else if(currentCompenent==4){
-		    		  new UmlOptionNodeChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
+		    		  new UmlOptionRelationChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
 			    		 currentCompenent=0;
 		    	  }
 		    	  else if(currentCompenent==5){
-			   		  new UmlOptionNodeChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
+			   		  new UmlOptionRelationChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    		    

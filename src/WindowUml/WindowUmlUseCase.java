@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import Uml.UmlUseCase;
 import Uml.UmlUseCaseActor;
 import Uml.UmlUseCaseCircle;
-import UmlOption.UmlOptionNodeChoice;
+import UmlOption.UmlOptionRelationChoice;
 
 /**
  * Author Yacine and Ilyes
@@ -70,7 +70,7 @@ public class WindowUmlUseCase extends JFrame {
 				    		 currentCompenent=0;
 			    	  }
 			    	  else if(currentCompenent==2){
-				   		   new UmlOptionNodeChoice(panelCenter,listUmlUseCase,listUmlUseCaseActor,listUmlUseCaseCircle,currentCompenent);
+				   		   new UmlOptionRelationChoice(panelCenter,listUmlUseCase,listUmlUseCaseActor,listUmlUseCaseCircle,currentCompenent);
 					    		 currentCompenent=0;
 				    	  } 
 			    	  else if(currentCompenent==3){

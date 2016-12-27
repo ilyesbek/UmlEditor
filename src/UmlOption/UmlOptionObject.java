@@ -9,7 +9,6 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -88,18 +87,13 @@ class OptionTabObject2 extends JPanel{
 
 	private JButton validate=new JButton("Valider") ;
 		
-	private String[] stringVisibility = { "Public", "Privé", "Protégé", "Implementation"};
-	private JComboBox<String>  boxVisibility = new JComboBox<String> (stringVisibility);
-	
 	private JButton buttonNewAttribute = new JButton("Ajouter un attribut") ;
 	private JButton buttonDeleteAttribute = new JButton("Supprimer attribut") ;
 	
 	private JLabel labelNameAttribute = new JLabel ("Nom attribut : ");
-	private JLabel labelTypeAttribute = new JLabel ("Type attribut : ");
 	private JLabel labelValueAttribute = new JLabel ("Valeur attribut : ");
 	
 	private JTextField textNameAttribute = new  JTextField();
-	private JTextField textTypeAttribute = new  JTextField();
 	private JTextField textValueAttribute = new  JTextField();
 	
 	private DefaultListModel<String> model = new DefaultListModel<String> ();
@@ -129,9 +123,6 @@ class OptionTabObject2 extends JPanel{
 		   
 		   JPanel b2_2 = new JPanel();
 		   b2_2.setLayout(new BoxLayout(b2_2, BoxLayout.LINE_AXIS));
-		   b2_2.add(labelTypeAttribute);
-		   textTypeAttribute.setMaximumSize(new Dimension(Integer.MAX_VALUE,textTypeAttribute.getMinimumSize().height));
-		   b2_2.add(textTypeAttribute);
 		   
 		   JPanel b2_3 = new JPanel();
 		   b2_3.setLayout(new BoxLayout(b2_3, BoxLayout.LINE_AXIS));
@@ -147,7 +138,6 @@ class OptionTabObject2 extends JPanel{
 		   b2.add(Box.createRigidArea(new Dimension(40,40)));
 		   b2.add(b2_3);
 		   b2.add(Box.createRigidArea(new Dimension(40,40)));
-		   b2.add(boxVisibility);
 		   
 		   JPanel b3 = new JPanel();
 		   b3.setLayout(new BoxLayout(b3, BoxLayout.LINE_AXIS));
@@ -165,26 +155,12 @@ class OptionTabObject2 extends JPanel{
 			  // event button ajouter un attribut click		  
 			  buttonNewAttribute.addActionListener(new ActionListener(){
 				  public void actionPerformed(ActionEvent event){
-					  if(textNameAttribute.getText().isEmpty() && textTypeAttribute.getText().isEmpty()){
+					  if(textNameAttribute.getText().isEmpty() && textValueAttribute.getText().isEmpty()){
 				    		JOptionPane.showMessageDialog(null, "Veuillez remplir les champs", "Warning",JOptionPane.WARNING_MESSAGE);
 				    	}
 				    	else{
 			    		
-				    		String row ="";
-				    		
-				    		switch (boxVisibility.getSelectedIndex()){
-				    		case 0 : row+="+ ";
-				    		break;
-				    		case 1 : row+="- ";
-				    		break;
-				    		case 2 : row+="# ";
-				    		break;
-				    		case 3 : row+="~ ";
-				    		break;
-				    		
-				    		default : break;
-				    		}
-				    		row+= textNameAttribute.getText()+" :  "+textTypeAttribute.getText();
+				    		String row = textNameAttribute.getText()+" :  "+textValueAttribute.getText();
 				    		     if(!textValueAttribute.getText().isEmpty())
 				    		    	 row+=" = "+textValueAttribute.getText();
 				    	    model.addElement(row);	     
