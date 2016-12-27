@@ -17,14 +17,14 @@ import javax.swing.JTextField;
  *  When click in Actor diagram use
  */
 
-public class UmlOptionUseCaseActor extends JFrame{
+public class UmlOptionActor extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private JButton validate = new JButton("Valider") ;
 	private JLabel nameUseCase = new JLabel("Nom de l'acteur : ");
 	private JTextField textNameUseCase = new  JTextField();
 
-	public	UmlOptionUseCaseActor(JLabel label){
+	public	UmlOptionActor(JLabel label){
 	 		
 		setSize(400,400);
 		setLocationRelativeTo(null);

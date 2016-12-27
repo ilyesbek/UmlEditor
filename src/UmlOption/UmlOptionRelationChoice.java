@@ -13,14 +13,14 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Uml.EnumEntity;
-import Uml.EnumRelation;
 import Uml.Uml;
 import Uml.UmlEntityClass;
 import Uml.UmlEntityObject;
 import Uml.UmlUseCase;
-import Uml.UmlUseCaseActor;
-import Uml.UmlUseCaseCircle;
+import Uml.UmlTool.EnumEntity;
+import Uml.UmlTool.EnumRelation;
+import Uml.UmlTool.UmlActor;
+import Uml.UmlTool.UmlCircle;
 import WindowUml.PanelCenter;
 
 /**
@@ -110,24 +110,24 @@ public UmlOptionRelationChoice (PanelCenter panelCenter,ArrayList<UmlEntityObjec
  }
 
 /*UmlUseCase*/
-public UmlOptionRelationChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> listUmlUseCase, ArrayList<UmlUseCaseActor> listUmlUseCaseActor ,ArrayList<UmlUseCaseCircle> listUmlUseCaseCircle,int currentCompenent){
+public UmlOptionRelationChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> listUmlUseCase, ArrayList<UmlActor> listUmlActor ,ArrayList<UmlCircle> listUmlCircle,int currentCompenent){
 	 
 	JPanel panel = new JPanel (); 
 	 
 	 ArrayList<String>listTitleUseCase = new  ArrayList<String>();
-	 ArrayList<String>listTitleUseCaseCircle = new  ArrayList<String>();
-	 ArrayList<String>listTitleUseCaseActor = new  ArrayList<String>();
+	 ArrayList<String>listTitleUmlCircle = new  ArrayList<String>();
+	 ArrayList<String>listTitleUmlActor = new  ArrayList<String>();
 	 
 	 ArrayList<String>listTitleUseCaseAll = new  ArrayList<String>();
 	 
 	 for(int i = 0; i < listUmlUseCase.size(); ++i)
 		 listTitleUseCase.add(listUmlUseCase.get(i).getTitle());
 	 
-	 for(int i = 0; i < listUmlUseCaseCircle.size();++i)
-		listTitleUseCaseCircle.add(listUmlUseCaseCircle.get(i).getTitle());
+	 for(int i = 0; i < listUmlCircle.size();++i)
+		listTitleUmlCircle.add(listUmlCircle.get(i).getTitle());
 
-	 for(int i = 0; i < listUmlUseCaseActor.size();++i)
-			listTitleUseCaseActor.add(listUmlUseCaseActor.get(i).getTitle());
+	 for(int i = 0; i < listUmlActor.size();++i)
+			listTitleUmlActor.add(listUmlActor.get(i).getTitle());
 	 
     JLabel labelClass1 = new JLabel("Classe 1 : "); 
 	JLabel labelClass2 = new JLabel("Classe 2 : "); 
@@ -135,8 +135,8 @@ public UmlOptionRelationChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> li
 	JButton buttonValidate = new JButton("Valider"); 
 	
 	listTitleUseCaseAll.addAll(listTitleUseCase);
-	listTitleUseCaseAll.addAll(listTitleUseCaseCircle);
-	listTitleUseCaseAll.addAll(listTitleUseCaseActor);
+	listTitleUseCaseAll.addAll(listTitleUmlCircle);
+	listTitleUseCaseAll.addAll(listTitleUmlActor);
 	
      String [] array = listTitleUseCaseAll.toArray(new String[listTitleUseCaseAll.size()]);  
 	 JComboBox<String>  boxClass1 = new JComboBox<String> (array);
@@ -179,23 +179,23 @@ public UmlOptionRelationChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> li
 							  else break;
 						  }
 					 
-					 for(int i = 0; i < listUmlUseCaseActor.size(); ++i)
-						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlUseCaseActor.get(i).getTitle() || listTitleUseCaseAll.get(boxClass2.getSelectedIndex())==listUmlUseCaseActor.get(i).getTitle() )
+					 for(int i = 0; i < listUmlActor.size(); ++i)
+						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlActor.get(i).getTitle() || listTitleUseCaseAll.get(boxClass2.getSelectedIndex())==listUmlActor.get(i).getTitle() )
 						  {
 							  if(umlUseCase1==null)
-								   umlUseCase1=listUmlUseCaseActor.get(i);
+								   umlUseCase1=listUmlActor.get(i);
 							  else if(umlUseCase2==null)
-								  umlUseCase2=listUmlUseCaseActor.get(i);
+								  umlUseCase2=listUmlActor.get(i);
 							  else break;
 						  }
 
-					 for(int i = 0; i < listUmlUseCaseCircle.size(); ++i)
-						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlUseCaseCircle.get(i).getTitle() || listTitleUseCaseAll.get(boxClass2.getSelectedIndex())==listUmlUseCaseCircle.get(i).getTitle() )
+					 for(int i = 0; i < listUmlCircle.size(); ++i)
+						  if(listTitleUseCaseAll.get(boxClass1.getSelectedIndex())==listUmlCircle.get(i).getTitle() || listTitleUseCaseAll.get(boxClass2.getSelectedIndex())==listUmlCircle.get(i).getTitle() )
 						  {
 							  if(umlUseCase1==null)
-								   umlUseCase1=listUmlUseCaseCircle.get(i);
+								   umlUseCase1=listUmlCircle.get(i);
 							  else if(umlUseCase2==null)
-								  umlUseCase2=listUmlUseCaseCircle.get(i);
+								  umlUseCase2=listUmlCircle.get(i);
 							  else break;
 						  }
 						 

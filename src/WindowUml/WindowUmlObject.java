@@ -14,8 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
-import Uml.EnumEntity;
 import Uml.UmlEntityObject;
+import Uml.UmlTool.EnumEntity;
 import UmlOption.UmlOptionRelationChoice;
 
 /**
@@ -109,7 +109,7 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 	               .getResource("image/dependance.png")));
 	       JLabel labelLeft4 =new JLabel(new ImageIcon(getClass().getClassLoader()
 	               .getResource("image/association.png")));
-	       JLabel labelleft5 = new JLabel(new ImageIcon(getClass().getClassLoader()
+	       JLabel labelLeft5 = new JLabel(new ImageIcon(getClass().getClassLoader()
 	    		   .getResource("image/heritage.png")));
 	       
 	       JLabel labelClass = new JLabel(new ImageIcon(getClass().getClassLoader()	    		   
@@ -132,7 +132,7 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		  panelLeft.add(labelLeft4);
 		  panelLeft.add(Box.createVerticalGlue());
 		  
-		  panelLeft.add(labelleft5);
+		  panelLeft.add(labelLeft5);
 		  panelLeft.add(Box.createVerticalGlue());
 		  
 		  panelRight.add(labelClass);
