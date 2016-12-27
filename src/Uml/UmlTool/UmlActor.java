@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Uml.Uml;
-import UmlOption.UmlOptionUseCaseActor;
+import UmlOption.UmlOptionActor;
 import WindowUml.PanelCenter;
 
 /**
@@ -37,7 +37,7 @@ public class UmlActor extends Uml{
 		this.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent e) { 
 		    	  if(e.getClickCount()==2){
-		             new UmlOptionUseCaseActor(labelTitle);  
+		             new UmlOptionActor(labelTitle);  
 		         }
 		    }
 		});

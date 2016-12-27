@@ -171,11 +171,20 @@ public class WindowUmlPacket extends JFrame {
 		       	      }  
 				  }); 
 				  
-				  labelStigMan.addMouseListener(new MouseAdapter()  
+				  labelPacket.addMouseListener(new MouseAdapter()  
 				  {  
 				      public void mouseClicked(MouseEvent e)  
 				      {  
 				    	  currentCompenent=6;
+		       	      }  
+				  }); 
+				  
+				  
+				  labelStigMan.addMouseListener(new MouseAdapter()  
+				  {  
+				      public void mouseClicked(MouseEvent e)  
+				      {  
+				    	  currentCompenent=7;
 		       	      }  
 				  }); 	
 				  
