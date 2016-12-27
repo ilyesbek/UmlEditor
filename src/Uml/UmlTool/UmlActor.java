@@ -1,4 +1,4 @@
-package Uml;
+package Uml.UmlTool;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -8,6 +8,8 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import Uml.Uml;
 import UmlOption.UmlOptionUseCaseActor;
 import WindowUml.PanelCenter;
 
@@ -16,7 +18,7 @@ import WindowUml.PanelCenter;
  *  * This  class represent a Actor use case
  */
 
-public class UmlUseCaseActor extends Uml{
+public class UmlActor extends Uml{
 
 	private static final long serialVersionUID = 1L;
 	private JLabel labelTitle = new JLabel ("Acteur");	
@@ -24,7 +26,7 @@ public class UmlUseCaseActor extends Uml{
             .getResource("image/stigman.png")));
     
        
-	public UmlUseCaseActor(PanelCenter parent) {
+	public UmlActor(PanelCenter parent) {
 		super(parent);
 		this.setBorder(BorderFactory.createLineBorder(Color.white));
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));

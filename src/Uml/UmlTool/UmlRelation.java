@@ -1,8 +1,10 @@
-package Uml;
+package Uml.UmlTool;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+
+import Uml.Uml;
 
 /**
  * @author Yacine

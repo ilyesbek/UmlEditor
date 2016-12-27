@@ -14,8 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import Uml.UmlUseCase;
-import Uml.UmlUseCaseActor;
-import Uml.UmlUseCaseCircle;
+import Uml.UmlTool.UmlActor;
+import Uml.UmlTool.UmlCircle;
 import UmlOption.UmlOptionRelationChoice;
 
 /**
@@ -31,8 +31,8 @@ public class WindowUmlUseCase extends JFrame {
 	 private PanelCenter panelCenter= new PanelCenter();
 	 
 	   private ArrayList<UmlUseCase> listUmlUseCase = new ArrayList<UmlUseCase>();
-	   private ArrayList<UmlUseCaseCircle> listUmlUseCaseCircle = new ArrayList<UmlUseCaseCircle>();
-	   private ArrayList<UmlUseCaseActor> listUmlUseCaseActor = new ArrayList<UmlUseCaseActor>();
+	   private ArrayList<UmlCircle> listUmlCircle = new ArrayList<UmlCircle>();
+	   private ArrayList<UmlActor> listUmlActor = new ArrayList<UmlActor>();
 	   
 	 private int currentCompenent=0; 
 	 
@@ -70,7 +70,7 @@ public class WindowUmlUseCase extends JFrame {
 				    		 currentCompenent=0;
 			    	  }
 			    	  else if(currentCompenent==2){
-				   		   new UmlOptionRelationChoice(panelCenter,listUmlUseCase,listUmlUseCaseActor,listUmlUseCaseCircle,currentCompenent);
+				   		   new UmlOptionRelationChoice(panelCenter,listUmlUseCase,listUmlActor,listUmlCircle,currentCompenent);
 					    		 currentCompenent=0;
 				    	  } 
 			    	  else if(currentCompenent==3){
@@ -78,17 +78,17 @@ public class WindowUmlUseCase extends JFrame {
 					    		 currentCompenent=0;
 				    	  } 
 			    	  else if(currentCompenent==4){
-			    		  UmlUseCaseActor umlUseCaseActor = new UmlUseCaseActor(panelCenter);
-				    		 listUmlUseCaseActor.add(umlUseCaseActor);
-				    		 panelCenter.add(umlUseCaseActor);
+			    		  UmlActor umlActor = new UmlActor(panelCenter);
+				    		 listUmlActor.add(umlActor);
+				    		 panelCenter.add(umlActor);
 				    		 panelCenter.revalidate();
 				    	     panelCenter.repaint();
 				    		 currentCompenent=0;
 			    	  }
 			    	  else if(currentCompenent==5){
-			    	 	  UmlUseCaseCircle umlUseCaseCircle = new UmlUseCaseCircle(panelCenter);
-				    		 listUmlUseCaseCircle.add(umlUseCaseCircle);
-				    		panelCenter.add(umlUseCaseCircle);
+			    	 	  UmlCircle umlCircle = new UmlCircle(panelCenter);
+				    		 listUmlCircle.add(umlCircle);
+				    		panelCenter.add(umlCircle);
 				    		 panelCenter.revalidate();
 				    	     panelCenter.repaint();
 				    		 currentCompenent=0;

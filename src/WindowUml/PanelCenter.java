@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-import Uml.EnumRelation;
 import Uml.Uml;
-import Uml.UmlRelation;
+import Uml.UmlTool.EnumRelation;
+import Uml.UmlTool.UmlRelation;
 
 /**
 *Author Yacine

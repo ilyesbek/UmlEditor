@@ -1,6 +1,8 @@
-package Uml;
+package Uml.UmlTool;
 
 import javax.swing.JLabel;
+
+import Uml.Uml;
 import WindowUml.PanelCenter;
 
 /**
@@ -8,13 +10,13 @@ import WindowUml.PanelCenter;
  *  * This  class represent a Circle use case
  */
 
-public class UmlUseCaseCircle extends Uml {
+public class UmlCircle extends Uml {
 	
 	
 	private static final long serialVersionUID = 1L;
 
 	private JLabel labelTitleCircle = new JLabel("Information");
-	public UmlUseCaseCircle(PanelCenter parent) {
+	public UmlCircle(PanelCenter parent) {
 		super(parent);
 		this.setSize(200,200);
 		
