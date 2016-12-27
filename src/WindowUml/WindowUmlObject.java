@@ -1,4 +1,3 @@
-
 package WindowUml;
 
 import java.awt.BorderLayout;
@@ -17,37 +16,34 @@ import javax.swing.JPanel;
 
 import Uml.EnumEntity;
 import Uml.UmlEntityClass;
+import Uml.UmlEntityObject;
 import UmlOption.UmlOptionNodeChoice;
-/**
-*Author Yacine and Ilyes
-*This class represent a window for Uml Class
-*/
-public class WindowUmlClass extends JFrame {		
+
+public class WindowUmlObject extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 
 	private int currentCompenent=0; 
-   
+	   
     private JPanel panelLeft = new JPanel();
     private JPanel panelRight = new JPanel();
     private PanelCenter panelCenter= new PanelCenter ();
     
-    private ArrayList<UmlEntityClass> listUmlEntityClass = new ArrayList<UmlEntityClass>();
+    private ArrayList<UmlEntityObject> listUmlEntityObject = new ArrayList<UmlEntityObject>();
     
-    
-    public WindowUmlClass(final JMenuBar menubar){
-			
-		super();
+   public WindowUmlObject(final JMenuBar menubar) {
+	   
+	   super();
 		
 		panelLeft.setLayout(new BoxLayout(panelLeft, BoxLayout.PAGE_AXIS)); // component to bell will add in vertical
-        panelCenter.setLayout(null);
+       panelCenter.setLayout(null);
 		
 	    getContentPane().setBackground(Color.WHITE); // change background to white
 	    panelLeft.setBackground(Color.WHITE); // change panelLeft to white
 	    panelRight.setBackground(Color.WHITE); // change panelRight to white
 	    panelCenter.setBackground(Color.WHITE); // change panelCenter to white   
 	
-		setTitle("Diagramme de classe");
+		setTitle("Diagramme d'objet");
 		setSize(800,600);
 	    setVisible(true);
 	    setAlwaysOnTop(true);
@@ -64,30 +60,30 @@ public class WindowUmlClass extends JFrame {
 		      {  
 		    	  
 		    	  if(currentCompenent==1){
-		    		  new UmlOptionNodeChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
+		    		  new UmlOptionNodeChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
 			    		 currentCompenent=0;
 		    	  }
 		    	  else if(currentCompenent==2){
-			   		  new UmlOptionNodeChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
+			   		  new UmlOptionNodeChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    	  else if(currentCompenent==3){
-			   		  new UmlOptionNodeChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
+			   		  new UmlOptionNodeChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    	  else if(currentCompenent==4){
-		    		  new UmlOptionNodeChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
+		    		  new UmlOptionNodeChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
 			    		 currentCompenent=0;
 		    	  }
 		    	  else if(currentCompenent==5){
-			   		  new UmlOptionNodeChoice(panelCenter,null,listUmlEntityClass,EnumEntity.Class,currentCompenent);
+			   		  new UmlOptionNodeChoice(panelCenter,listUmlEntityObject,null, EnumEntity.Object,currentCompenent);
 				    		 currentCompenent=0;
 			    	  } 
 		    		    
 		      else if(currentCompenent==6){
-		    		 UmlEntityClass umlClass = new UmlEntityClass (panelCenter);
-		    		 listUmlEntityClass.add(umlClass);
-		    		 panelCenter.add(umlClass);
+		    		 UmlEntityObject umlObject = new UmlEntityObject (panelCenter);
+		    		 listUmlEntityObject.add(umlObject);
+		    		 panelCenter.add(umlObject);
 		    		 panelCenter.revalidate();
 		    	     panelCenter.repaint();
 		    		 currentCompenent=0;
@@ -100,7 +96,7 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 {
 		  try {
 	       JLabel labelLeft1 =new JLabel(new ImageIcon(getClass().getClassLoader()
-             .getResource("image/aggregation.png")));
+            .getResource("image/aggregation.png")));
 	       
 	       JLabel labelLeft2 =new JLabel(new ImageIcon(getClass().getClassLoader()
 	               .getResource("image/composition.png")));
@@ -143,11 +139,13 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		      public void mouseClicked(MouseEvent e)  
 		      {  
 		    	  currentCompenent=4;
-       	      }  
+      	      }  
 		  }); 	  
 	  } catch (Exception ex) {
 		    System.out.println(ex);
 		  }
 }  
 }
+	   
+
 

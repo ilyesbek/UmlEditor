@@ -14,9 +14,9 @@ public class UmlRelation {
        private Uml uml1;
        private Uml uml2;
        
-       private TypeRelation typeRelation;
+       private EnumRelation typeRelation;
        
-       public UmlRelation(Uml uml1, Uml uml2,TypeRelation type) {
+       public UmlRelation(Uml uml1, Uml uml2,EnumRelation type) {
            this.uml1 = uml1;
            this.uml2 = uml2;
            typeRelation = type;
@@ -27,18 +27,18 @@ public class UmlRelation {
            Point p1 = uml1.getLocation();
            Point p2 =uml2.getLocation();
            g.setColor(Color.darkGray);
-           if(typeRelation == TypeRelation.association)
+           if(typeRelation == EnumRelation.association)
            g.drawLine(p1.x, p1.y, p2.x, p2.y);
            
-           else if(typeRelation == TypeRelation.aggregation)
+           else if(typeRelation == EnumRelation.aggregation)
                g.drawLine(p1.x, p1.y, p2.x, p2.y);
            
-           else if(typeRelation == TypeRelation.dependance)
+           else if(typeRelation == EnumRelation.dependance)
                g.drawLine(p1.x, p1.y, p2.x, p2.y);
            
-           else if(typeRelation == TypeRelation.composition)
+           else if(typeRelation == EnumRelation.composition)
                g.drawLine(p1.x, p1.y, p2.x, p2.y);
-           else   if(typeRelation == TypeRelation.heritage)
+           else   if(typeRelation == EnumRelation.heritage)
                g.drawLine(p1.x, p1.y, p2.x, p2.y);
        
        }

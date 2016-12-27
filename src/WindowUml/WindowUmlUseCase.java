@@ -49,7 +49,7 @@ public class WindowUmlUseCase extends JFrame {
 		    panelRight.setBackground(Color.WHITE); // change panelRight to white
 		    panelCenter.setBackground(Color.WHITE); // change panelCenter to Red
 		    
-			setTitle("Diagramme cas du'tilisation");
+			setTitle("Diagramme cas d'Utilisation");
 			setSize(800,600);
 		    setVisible(true);
 		    setAlwaysOnTop(true);

@@ -13,9 +13,11 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Uml.TypeRelation;
+import Uml.EnumEntity;
+import Uml.EnumRelation;
 import Uml.Uml;
 import Uml.UmlEntityClass;
+import Uml.UmlEntityObject;
 import Uml.UmlUseCase;
 import Uml.UmlUseCaseActor;
 import Uml.UmlUseCaseCircle;
@@ -31,18 +33,27 @@ public class UmlOptionNodeChoice extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	
-	/*UmlClass*/
-public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityClass> listUmlEntityClass, int currentCompenent){
+/*Create relation object and class*/
+
+public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityObject> listUmlEntityObject,ArrayList<UmlEntityClass> listUmlEntityClass, EnumEntity enumEntity, int currentCompenent){
 
 	JPanel panel = new JPanel (); 
 	 
 	 ArrayList<String>listTitleEntity = new  ArrayList<String>();
 	 
+	if(enumEntity==EnumEntity.Class)
+	{
 	 for(int i = 0; i < listUmlEntityClass.size(); ++i)
 	    listTitleEntity.add(listUmlEntityClass.get(i).getTitle());
-
-    JLabel labelClass1 = new JLabel("Classe 1 : "); 
-	JLabel labelClass2 = new JLabel("Classe 2 : "); 
+	}
+	else
+	{
+		 for(int i = 0; i < listUmlEntityObject.size(); ++i)
+			    listTitleEntity.add(listUmlEntityObject.get(i).getTitle());
+	}
+		
+    JLabel labelClass1 = new JLabel("Entity 1 : "); 
+	JLabel labelClass2 = new JLabel("Entity 2 : "); 
 
 	JButton buttonValidate = new JButton("Valider"); 
 	
@@ -73,20 +84,28 @@ public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlEntityClass> li
 		
 		  buttonValidate.addActionListener(new ActionListener(){
 			  public void actionPerformed(ActionEvent event){
-				  
-				  Uml entityClass1=listUmlEntityClass.get(boxClass1.getSelectedIndex());
-				  Uml entityClass2=listUmlEntityClass.get(boxClass2.getSelectedIndex());
-				  
+				  Uml entity1 = null;
+				  Uml entity2 = null;
+				  if(enumEntity==EnumEntity.Class)
+			    { 
+				  entity1=listUmlEntityClass.get(boxClass1.getSelectedIndex());
+				  entity2=listUmlEntityClass.get(boxClass2.getSelectedIndex());
+			    }
+				  else
+				  {
+					  entity1=listUmlEntityObject.get(boxClass1.getSelectedIndex());
+					  entity2=listUmlEntityObject.get(boxClass2.getSelectedIndex());
+				  }
 				  if(currentCompenent==1)
-			    	   panelCenter.addDraw(entityClass1,entityClass2,TypeRelation.aggregation);
+			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.aggregation);
 				  if(currentCompenent==2)
-			    	   panelCenter.addDraw(entityClass1,entityClass2,TypeRelation.composition);
+			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.composition);
 				  if(currentCompenent==3)
-			    	   panelCenter.addDraw(entityClass1,entityClass2,TypeRelation.dependance);				  
+			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.dependance);				  
 				  else if(currentCompenent==4)
-		    	   panelCenter.addDraw(entityClass1,entityClass2,TypeRelation.association);
+		    	   panelCenter.addDraw(entity1,entity2,EnumRelation.association);
 				  if(currentCompenent==5)
-			    	   panelCenter.addDraw(entityClass1,entityClass2,TypeRelation.heritage);
+			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.heritage);
 			  }
 			});
  }
@@ -184,7 +203,7 @@ public UmlOptionNodeChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> listUm
 			 // if(currentCompenent==1)
 			    	//  panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.aggregation);
 				  if(currentCompenent==2)
-			       panelCenter.addDraw(umlUseCase1,umlUseCase2,TypeRelation.association);
+			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.association);
 				/*  if(currentCompenent==3)
 			    	 panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.dependance);				  
 				  else if(currentCompenent==4)

@@ -16,6 +16,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 import WindowUml.WindowUmlClass;
+import WindowUml.WindowUmlObject;
 import WindowUml.WindowUmlUseCase;
 
 /**
@@ -26,8 +27,10 @@ public class UmlProject extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 	private JFrame frame = new JFrame("Choix diagramme");
+	
 	private  JButton buttonUmlClass = new JButton();
 	private  JButton buttonUmlUseCase = new JButton();
+	private  JButton buttonUmlObject = new JButton();
 		
 	private JLabel DiagramChoice;
 	private JLabel DiagramType;
@@ -56,6 +59,9 @@ public class UmlProject extends JPanel {
 	    buttonUmlUseCase .setText("Diagramme de Cas D'utilisation");
 		buttonUmlUseCase .setBounds(450, 281, 220, 20);
 		
+	    buttonUmlObject .setText("Diagramme d'objet");
+	    buttonUmlObject .setBounds(600, 280, 240, 20);
+		
 		frame.setSize(1000,600);
 		frame.setVisible(true);
 		frame.setAlwaysOnTop(true);
@@ -64,6 +70,7 @@ public class UmlProject extends JPanel {
 		frame.setResizable(false);
 		frame.add(buttonUmlClass);
 		frame.add(buttonUmlUseCase);
+		frame.add(buttonUmlObject);
 		
 		buttonUmlClass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
@@ -76,9 +83,17 @@ public class UmlProject extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e1) {
 				new WindowUmlUseCase(menubar);
-				dispose();
-				
+				dispose();				
 			};});
+		
+		buttonUmlObject.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e1) {
+				new WindowUmlObject(menubar);
+				dispose();				
+			};});
+
 
 	}
 	

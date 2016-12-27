@@ -1,6 +1,6 @@
 package Uml;
 
-public enum TypeRelation {
+public enum EnumRelation {
 		  association,
 		  heritage,
 		  aggregation,
