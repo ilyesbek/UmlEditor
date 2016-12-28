@@ -138,6 +138,14 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		    	  currentCompenent=6;
 		      }  
 		  });
+		  
+		  labelLeft2.addMouseListener(new MouseAdapter()  
+		  {  
+		      public void mouseClicked(MouseEvent e)  
+		      {  
+		    	  currentCompenent=2;
+		      }  
+		  });
 		  labelLeft4.addMouseListener(new MouseAdapter()  
 		  {  
 		      public void mouseClicked(MouseEvent e)  
