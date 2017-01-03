@@ -38,41 +38,65 @@ public class UmlRelation {
            //left down
          if(x1 < x2 && y1 > y2){ 
         	 
-        	    Line2D l2 = new Line2D.Float(uml2.getX(), uml2.getY(),uml2.getX(),+uml2.getY()+uml2.getHeight());
-                Line2D l1 = new Line2D.Float(x1,y1,x2,y2);
+        	   Line2D l2 = new Line2D.Float(uml2.getX(), uml2.getY(),uml2.getX(),+uml2.getY()+uml2.getHeight());
+               Line2D l1 = new Line2D.Float(x1,y1,x2,y2);
                 
              //left   
         	if(l2.intersectsLine(l1)){
         		 System.out.println("gauche bas: ");
+        		 
+        		 Point intersect;
+          	     double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
+          	     double b = Math.sqrt(Math.pow(x2-(x2-uml2.getWidth()/2),2) + Math.pow(y2-y2,2));  //OE
+          	     double c = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y2,2));        //OB
+          	   
+         	     int d = (int) ((a*b)/c); 
+        	     return new Point (x2-uml2.getWidth()/2,y2+d);
         	}
+        	
         	//down
         	else {
         		 System.out.println("bas gauche: ");
         		 
-        		 Point intersect;
-        	   double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
-        	   double b = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-(y2+uml2.getHeight()/2),2));  //OE
-        	   double c = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-y1,2));        //OB
+        	     Point intersect;
+        	     double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
+        	     double b = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-(y2+uml2.getHeight()/2),2));  //OE
+        	     double c = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-y1,2));        //OB
         	   
-        	  int d = (int) ((a*b)/c); 
-        	  return new Point (x2-d,y2+uml2.getHeight()/2);
+        	     int d = (int) ((a*b)/c); 
+        	     return new Point (x2-d,y2+uml2.getHeight()/2);
         	}
         	 
          }
          //top left
          else if(x1 < x2 && y1 < y2){
-        	 
-        	 
-     	    Line2D l2 = new Line2D.Float(uml2.getX(), uml2.getY(),uml2.getX(),+uml2.getY()+uml2.getHeight());
+        	       	 
+     	     Line2D l2 = new Line2D.Float(uml2.getX(), uml2.getY(),uml2.getX(),+uml2.getY()+uml2.getHeight());
              Line2D l1 = new Line2D.Float(x1,y1,x2,y2);
              
-            //up
+            //left
         	if(l2.intersectsLine(l1)){
-        		 System.out.println("haut gauche: ");
+        		 System.out.println( "gauche haut: ");
+        		 
+           	     Point intersect;
+        	     double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
+        	     double b = Math.sqrt(Math.pow(x2-(x2-uml2.getWidth()/2),2) + Math.pow(y2-y2,2));  //OE
+        	     double c = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y2,2));        //OB
+        	   
+            	 int d = (int) ((a*b)/c); 
+      	         return new Point (x2-uml2.getWidth()/2,y2-d);
         	}
-        	//left
+        	//up
         	else {
-        		 System.out.println(" gauche haut : ");
+        		 System.out.println(" haut  gauche : ");
+        		        		 
+         		 Point intersect;
+          	     double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
+          	     double b = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-(y2-uml2.getHeight()/2),2));  //OE
+          	     double c = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-y1,2));        //OB
+          	   
+         	     int d = (int) ((a*b)/c); 
+        	     return new Point (x2-d,y2-uml2.getHeight()/2);
         	}
          }
          
@@ -84,11 +108,27 @@ public class UmlRelation {
                
                //up
            	if(l2.intersectsLine(l1)){
-           	 System.out.println("haut droite : ");
-           	}
+             	 System.out.println("haut droite : ");
+           	   		 
+		         Point intersect;
+	             double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
+	             double b = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-(y2-uml2.getHeight()/2),2));  //OE
+	             double c = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-y1,2));        //OB
+	   
+	             int d = (int) ((a*b)/c); 
+                 return new Point (x2+d,y2-uml2.getHeight()/2);
+             }
            	//right
            	else {
-           	 System.out.println("droite haut: ");
+              	 System.out.println("droite haut: ");
+           	 
+                Point intersect;
+                double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
+                double b = Math.sqrt(Math.pow(x2-(x2+uml2.getWidth()/2),2) + Math.pow(y2-y2,2));  //OE
+                double c = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y2,2));        //OB
+   
+                int d = (int) ((a*b)/c); 
+                return new Point (x2+uml2.getWidth()/2,y2-d);
            	}
          }
          
@@ -99,11 +139,27 @@ public class UmlRelation {
      
                //right
            	if(l2.intersectsLine(l1)){
-           	 System.out.println("droite bas  ");
+           	     System.out.println("droite bas");
+           	 
+                 Point intersect;
+                 double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
+                 double b = Math.sqrt(Math.pow(x2-(x2+uml2.getWidth()/2),2) + Math.pow(y2-y2,2));  //OE
+                 double c = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y2,2));        //OB
+
+                 int d = (int) ((a*b)/c); 
+                 return new Point (x2+uml2.getWidth()/2,y2+d);
            	}
            	//down
            	else {
-           	 System.out.println("bas droite : ");
+            	 System.out.println("bas droite : ");
+           	 
+                 Point intersect;
+    	         double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
+    	         double b = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-(y2+uml2.getHeight()/2),2));  //OE
+    	         double c = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-y1,2));        //OB
+    	   
+    	         int d = (int) ((a*b)/c); 
+    	         return new Point (x2+d,y2+uml2.getHeight()/2);
            	}
          }
          
