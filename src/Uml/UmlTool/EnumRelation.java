@@ -7,3 +7,10 @@ public enum EnumRelation {
 		  composition,
 		  dependance;
 }
+
+enum PositionEntity{
+	top,
+	right,
+	left,
+	down;
+}

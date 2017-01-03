@@ -18,6 +18,7 @@ public class UmlRelation {
   
        private Uml uml1;
        private Uml uml2;
+       private PositionEntity pos= null;
        
        private EnumRelation typeRelation;
        
@@ -26,7 +27,7 @@ public class UmlRelation {
            this.uml2 = uml2;
            typeRelation = type;
        }
-      
+      /*This fonction calcul the intersection with line and entity , use method thales for this */
        public Point calculIntersection()
        {    System.out.println("a");
        
@@ -44,6 +45,7 @@ public class UmlRelation {
              //left   
         	if(l2.intersectsLine(l1)){
         		 System.out.println("gauche bas: ");
+        		 pos = PositionEntity.left;
         		 
         		 Point intersect;
           	     double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
@@ -57,6 +59,7 @@ public class UmlRelation {
         	//down
         	else {
         		 System.out.println("bas gauche: ");
+        		 pos = PositionEntity.down;
         		 
         	     Point intersect;
         	     double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
@@ -77,6 +80,7 @@ public class UmlRelation {
             //left
         	if(l2.intersectsLine(l1)){
         		 System.out.println( "gauche haut: ");
+        		 pos = PositionEntity.left;
         		 
            	     Point intersect;
         	     double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
@@ -89,6 +93,7 @@ public class UmlRelation {
         	//up
         	else {
         		 System.out.println(" haut  gauche : ");
+        		 pos = PositionEntity.top;
         		        		 
          		 Point intersect;
           	     double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
@@ -109,6 +114,7 @@ public class UmlRelation {
                //up
            	if(l2.intersectsLine(l1)){
              	 System.out.println("haut droite : ");
+             	 pos = PositionEntity.top;
            	   		 
 		         Point intersect;
 	             double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
@@ -121,6 +127,7 @@ public class UmlRelation {
            	//right
            	else {
               	 System.out.println("droite haut: ");
+              	 pos = PositionEntity.right;
            	 
                 Point intersect;
                 double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
@@ -140,6 +147,7 @@ public class UmlRelation {
                //right
            	if(l2.intersectsLine(l1)){
            	     System.out.println("droite bas");
+           	  pos = PositionEntity.right;
            	 
                  Point intersect;
                  double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
@@ -152,6 +160,7 @@ public class UmlRelation {
            	//down
            	else {
             	 System.out.println("bas droite : ");
+            	 pos = PositionEntity.down;
            	 
                  Point intersect;
     	         double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
@@ -165,23 +174,27 @@ public class UmlRelation {
          
          // center top
          else if(x1 == x2 && y1 < y2 ){
+        	 pos = PositionEntity.top;
         	  return new Point (x2,y2-uml2.getHeight()/2);
          }
          // center right
          else if(x2 < x1 && y1 == y2){
+        	 pos = PositionEntity.right;
         	 return new Point (x2+uml2.getWidth(),y2);
          }
          //center down
          else if (x1 == x2 && y2 < y1){
+        	 pos = PositionEntity.down;
         	 return new Point (x2,y2+uml2.getHeight()/2);
          } 
          //center left
          else if(x1 < x2 && y1 == y2 ){
+        	 pos = PositionEntity.left;
         	 return new Point (x2-uml2.getWidth()/2,y2);
          }
 		return null;
   
-          }
+  }
        
        
        public void draw(Graphics g) {
@@ -209,12 +222,40 @@ public class UmlRelation {
            
            else if(typeRelation == EnumRelation.composition)
            {
-        	   
-        	   /* [] polx = {20, 30, 40, 30};
-        	    int [] poly = {30, 20, 30,40};*/
-        	    
-        	    int [] polx = {intersection.x-10,intersection.x,intersection.x+10,intersection.x};
-        	    int [] poly = {intersection.y+10,intersection.y,intersection.y+10,intersection.y+20};
+        	 Point p11 = new Point() ;
+        	 Point p12 = new Point() ;
+        	 Point p13 = new Point() ;
+        	 Point p14 = new Point() ;
+        	 
+        	  if(pos==PositionEntity.down){
+        		 p11.setLocation(intersection.x-7, intersection.y+10);
+        		 p12.setLocation(intersection.x, intersection.y);
+        		 p13.setLocation(intersection.x+7,intersection.y+10);
+        		 p14.setLocation(intersection.x, intersection.y+20);
+        	 }
+        	  
+        	  else if(pos==PositionEntity.left){
+         		 p11.setLocation(intersection.x-14, intersection.y);
+         		 p12.setLocation(intersection.x-7, intersection.y-10);
+         		 p13.setLocation(intersection.x,intersection.y);
+         		 p14.setLocation(intersection.x-7, intersection.y+10);
+         	 }
+        	  
+        	  else if(pos==PositionEntity.top){
+          		 p11.setLocation(intersection.x-7, intersection.y-10);
+          		 p12.setLocation(intersection.x, intersection.y-20);
+          		 p13.setLocation(intersection.x+7,intersection.y-10);
+          		 p14.setLocation(intersection.x, intersection.y);
+          	 }
+        	         	  
+        	  else if(pos==PositionEntity.right){
+        		  p11.setLocation(intersection.x, intersection.y);
+          		 p12.setLocation(intersection.x+7, intersection.y-10);
+          		 p13.setLocation(intersection.x+14,intersection.y);
+          		 p14.setLocation(intersection.x+7, intersection.y+10);
+          	 }
+        	    int [] polx = {p11.x,p12.x,p13.x,p14.x};
+        	    int [] poly = {p11.y,p12.y,p13.y,p14.y};
         	    
         	    Polygon pol = new Polygon(polx,poly,4);   	    
         	    g.fillPolygon(pol);
