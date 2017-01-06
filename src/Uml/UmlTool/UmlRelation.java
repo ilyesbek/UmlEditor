@@ -1,11 +1,16 @@
 package Uml.UmlTool;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.Rectangle;
+import java.awt.Stroke;
 import java.awt.geom.Line2D;
+
+import javax.swing.JComponent;
 
 import Uml.Uml;
 
@@ -14,11 +19,12 @@ import Uml.Uml;
  * *With this class, we can draw in panel center
  */   
 
-public class UmlRelation {
+public class UmlRelation{
   
        private Uml uml1;
        private Uml uml2;
        private PositionEntity pos= null;
+       private Point endLine = new Point();
        
        private EnumRelation typeRelation;
        
@@ -45,7 +51,7 @@ public class UmlRelation {
              //left   
         	if(l2.intersectsLine(l1)){
         		 System.out.println("gauche bas: ");
-        		 pos = PositionEntity.left;
+        		 pos = PositionEntity.left;      		 
         		 
         		 Point intersect;
           	     double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
@@ -193,9 +199,46 @@ public class UmlRelation {
         	 return new Point (x2-uml2.getWidth()/2,y2);
          }
 		return null;
-  
   }
-       
+  
+       public void calculPolygon(Point p1, Point p2, Point p3, Point p4, Point intersection){
+    	  
+       	  if(pos==PositionEntity.down){
+     		 p1.setLocation(intersection.x-7, intersection.y+10);
+     		 p2.setLocation(intersection.x, intersection.y);
+     		 p3.setLocation(intersection.x+7,intersection.y+10);
+     		 p4.setLocation(intersection.x, intersection.y+20); 
+     		 
+        	 endLine.setLocation(intersection.x,intersection.y+20);
+     	 }
+     	  
+     	  else if(pos==PositionEntity.left){
+      		 p1.setLocation(intersection.x-14, intersection.y);
+      		 p2.setLocation(intersection.x-7, intersection.y-10);
+      		 p3.setLocation(intersection.x,intersection.y);
+      		 p4.setLocation(intersection.x-7, intersection.y+10);
+      		 
+      		 endLine.setLocation(intersection.x-14,intersection.y);
+      	 }
+     	  
+     	  else if(pos==PositionEntity.top){
+       		 p1.setLocation(intersection.x-7, intersection.y-10);
+       		 p2.setLocation(intersection.x, intersection.y-20);
+       		 p3.setLocation(intersection.x+7,intersection.y-10);
+       		 p4.setLocation(intersection.x, intersection.y);
+       		 
+       		 endLine.setLocation(intersection.x,intersection.y-20);
+       	 }
+     	         	  
+     	  else if(pos==PositionEntity.right){
+      		 p1.setLocation(intersection.x, intersection.y);
+       		 p2.setLocation(intersection.x+7, intersection.y-10);
+      		 p3.setLocation(intersection.x+14,intersection.y);
+       		 p4.setLocation(intersection.x+7, intersection.y+10);
+       		 
+       		 endLine.setLocation(intersection.x+14,intersection.y);
+       	 }
+       }
        
        public void draw(Graphics g) {
     	   
@@ -211,14 +254,32 @@ public class UmlRelation {
            else if(p2.x < p1.x)   
            g.setColor(Color.darkGray);*/
            if(typeRelation == EnumRelation.association)
-             //  g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,p2.x+uml2.getWidth()/2, p2.y+uml2.getHeight()/2);
-        	   
-        	   g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection.x,intersection.y);
-           else if(typeRelation == EnumRelation.aggregation)
-               g.drawLine(p1.x, p1.y, p2.x, p2.y);
+      	      g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection.x,intersection.y);
            
-           else if(typeRelation == EnumRelation.dependance)
-               g.drawLine(p1.x, p1.y, p2.x, p2.y);
+           else if(typeRelation == EnumRelation.aggregation){
+        		 Point p11 = new Point() ;
+            	 Point p12 = new Point() ;
+            	 Point p13 = new Point() ;
+            	 Point p14 = new Point() ;
+            	 
+            	 calculPolygon(p11,p12,p13,p14,intersection);
+            	 
+            	    int [] polx = {p11.x,p12.x,p13.x,p14.x};
+            	    int [] poly = {p11.y,p12.y,p13.y,p14.y};
+            	                   	   
+            	    g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLine.x, endLine.y); 
+                    g.drawPolygon(polx,poly,4);
+           }
+               
+           
+           else if(typeRelation == EnumRelation.dependance){
+        	   Graphics2D g2d = (Graphics2D) g.create();
+        	   Stroke dashed = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0);
+               g2d.setStroke(dashed);
+               g2d.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection.x,intersection.y);
+             //  g2d.dispose();g2d.draw
+           }
+             
            
            else if(typeRelation == EnumRelation.composition)
            {
@@ -227,49 +288,32 @@ public class UmlRelation {
         	 Point p13 = new Point() ;
         	 Point p14 = new Point() ;
         	 
-        	  if(pos==PositionEntity.down){
-        		 p11.setLocation(intersection.x-7, intersection.y+10);
-        		 p12.setLocation(intersection.x, intersection.y);
-        		 p13.setLocation(intersection.x+7,intersection.y+10);
-        		 p14.setLocation(intersection.x, intersection.y+20);
-        	 }
-        	  
-        	  else if(pos==PositionEntity.left){
-         		 p11.setLocation(intersection.x-14, intersection.y);
-         		 p12.setLocation(intersection.x-7, intersection.y-10);
-         		 p13.setLocation(intersection.x,intersection.y);
-         		 p14.setLocation(intersection.x-7, intersection.y+10);
-         	 }
-        	  
-        	  else if(pos==PositionEntity.top){
-          		 p11.setLocation(intersection.x-7, intersection.y-10);
-          		 p12.setLocation(intersection.x, intersection.y-20);
-          		 p13.setLocation(intersection.x+7,intersection.y-10);
-          		 p14.setLocation(intersection.x, intersection.y);
-          	 }
-        	         	  
-        	  else if(pos==PositionEntity.right){
-        		  p11.setLocation(intersection.x, intersection.y);
-          		 p12.setLocation(intersection.x+7, intersection.y-10);
-          		 p13.setLocation(intersection.x+14,intersection.y);
-          		 p14.setLocation(intersection.x+7, intersection.y+10);
-          	 }
+        	 calculPolygon(p11,p12,p13,p14,intersection);
+        	 
         	    int [] polx = {p11.x,p12.x,p13.x,p14.x};
         	    int [] poly = {p11.y,p12.y,p13.y,p14.y};
         	    
-        	    Polygon pol = new Polygon(polx,poly,4);   	    
+        	    Polygon pol = new Polygon(polx,poly,4);       
         	    g.fillPolygon(pol);
-               g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, intersection.x, intersection.y);
-                           
+                g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLine.x, endLine.y);                        
            }   
           
-           else   if(typeRelation == EnumRelation.heritage)
-        	    g.drawLine(p1.x, p1.y, p2.x, p2.y);
-        
-      /*     int xy= uml2.getWidth()/2+p2.x;
-           g.fillOval(intersection.x,intersection.y,30,30);
-           System.out.println("Class 1 X  : "+xy+" intersection : "+intersection.x);*/
+           else   if(typeRelation == EnumRelation.heritage){
+        	   
+        	  	 Point p11 = new Point() ;
+            	 Point p12 = new Point() ;
+            	 Point p13 = new Point() ;
+            	 Point p14 = new Point() ;
+            	 
+            	 calculPolygon(p11,p12,p13,p14,intersection);
+            	 
+            	    int [] polx = {p11.x,p12.x,p13.x};
+            	    int [] poly = {p11.y,p12.y,p13.y};
+
+                    g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLine.x, endLine.y); 
+                    g.drawPolygon(polx,poly,3);
+           }
+        	   
        }
        
-       
-}
+  }

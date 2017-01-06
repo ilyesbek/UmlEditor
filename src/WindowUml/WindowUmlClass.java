@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 
 import Uml.UmlEntityClass;
 import Uml.UmlTool.EnumEntity;
+import UmlOption.UmlOptionClass;
 import UmlOption.UmlOptionRelationChoice;
 /**
 *Author Yacine and Ilyes
@@ -94,6 +95,7 @@ public class WindowUmlClass extends JFrame {
 		    	  }
 		      } 	      
 		  }); 
+		
 }	
 
 public void insertPanel(JPanel  panelLeft,JPanel panelRight)
@@ -139,6 +141,14 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		      }  
 		  });
 		  
+		  labelLeft1.addMouseListener(new MouseAdapter()  
+		  {  
+		      public void mouseClicked(MouseEvent e)  
+		      {  
+		    	  currentCompenent=1;
+		      }  
+		  });
+		  
 		  labelLeft2.addMouseListener(new MouseAdapter()  
 		  {  
 		      public void mouseClicked(MouseEvent e)  
@@ -146,6 +156,15 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		    	  currentCompenent=2;
 		      }  
 		  });
+		  
+		  labelLeft3.addMouseListener(new MouseAdapter()  
+		  {  
+		      public void mouseClicked(MouseEvent e)  
+		      {  
+		    	  currentCompenent=3;
+		      }  
+		  });
+		  
 		  labelLeft4.addMouseListener(new MouseAdapter()  
 		  {  
 		      public void mouseClicked(MouseEvent e)  
@@ -153,6 +172,15 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		    	  currentCompenent=4;
        	      }  
 		  }); 	  
+		  
+		  labelLeft5.addMouseListener(new MouseAdapter()  
+		  {  
+		      public void mouseClicked(MouseEvent e)  
+		      {  
+		    	  currentCompenent=5;
+       	      }  
+		  }); 
+		  
 	  } catch (Exception ex) {
 		    System.out.println(ex);
 		  }
