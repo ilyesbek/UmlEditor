@@ -1,16 +1,12 @@
 package Uml.UmlTool;
 
 import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Polygon;
-import java.awt.Rectangle;
 import java.awt.Stroke;
 import java.awt.geom.Line2D;
-
-import javax.swing.JComponent;
 
 import Uml.Uml;
 
@@ -53,8 +49,7 @@ public class UmlRelation{
         		 System.out.println("gauche bas: ");
         		 pos = PositionEntity.left;      		 
         		 
-        		 Point intersect;
-          	     double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
+        		 double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
           	     double b = Math.sqrt(Math.pow(x2-(x2-uml2.getWidth()/2),2) + Math.pow(y2-y2,2));  //OE
           	     double c = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y2,2));        //OB
           	   
@@ -67,7 +62,6 @@ public class UmlRelation{
         		 System.out.println("bas gauche: ");
         		 pos = PositionEntity.down;
         		 
-        	     Point intersect;
         	     double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
         	     double b = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-(y2+uml2.getHeight()/2),2));  //OE
         	     double c = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-y1,2));        //OB
@@ -88,8 +82,7 @@ public class UmlRelation{
         		 System.out.println( "gauche haut: ");
         		 pos = PositionEntity.left;
         		 
-           	     Point intersect;
-        	     double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
+           	     double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
         	     double b = Math.sqrt(Math.pow(x2-(x2-uml2.getWidth()/2),2) + Math.pow(y2-y2,2));  //OE
         	     double c = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y2,2));        //OB
         	   
@@ -101,8 +94,7 @@ public class UmlRelation{
         		 System.out.println(" haut  gauche : ");
         		 pos = PositionEntity.top;
         		        		 
-         		 Point intersect;
-          	     double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
+         		 double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
           	     double b = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-(y2-uml2.getHeight()/2),2));  //OE
           	     double c = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-y1,2));        //OB
           	   
@@ -122,8 +114,7 @@ public class UmlRelation{
              	 System.out.println("haut droite : ");
              	 pos = PositionEntity.top;
            	   		 
-		         Point intersect;
-	             double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
+		         double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
 	             double b = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-(y2-uml2.getHeight()/2),2));  //OE
 	             double c = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-y1,2));        //OB
 	   
@@ -135,7 +126,6 @@ public class UmlRelation{
               	 System.out.println("droite haut: ");
               	 pos = PositionEntity.right;
            	 
-                Point intersect;
                 double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
                 double b = Math.sqrt(Math.pow(x2-(x2+uml2.getWidth()/2),2) + Math.pow(y2-y2,2));  //OE
                 double c = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y2,2));        //OB
@@ -155,7 +145,6 @@ public class UmlRelation{
            	     System.out.println("droite bas");
            	  pos = PositionEntity.right;
            	 
-                 Point intersect;
                  double a = Math.sqrt(Math.pow(x1-x1,2) + Math.pow(y1-y2,2));     //AB
                  double b = Math.sqrt(Math.pow(x2-(x2+uml2.getWidth()/2),2) + Math.pow(y2-y2,2));  //OE
                  double c = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y2,2));        //OB
@@ -168,8 +157,7 @@ public class UmlRelation{
             	 System.out.println("bas droite : ");
             	 pos = PositionEntity.down;
            	 
-                 Point intersect;
-    	         double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
+                 double a = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y1,2));     //AB
     	         double b = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-(y2+uml2.getHeight()/2),2));  //OE
     	         double c = Math.sqrt(Math.pow(x2-x2,2) + Math.pow(y2-y1,2));        //OB
     	   

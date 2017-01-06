@@ -3,12 +3,10 @@ package Uml;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import UmlOption.UmlOptionPacket;
-import UmlOption.UmlOptionUseCase;
 import WindowUml.PanelCenter;
 
 /**

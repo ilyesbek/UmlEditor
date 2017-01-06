@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 
 import Uml.UmlEntityClass;
 import Uml.UmlTool.EnumEntity;
-import UmlOption.UmlOptionClass;
 import UmlOption.UmlOptionRelationChoice;
 /**
 *Author Yacine and Ilyes
