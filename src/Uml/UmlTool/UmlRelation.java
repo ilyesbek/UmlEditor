@@ -201,7 +201,7 @@ public class UmlRelation{
 		return null;
   }
   
-       public void calculPolygon(Point p1, Point p2, Point p3, Point p4, Point intersection){
+       public void calculationPolygon(Point p1, Point p2, Point p3, Point p4, Point intersection){
     	  
        	  if(pos==PositionEntity.down){
      		 p1.setLocation(intersection.x-7, intersection.y+10);
@@ -210,16 +210,19 @@ public class UmlRelation{
      		 p4.setLocation(intersection.x, intersection.y+20); 
      		 
         	 endLine.setLocation(intersection.x,intersection.y+20);
-     	 }
+       		}       	 
+     	 
      	  
-     	  else if(pos==PositionEntity.left){
+     	  else if(pos==PositionEntity.left){ 
       		 p1.setLocation(intersection.x-14, intersection.y);
       		 p2.setLocation(intersection.x-7, intersection.y-10);
       		 p3.setLocation(intersection.x,intersection.y);
       		 p4.setLocation(intersection.x-7, intersection.y+10);
       		 
       		 endLine.setLocation(intersection.x-14,intersection.y);
-      	 }
+     		 }
+ 
+      	 
      	  
      	  else if(pos==PositionEntity.top){
        		 p1.setLocation(intersection.x-7, intersection.y-10);
@@ -239,6 +242,50 @@ public class UmlRelation{
        		 endLine.setLocation(intersection.x+14,intersection.y);
        	 }
        }
+       
+       public void calculationTriangle(Point p1, Point p2, Point p3,Point p4, Point intersection){
+     	  
+        	  if(pos==PositionEntity.down){
+      		 p1.setLocation(intersection.x-7, intersection.y+10);
+      		 p2.setLocation(intersection.x, intersection.y);
+      		 p3.setLocation(intersection.x+7,intersection.y+10);
+      		 p4.setLocation(intersection.x,intersection.y+10);
+      		 
+         	 endLine.setLocation(intersection.x,intersection.y+10);
+        		}       	 
+      	 
+      	  
+      	  else if(pos==PositionEntity.left){ 
+       		 p1.setLocation(intersection.x-10, intersection.y+7);
+       		 p2.setLocation(intersection.x-10, intersection.y-7);
+       		 p3.setLocation(intersection.x,intersection.y);
+       		 p4.setLocation(intersection.x-10, intersection.y+7);
+      		 
+       		 endLine.setLocation(intersection.x-10,intersection.y);
+      		 }
+  
+       	 
+      	  
+      	  else if(pos==PositionEntity.top){
+      		 p1.setLocation(intersection.x-7, intersection.y-10);
+      		 p2.setLocation(intersection.x, intersection.y);
+      		 p3.setLocation(intersection.x+7,intersection.y-10);
+      		 p4.setLocation(intersection.x,intersection.y);
+      		 
+         	 endLine.setLocation(intersection.x,intersection.y-10);
+        	 }
+      	         	  
+      	  else if(pos==PositionEntity.right){
+     		 p1.setLocation(intersection.x, intersection.y);
+       		 p2.setLocation(intersection.x+10, intersection.y-7);
+       		 p3.setLocation(intersection.x+10,intersection.y+7);
+       		 p4.setLocation(intersection.x+10, intersection.y+7);
+      		 
+       		 endLine.setLocation(intersection.x+10,intersection.y);
+        	 }
+        }
+       
+       
        
        public void draw(Graphics g) {
     	   
@@ -262,7 +309,7 @@ public class UmlRelation{
             	 Point p13 = new Point() ;
             	 Point p14 = new Point() ;
             	 
-            	 calculPolygon(p11,p12,p13,p14,intersection);
+            	 calculationPolygon(p11,p12,p13,p14,intersection);
             	 
             	    int [] polx = {p11.x,p12.x,p13.x,p14.x};
             	    int [] poly = {p11.y,p12.y,p13.y,p14.y};
@@ -288,7 +335,7 @@ public class UmlRelation{
         	 Point p13 = new Point() ;
         	 Point p14 = new Point() ;
         	 
-        	 calculPolygon(p11,p12,p13,p14,intersection);
+        	 calculationPolygon(p11,p12,p13,p14,intersection);
         	 
         	    int [] polx = {p11.x,p12.x,p13.x,p14.x};
         	    int [] poly = {p11.y,p12.y,p13.y,p14.y};
@@ -305,7 +352,7 @@ public class UmlRelation{
             	 Point p13 = new Point() ;
             	 Point p14 = new Point() ;
             	 
-            	 calculPolygon(p11,p12,p13,p14,intersection);
+            	 calculationTriangle(p11,p12,p13,p14,intersection);
             	 
             	    int [] polx = {p11.x,p12.x,p13.x};
             	    int [] poly = {p11.y,p12.y,p13.y};
