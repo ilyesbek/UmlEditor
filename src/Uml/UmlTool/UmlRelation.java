@@ -309,10 +309,26 @@ public class UmlRelation{
            
            else if(typeRelation == EnumRelation.dependance){
         	   Graphics2D g2d = (Graphics2D) g.create();
-        	   Stroke dashed = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0);
+        	   Stroke dashed = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{10}, 0);
                g2d.setStroke(dashed);
                g2d.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection.x,intersection.y);
-             //  g2d.dispose();g2d.draw
+
+              if(pos == PositionEntity.left){
+            	  g.drawLine(intersection.x-10, intersection.y-10, intersection.x, intersection.y);
+            	  g.drawLine(intersection.x-10, intersection.y+10, intersection.x, intersection.y);
+              }
+              else if(pos == PositionEntity.right){
+            	  g.drawLine(intersection.x, intersection.y, intersection.x+10, intersection.y-10);
+            	  g.drawLine(intersection.x, intersection.y, intersection.x+10, intersection.y+10);
+              }
+              if(pos == PositionEntity.top){
+            	  g.drawLine(intersection.x-10, intersection.y-10, intersection.x, intersection.y);
+            	  g.drawLine(intersection.x+10, intersection.y-10, intersection.x, intersection.y);
+              }
+              if(pos == PositionEntity.down){
+            	  g.drawLine(intersection.x-10, intersection.y-10, intersection.x, intersection.y);
+            	  g.drawLine(intersection.x-10, intersection.y-10, intersection.x, intersection.y);
+              }
            }
              
            

@@ -52,7 +52,6 @@ public class UmlEntityClass extends Uml{
 		add(listClass);
         add(new JSeparator(SwingConstants.HORIZONTAL));
 		add(listAttribute,BorderLayout.LINE_START);	
-		add(Box.createHorizontalGlue());
 		add(new JSeparator(SwingConstants.HORIZONTAL));
 		add(listMethod);
 	    	   
