@@ -22,23 +22,11 @@ public class PanelCenter extends JPanel{
 public ArrayList<UmlRelation> relation = new ArrayList<UmlRelation>();
 
 	public PanelCenter(){
-		super();
-		
-		this.addMouseListener(new MouseAdapter() {
-		    public void mouseClicked(MouseEvent e) { 
-		    	  if(e.getClickCount()==2){ 
-		    	   Component panel = (Component)e.getSource();
-		    	   System.out.println(panel.getName());
-		              if(relation != null){
-		            	  System.out.println("sss");
-		              }
-		         }
-		    }
-		});
+		super();	
 	}
 	
 	public  void addDraw(Uml uml1, Uml uml2,EnumRelation typeRelation) {
-		relation.add(new UmlRelation(uml1,uml2,typeRelation));
+		relation.add(new UmlRelation(uml1,uml2,typeRelation,this));
         repaint();
 	}
 	
