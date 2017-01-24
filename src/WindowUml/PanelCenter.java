@@ -1,9 +1,6 @@
 package WindowUml;
 
-import java.awt.Component;
 import java.awt.Graphics;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;

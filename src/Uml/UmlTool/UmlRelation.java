@@ -1,18 +1,21 @@
 package Uml.UmlTool;
 
 import java.awt.BasicStroke;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.Stroke;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
 
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Uml.Uml;
+import UmlOption.UmlOptionCardinality;
 
 /**
  * @author Yacine
@@ -26,8 +29,8 @@ public class UmlRelation{
        private PositionEntity pos= null;
        private Point endLineDraw = new Point();
        
-       private JLabel cardinality1 = new JLabel("0000");
-       private JLabel cardinality2 = new JLabel("0...N*");
+       private JLabel cardinality1 = new JLabel("0",JLabel.CENTER);
+       private JLabel cardinality2 = new JLabel("0",JLabel.CENTER);
        private final int cardinalityXPos1 = 16;
        private final int cardinalityYPos1 = 21;
        
@@ -37,18 +40,43 @@ public class UmlRelation{
            this.uml1 = uml1;
            this.uml2 = uml2;
            typeRelation = type;
-           cardinality2.setSize(30,15);cardinality2.setOpaque(true);
+           cardinality2.setSize(30,15);
+           cardinality1.setSize(30,15);
+           
+           cardinality1.setHorizontalTextPosition(JLabel.CENTER);
+           cardinality2.setAlignmentX(Component.CENTER_ALIGNMENT);
+           
+           panel.add(cardinality1);
            panel.add(cardinality2);
-       //    panel.add(cardinality2);
+           
+           cardinality1.addMouseListener(new MouseAdapter() {
+		    public void mouseClicked(MouseEvent e) { 
+		    	  if(e.getClickCount()==2){
+		             new UmlOptionCardinality(cardinality1);  
+		         }
+		    }
+		});
+       	
+       cardinality2.addMouseListener(new MouseAdapter() {
+		    public void mouseClicked(MouseEvent e) { 
+		    	  if(e.getClickCount()==2){
+		             new UmlOptionCardinality(cardinality2);  
+		         }
+		    }
+		});
        }
        
       /*This fonction calcul the intersection with line and entity , use method thales for this */
-       public Point calculIntersection()
+       public Point calculIntersection(Uml uml1, Uml uml2,int numberCardinality)
        {        
            int x1 = uml1.getX()+(uml1.getWidth()/2);
            int x2 = uml2.getX()+(uml2.getWidth()/2);
            int y1 = uml1.getY()+(uml1.getHeight()/2);
            int y2 = uml2.getY()+(uml2.getHeight()/2);
+           
+           JLabel cardinality = null;
+           if(numberCardinality == 0) cardinality = cardinality1;
+           else cardinality = cardinality2;
            
            //left down
          if(x1 < x2 && y1 > y2){ 
@@ -67,7 +95,7 @@ public class UmlRelation{
           	   
          	     int d = (int) ((a*b)/c); 
          	     
-         	     cardinality2.setLocation(uml2.getX()-cardinality2.getWidth()-cardinalityXPos1,y2+d-cardinality2.getHeight());
+         	    cardinality.setLocation(uml2.getX()-cardinality.getWidth()-cardinalityXPos1,y2+d-cardinality.getHeight());
         	     return new Point (uml2.getX(),y2+d);
         	}
         	
@@ -82,7 +110,7 @@ public class UmlRelation{
         	   
         	     int d = (int) ((a*b)/c); 
         	     
-        	     cardinality2.setLocation(x2-d,uml2.getHeight()+uml2.getY()+cardinalityYPos1);
+        	     cardinality.setLocation(x2-d,uml2.getHeight()+uml2.getY()+cardinalityYPos1);
         	     return new Point (x2-d,uml2.getHeight()+uml2.getY());
         	}
         	 
@@ -104,7 +132,7 @@ public class UmlRelation{
         	   
             	 int d = (int) ((a*b)/c); 
             	 
-            	 cardinality2.setLocation(uml2.getX()-cardinality2.getWidth()-cardinalityXPos1,y2-d);
+            	 cardinality.setLocation(uml2.getX()-cardinality.getWidth()-cardinalityXPos1,y2-d);
       	         return new Point (uml2.getX(),y2-d);
         	}
         	//up
@@ -118,7 +146,7 @@ public class UmlRelation{
           	   
          	     int d = (int) ((a*b)/c); 
          	     
-         	     cardinality2.setLocation(x2-d,uml2.getY()-cardinality2.getHeight()-cardinalityYPos1);
+         	     cardinality.setLocation(x2-d,uml2.getY()-cardinality.getHeight()-cardinalityYPos1);
         	     return new Point (x2-d,uml2.getY());
         	}
          }
@@ -140,7 +168,7 @@ public class UmlRelation{
 	   
 	             int d = (int) ((a*b)/c); 
 	             
-	            cardinality2.setLocation(x2+d-cardinality2.getWidth(),uml2.getY()-cardinality2.getHeight()-cardinalityYPos1);
+	            cardinality.setLocation(x2+d-cardinality.getWidth(),uml2.getY()-cardinality.getHeight()-cardinalityYPos1);
                  return new Point (x2+d,uml2.getY());
              }
            	//right
@@ -154,7 +182,7 @@ public class UmlRelation{
    
                 int d = (int) ((a*b)/c); 
                 
-                cardinality2.setLocation(uml2.getX()+uml2.getWidth()+cardinalityXPos1,y2-d);
+                cardinality.setLocation(uml2.getX()+uml2.getWidth()+cardinalityXPos1,y2-d);
                 return new Point (uml2.getX()+uml2.getWidth(),y2-d);
            	}
          }
@@ -175,7 +203,7 @@ public class UmlRelation{
 
                  int d = (int) ((a*b)/c); 
                  
-                 cardinality2.setLocation(uml2.getX()+uml2.getWidth()+cardinalityXPos1,y2+d-cardinality2.getHeight());
+                 cardinality.setLocation(uml2.getX()+uml2.getWidth()+cardinalityXPos1,y2+d-cardinality.getHeight());
                  return new Point (uml2.getX()+uml2.getWidth(),y2+d);
            	}
            	//down
@@ -189,7 +217,7 @@ public class UmlRelation{
     	   
     	         int d = (int) ((a*b)/c); 
     	         
-    	         cardinality2.setLocation(x2+d-cardinality2.getWidth(),uml2.getHeight()+uml2.getY()+cardinalityYPos1);
+    	         cardinality.setLocation(x2+d-cardinality.getWidth(),uml2.getHeight()+uml2.getY()+cardinalityYPos1);
     	         return new Point (x2+d,uml2.getHeight()+uml2.getY());
            	}
          }
@@ -197,25 +225,25 @@ public class UmlRelation{
          // center top
          else if(x1 == x2 && y1 < y2 ){
         	 pos = PositionEntity.top;
-        	  cardinality2.setLocation((uml2.getX()+uml2.getWidth()/2),uml2.getY()-cardinality2.getHeight()-cardinalityYPos1);
+        	  cardinality.setLocation((uml2.getX()+uml2.getWidth()/2),uml2.getY()-cardinality.getHeight()-cardinalityYPos1);
         	  return new Point (x2,y2-uml2.getHeight()/2);
          }
          // center right
          else if(x2 < x1 && y1 == y2){
         	 pos = PositionEntity.right;
-        	 cardinality2.setLocation(uml2.getX()+uml2.getWidth()+cardinalityXPos1,uml2.getY()+uml2.getHeight()/2-cardinality2.getHeight());
+        	 cardinality.setLocation(uml2.getX()+uml2.getWidth()+cardinalityXPos1,uml2.getY()+uml2.getHeight()/2-cardinality.getHeight());
         	 return new Point (uml2.getX()+uml2.getWidth(),y2);
          }
          //center down
          else if (x1 == x2 && y2 < y1){
         	 pos = PositionEntity.down;
-        	 cardinality2.setLocation(uml2.getX()+uml2.getWidth()/2,uml2.getY()+uml2.getHeight()+cardinalityYPos1);
+        	 cardinality.setLocation(uml2.getX()+uml2.getWidth()/2,uml2.getY()+uml2.getHeight()+cardinalityYPos1);
         	 return new Point (x2,uml2.getY()+uml2.getHeight());
          } 
          //center left
          else if(x1 < x2 && y1 == y2 ){
         	 pos = PositionEntity.left;
-        	 cardinality2.setLocation(uml2.getX()-cardinality2.getWidth()-cardinalityXPos1,uml2.getY()+uml2.getHeight()/2-cardinality2.getHeight());
+        	 cardinality.setLocation(uml2.getX()-cardinality.getWidth()-cardinalityXPos1,uml2.getY()+uml2.getHeight()/2-cardinality.getHeight());
         	 return new Point (uml2.getX(),y2);
          }
 		return null;
@@ -302,45 +330,15 @@ public class UmlRelation{
         	 }
         }
       
-       /*Calcul position cardinality*/
-       public void calculPositionCardinality(Point intersection){
-    	   
-    	   int x = intersection.x;
-    	   int y = intersection.y;
-    	   if(pos == PositionEntity.top){
-    		   
-    		//   cardinality2.setLocation(x,y - cardinality2.getHeight());
-    	   }
-    	   else if(pos== PositionEntity.down){
-    		
-    		 //  cardinality2.setLocation(x+5,y + cardinality2.getHeight());
-    	   }
-    	   else    if(pos== PositionEntity.left){
-	   
-        	/* int heightTriangle =(int) Math.sqrt(Math.pow(x-x,2) + Math.pow(uml1.getY()/2-y,2)); 
-        	 int widthTriangle  = (int) Math.sqrt(Math.pow(uml1.getX()/2+x,2) + Math.pow(uml1.getY()/2-uml1.getY()/2,2)); 
-        	 int hypotenuse = (int) ( Math.sqrt((Math.pow(heightTriangle,2)+Math.pow(widthTriangle ,2)) *0.7));*/
-        	 
-        	// cardinality2.setLocation((x-20),(int) (y-hypotenuse*0.1) );
-    		 //  cardinality2.setLocation(x-5,y - cardinality2.getHeight());
-         }
-    	   else   if(pos== PositionEntity.right){
-	   
-    		 //  cardinality2.setLocation(x+5,y+ cardinality2.getHeight());
-    		   
-          	/* int heightTriangle =(int) Math.sqrt(Math.pow(x-x,2) + Math.pow(uml1.getY()/2-y,2)); 
-          	 int widthTriangle  = (int) Math.sqrt(Math.pow(x-uml1.getX()/2,2) + Math.pow(uml1.getY()/2-uml1.getY()/2,2)); 
-          	 int hypotenuse = (int) ( Math.sqrt((Math.pow(heightTriangle,2)+Math.pow(widthTriangle ,2)) *0.7));*/
-          }
-     }
-       
+
        public void draw(Graphics g) {
     	   
            Point p1 = uml1.getLocation();
            Point p2 =uml2.getLocation();
            
-           Point intersection = calculIntersection();
-           calculPositionCardinality(intersection);
+           Point intersection2 = calculIntersection(uml2,uml1,0);
+           Point intersection1 = calculIntersection(uml1,uml2,1);
+        
            
       //     if(p1.getX()+uml1.getWidth()< p2.x)
         	   
@@ -350,7 +348,7 @@ public class UmlRelation{
            g.setColor(Color.darkGray);*/
            
            if(typeRelation == EnumRelation.association)
-      	      g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection.x,intersection.y);
+      	      g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection1.x,intersection1.y);
            
            else if(typeRelation == EnumRelation.aggregation){
         		 Point p11 = new Point() ;
@@ -358,7 +356,7 @@ public class UmlRelation{
             	 Point p13 = new Point() ;
             	 Point p14 = new Point() ;
             	 
-            	 calculationPolygon(p11,p12,p13,p14,intersection);
+            	 calculationPolygon(p11,p12,p13,p14,intersection1);
             	 
             	    int [] polx = {p11.x,p12.x,p13.x,p14.x};
             	    int [] poly = {p11.y,p12.y,p13.y,p14.y};
@@ -372,23 +370,23 @@ public class UmlRelation{
         	   Graphics2D g2d = (Graphics2D) g.create();
         	   Stroke dashed = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{10}, 0);
                g2d.setStroke(dashed);
-               g2d.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection.x,intersection.y);
+               g2d.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection1.x,intersection1.y);
 
               if(pos == PositionEntity.left){
-            	  g.drawLine(intersection.x-10, intersection.y-10, intersection.x, intersection.y);
-            	  g.drawLine(intersection.x-10, intersection.y+10, intersection.x, intersection.y);
+            	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
+            	  g.drawLine(intersection1.x-10, intersection1.y+10, intersection1.x, intersection1.y);
               }
               else if(pos == PositionEntity.right){
-            	  g.drawLine(intersection.x, intersection.y, intersection.x+10, intersection.y-10);
-            	  g.drawLine(intersection.x, intersection.y, intersection.x+10, intersection.y+10);
+            	  g.drawLine(intersection1.x, intersection1.y, intersection1.x+10, intersection1.y-10);
+            	  g.drawLine(intersection1.x, intersection1.y, intersection1.x+10, intersection1.y+10);
               }
               if(pos == PositionEntity.top){
-            	  g.drawLine(intersection.x-10, intersection.y-10, intersection.x, intersection.y);
-            	  g.drawLine(intersection.x+10, intersection.y-10, intersection.x, intersection.y);
+            	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
+            	  g.drawLine(intersection1.x+10, intersection1.y-10, intersection1.x, intersection1.y);
               }
               if(pos == PositionEntity.down){
-            	  g.drawLine(intersection.x-10, intersection.y-10, intersection.x, intersection.y);
-            	  g.drawLine(intersection.x-10, intersection.y-10, intersection.x, intersection.y);
+            	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
+            	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
               }
            }
              
@@ -400,7 +398,7 @@ public class UmlRelation{
         	 Point p13 = new Point() ;
         	 Point p14 = new Point() ;
         	 
-        	 calculationPolygon(p11,p12,p13,p14,intersection);
+        	 calculationPolygon(p11,p12,p13,p14,intersection1);
         	 
         	    int [] polx = {p11.x,p12.x,p13.x,p14.x};
         	    int [] poly = {p11.y,p12.y,p13.y,p14.y};
@@ -417,7 +415,7 @@ public class UmlRelation{
             	 Point p13 = new Point() ;
             	 Point p14 = new Point() ;
             	 
-            	 calculationTriangle(p11,p12,p13,p14,intersection);
+            	 calculationTriangle(p11,p12,p13,p14,intersection1);
             	 
             	    int [] polx = {p11.x,p12.x,p13.x};
             	    int [] poly = {p11.y,p12.y,p13.y};
