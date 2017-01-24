@@ -27,11 +27,9 @@ public class UmlRelation{
        private Point endLineDraw = new Point();
        
        private JLabel cardinality1 = new JLabel("0000");
-       private JLabel cardinality2 = new JLabel("pane2");
-       
-         
-       private Point cardinalityPosUml1 = new Point ();
-       private Point cardinalityPosUml2 = new  Point ();
+       private JLabel cardinality2 = new JLabel("0...N*");
+       private final int cardinalityXPos1 = 16;
+       private final int cardinalityYPos1 = 21;
        
        private EnumRelation typeRelation;
        
@@ -39,8 +37,8 @@ public class UmlRelation{
            this.uml1 = uml1;
            this.uml2 = uml2;
            typeRelation = type;
-           cardinality1.setSize(100,100);
-           panel.add(cardinality1);
+           cardinality2.setSize(30,15);cardinality2.setOpaque(true);
+           panel.add(cardinality2);
        //    panel.add(cardinality2);
        }
        
@@ -69,7 +67,7 @@ public class UmlRelation{
           	   
          	     int d = (int) ((a*b)/c); 
          	     
-         	 //    calculPositionCardinality(x2-uml2.getWidth()/2,y2+d,PositionEntity.left);
+         	     cardinality2.setLocation(uml2.getX()-cardinality2.getWidth()-cardinalityXPos1,y2+d-cardinality2.getHeight());
         	     return new Point (uml2.getX(),y2+d);
         	}
         	
@@ -84,7 +82,7 @@ public class UmlRelation{
         	   
         	     int d = (int) ((a*b)/c); 
         	     
-        	    // calculPositionCardinality(x2-d,y2+uml2.getHeight()/2,PositionEntity.down);
+        	     cardinality2.setLocation(x2-d,uml2.getHeight()+uml2.getY()+cardinalityYPos1);
         	     return new Point (x2-d,uml2.getHeight()+uml2.getY());
         	}
         	 
@@ -106,7 +104,7 @@ public class UmlRelation{
         	   
             	 int d = (int) ((a*b)/c); 
             	 
-            	// calculPositionCardinality(x2-uml2.getWidth()/2,y2-d,PositionEntity.left);
+            	 cardinality2.setLocation(uml2.getX()-cardinality2.getWidth()-cardinalityXPos1,y2-d);
       	         return new Point (uml2.getX(),y2-d);
         	}
         	//up
@@ -120,7 +118,7 @@ public class UmlRelation{
           	   
          	     int d = (int) ((a*b)/c); 
          	     
-         	//    calculPositionCardinality(x2-d,y2-uml2.getHeight()/2,PositionEntity.top);
+         	     cardinality2.setLocation(x2-d,uml2.getY()-cardinality2.getHeight()-cardinalityYPos1);
         	     return new Point (x2-d,uml2.getY());
         	}
          }
@@ -142,7 +140,7 @@ public class UmlRelation{
 	   
 	             int d = (int) ((a*b)/c); 
 	             
-	        //     calculPositionCardinality(x2+d,y2-uml2.getHeight()/2,PositionEntity.top);
+	            cardinality2.setLocation(x2+d-cardinality2.getWidth(),uml2.getY()-cardinality2.getHeight()-cardinalityYPos1);
                  return new Point (x2+d,uml2.getY());
              }
            	//right
@@ -156,7 +154,7 @@ public class UmlRelation{
    
                 int d = (int) ((a*b)/c); 
                 
-           //     calculPositionCardinality(x2+uml2.getWidth()/2,y2-d,PositionEntity.right);
+                cardinality2.setLocation(uml2.getX()+uml2.getWidth()+cardinalityXPos1,y2-d);
                 return new Point (uml2.getX()+uml2.getWidth(),y2-d);
            	}
          }
@@ -177,7 +175,7 @@ public class UmlRelation{
 
                  int d = (int) ((a*b)/c); 
                  
-            //     calculPositionCardinality(x2+uml2.getWidth()/2,y2+d,PositionEntity.right);
+                 cardinality2.setLocation(uml2.getX()+uml2.getWidth()+cardinalityXPos1,y2+d-cardinality2.getHeight());
                  return new Point (uml2.getX()+uml2.getWidth(),y2+d);
            	}
            	//down
@@ -191,33 +189,33 @@ public class UmlRelation{
     	   
     	         int d = (int) ((a*b)/c); 
     	         
-    	     //    calculPositionCardinality(x2+d,y2+uml2.getHeight()/2,PositionEntity.down);
-    	         return new Point (x2+d,+uml2.getHeight()+uml2.getY());
+    	         cardinality2.setLocation(x2+d-cardinality2.getWidth(),uml2.getHeight()+uml2.getY()+cardinalityYPos1);
+    	         return new Point (x2+d,uml2.getHeight()+uml2.getY());
            	}
          }
          
          // center top
          else if(x1 == x2 && y1 < y2 ){
         	 pos = PositionEntity.top;
-        	// calculPositionCardinality(x2,y2-uml2.getHeight()/2,PositionEntity.top);
-        	  return new Point (x2,uml2.getHeight());
+        	  cardinality2.setLocation((uml2.getX()+uml2.getWidth()/2),uml2.getY()-cardinality2.getHeight()-cardinalityYPos1);
+        	  return new Point (x2,y2-uml2.getHeight()/2);
          }
          // center right
          else if(x2 < x1 && y1 == y2){
         	 pos = PositionEntity.right;
-        	// calculPositionCardinality(x2+uml2.getWidth(),y2,PositionEntity.right);
+        	 cardinality2.setLocation(uml2.getX()+uml2.getWidth()+cardinalityXPos1,uml2.getY()+uml2.getHeight()/2-cardinality2.getHeight());
         	 return new Point (uml2.getX()+uml2.getWidth(),y2);
          }
          //center down
          else if (x1 == x2 && y2 < y1){
         	 pos = PositionEntity.down;
-        	// calculPositionCardinality(x2,y2+uml2.getHeight()/2,PositionEntity.down);
+        	 cardinality2.setLocation(uml2.getX()+uml2.getWidth()/2,uml2.getY()+uml2.getHeight()+cardinalityYPos1);
         	 return new Point (x2,uml2.getY()+uml2.getHeight());
          } 
          //center left
          else if(x1 < x2 && y1 == y2 ){
         	 pos = PositionEntity.left;
-        	// calculPositionCardinality(x2-uml2.getWidth()/2,y2,PositionEntity.left);
+        	 cardinality2.setLocation(uml2.getX()-cardinality2.getWidth()-cardinalityXPos1,uml2.getY()+uml2.getHeight()/2-cardinality2.getHeight());
         	 return new Point (uml2.getX(),y2);
          }
 		return null;
@@ -311,21 +309,28 @@ public class UmlRelation{
     	   int y = intersection.y;
     	   if(pos == PositionEntity.top){
     		   
-    		   cardinality1.setLocation((x),(int) (50) );
+    		//   cardinality2.setLocation(x,y - cardinality2.getHeight());
     	   }
     	   else if(pos== PositionEntity.down){
-    		   
+    		
+    		 //  cardinality2.setLocation(x+5,y + cardinality2.getHeight());
     	   }
     	   else    if(pos== PositionEntity.left){
 	   
-        	 int heightTriangle =(int) Math.sqrt(Math.pow(x-x,2) + Math.pow(uml1.getY()-y,2)); 
-        	 int widthTriangle  = (int) Math.sqrt(Math.pow(uml1.getX()/2-x,2) + Math.pow(uml1.getY()/2-uml1.getY()/2,2)); 
-        	 int hypotenuse = (int) ( Math.sqrt((Math.pow(heightTriangle,2)+Math.pow(widthTriangle ,2)) *0.7));
+        	/* int heightTriangle =(int) Math.sqrt(Math.pow(x-x,2) + Math.pow(uml1.getY()/2-y,2)); 
+        	 int widthTriangle  = (int) Math.sqrt(Math.pow(uml1.getX()/2+x,2) + Math.pow(uml1.getY()/2-uml1.getY()/2,2)); 
+        	 int hypotenuse = (int) ( Math.sqrt((Math.pow(heightTriangle,2)+Math.pow(widthTriangle ,2)) *0.7));*/
         	 
-        	 cardinality1.setLocation((x-20),(int) (y) );
+        	// cardinality2.setLocation((x-20),(int) (y-hypotenuse*0.1) );
+    		 //  cardinality2.setLocation(x-5,y - cardinality2.getHeight());
          }
     	   else   if(pos== PositionEntity.right){
 	   
+    		 //  cardinality2.setLocation(x+5,y+ cardinality2.getHeight());
+    		   
+          	/* int heightTriangle =(int) Math.sqrt(Math.pow(x-x,2) + Math.pow(uml1.getY()/2-y,2)); 
+          	 int widthTriangle  = (int) Math.sqrt(Math.pow(x-uml1.getX()/2,2) + Math.pow(uml1.getY()/2-uml1.getY()/2,2)); 
+          	 int hypotenuse = (int) ( Math.sqrt((Math.pow(heightTriangle,2)+Math.pow(widthTriangle ,2)) *0.7));*/
           }
      }
        
@@ -343,6 +348,7 @@ public class UmlRelation{
         	   
            else if(p2.x < p1.x)   
            g.setColor(Color.darkGray);*/
+           
            if(typeRelation == EnumRelation.association)
       	      g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection.x,intersection.y);
            
