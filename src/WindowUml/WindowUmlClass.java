@@ -61,6 +61,24 @@ public class WindowUmlClass extends JFrame {
 		this.add(panelLeft,BorderLayout.LINE_START); // add panel left in left jframe
 		this.add(panelCenter,BorderLayout.CENTER);// add pannel right in center jframe	
 		this.add(panelRight,BorderLayout.LINE_END);// add pannel right in right jframe
+		
+		JMenuBar menubar = new JMenuBar();
+		JMenu file = new JMenu("File");
+		menubar.add(file);
+		JMenuItem clear = new JMenuItem("Clear");
+		file.add(clear);
+		setJMenuBar(menubar);
+		
+		  clear.addActionListener(new ActionListener() {
+
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	              panelCenter.removeAll();
+	              panelCenter.removeRelation();
+	              listUmlEntityClass.clear();
+	              panelCenter.updateUI();
+	            }
+	        });
 
 		panelCenter.addMouseListener(new MouseAdapter()  
 		  {  

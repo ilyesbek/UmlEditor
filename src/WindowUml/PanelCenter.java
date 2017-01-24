@@ -34,6 +34,9 @@ public ArrayList<UmlRelation> relation = new ArrayList<UmlRelation>();
 	            e.draw(g);
 	        }
 		}
+	public void removeRelation(){
+		relation.clear();
+	}
 }
 
 

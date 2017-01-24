@@ -47,16 +47,21 @@ public class UmlEntityClass extends Uml{
 	    listMethod .setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 	    listMethod .setVisibleRowCount(-1);
 	    
-	    Container pan = new Container();	 
+	 //   JPanel pan = new JPanel();	 
+	    JSeparator jSeparator1= new JSeparator(SwingConstants.HORIZONTAL);
+	  //  pan.setLayout(new BoxLayout(pan, BoxLayout.PAGE_AXIS));
+	    add (nameClass);
+	 //   add(new JSeparator(SwingConstants.HORIZONTAL));
 	    
-	   // pan.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-	    pan.add (nameClass);
-	   // add(new JSeparator(SwingConstants.VERTICAL));
-	   pan.add(listAttribute);	
-	   //add(new JSeparator(SwingConstants.VERTICAL));
-	   pan.add(listMethod);
+	    jSeparator1.setForeground(new java.awt.Color(255, 51, 51));
+	    //jSeparator1.setBorder(new LineBorder(Color.black, 1, false));
+   //     jSeparator1.setPreferredSize(new java.awt.Dimension(1, 20));
+        add(jSeparator1);
+	    add(listAttribute,BorderLayout.LINE_START);	
+	 //   add(new JSeparator(SwingConstants.HORIZONTAL));
+	    add(listMethod,BorderLayout.LINE_START);
 	 
-	 add(pan)  	;   
+	// add(pan)  	;   
 		this.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent e) { 
 		    	  if(e.getClickCount()==2){

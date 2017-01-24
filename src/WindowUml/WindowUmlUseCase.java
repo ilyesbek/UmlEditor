@@ -59,6 +59,27 @@ public class WindowUmlUseCase extends JFrame {
 		    setAlwaysOnTop(true);
 			setLocationRelativeTo(null);
 			
+			JMenuBar menubar = new JMenuBar();
+			JMenu file = new JMenu("File");
+			menubar.add(file);
+			JMenuItem clear = new JMenuItem("Clear");
+			file.add(clear);
+			setJMenuBar(menubar);
+			
+			  clear.addActionListener(new ActionListener() {
+
+		            @Override
+		            public void actionPerformed(ActionEvent e) {
+		              panelCenter.removeAll();
+		              panelCenter.removeRelation();
+		              listUmlUseCase.clear();
+		              listUmlCircle.clear();
+		              listUmlActor.clear();
+		              panelCenter.updateUI();
+		            }
+		        });
+
+			  
 			insertPanel(panelLeft,panelRight);
 			this.add(panelLeft,BorderLayout.LINE_START); // add panel left in left jframe
 			this.add(panelCenter,BorderLayout.CENTER);// add pannel right in center jframe	
