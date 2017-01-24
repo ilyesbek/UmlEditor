@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Uml.Uml;
@@ -26,6 +27,7 @@ public class UmlRelation{
   
        private Uml uml1;
        private Uml uml2;
+       private boolean self =false;
        private PositionEntity pos= null;
        private Point endLineDraw = new Point();
        
@@ -39,6 +41,8 @@ public class UmlRelation{
        public UmlRelation(Uml uml1, Uml uml2,EnumRelation type, JPanel panel) {
            this.uml1 = uml1;
            this.uml2 = uml2;
+           
+           if(uml1==uml2) self=true;
            typeRelation = type;
            cardinality2.setSize(30,15);
            cardinality1.setSize(30,15);
@@ -334,21 +338,36 @@ public class UmlRelation{
        public void draw(Graphics g) {
     	   
            Point p1 = uml1.getLocation();
-           Point p2 =uml2.getLocation();
+           Point intersection1 = null ;
+           Point l31 = null;
            
-           Point intersection2 = calculIntersection(uml2,uml1,0);
-           Point intersection1 = calculIntersection(uml1,uml2,1);
-        
+          if(!self){ 
+           calculIntersection(uml2,uml1,0);
+           intersection1 = calculIntersection(uml1,uml2,1);
+          }
+          else 
+          {
+        	Point l11 = new Point(uml1.getX()+uml1.getWidth(),(int) (uml1.getY()+uml1.getHeight()*0.1));  
+        	Point l12 = new Point(uml1.getX()+uml1.getWidth()+30,(int) (uml1.getY()+uml1.getHeight()*0.1)); 
+        	
+        	Point l21 = new Point(uml1.getX()+uml1.getWidth()+30,(int) (uml1.getY()+uml1.getHeight()*0.1)); 
+        	Point l22 = new Point(uml1.getX()+uml1.getWidth()+30,(int) (uml1.getY()+uml1.getHeight()*0.8)); 
+        	        	
+        	 l31 = new Point(uml1.getX()+uml1.getWidth()+30,(int) (uml1.getY()+uml1.getHeight()*0.8)); 
+            intersection1 =  new Point(uml1.getX()+uml1.getWidth(),(int) (uml1.getY()+uml1.getHeight()*0.8)); 
+            
+            g.drawLine(l11.x, l11.y,l12.x,l12.y);
+            g.drawLine(l21.x, l21.y,l22.x,l22.y);
+            
+     	    pos=PositionEntity.right;
+     	  
+          }
+
            
-      //     if(p1.getX()+uml1.getWidth()< p2.x)
-        	   
-     /*      else if(p1.x+uml1.getHeight()<p2.x){}
-        	   
-           else if(p2.x < p1.x)   
-           g.setColor(Color.darkGray);*/
-           
-           if(typeRelation == EnumRelation.association)
-      	      g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection1.x,intersection1.y);
+           if(typeRelation == EnumRelation.association){
+      	      if(!self) g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection1.x,intersection1.y);
+      	    else  g.drawLine(intersection1.x, intersection1.y,l31.x,l31.y);
+           }
            
            else if(typeRelation == EnumRelation.aggregation){
         		 Point p11 = new Point() ;
@@ -356,13 +375,16 @@ public class UmlRelation{
             	 Point p13 = new Point() ;
             	 Point p14 = new Point() ;
             	 
+          
             	 calculationPolygon(p11,p12,p13,p14,intersection1);
             	 
             	    int [] polx = {p11.x,p12.x,p13.x,p14.x};
             	    int [] poly = {p11.y,p12.y,p13.y,p14.y};
             	                   	   
-            	    g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLineDraw.x, endLineDraw.y); 
+            	    if(!self) g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLineDraw.x, endLineDraw.y); 
+            	    else  g.drawLine(intersection1.x+15, intersection1.y,l31.x,l31.y);
                     g.drawPolygon(polx,poly,4);
+                
            }
                
            
@@ -377,14 +399,16 @@ public class UmlRelation{
             	  g.drawLine(intersection1.x-10, intersection1.y+10, intersection1.x, intersection1.y);
               }
               else if(pos == PositionEntity.right){
+            	 if(!self){
             	  g.drawLine(intersection1.x, intersection1.y, intersection1.x+10, intersection1.y-10);
             	  g.drawLine(intersection1.x, intersection1.y, intersection1.x+10, intersection1.y+10);
+            	 }else JOptionPane.showMessageDialog(null, "Une clas ne peut etre dépendente d'elle meme", "Warning",JOptionPane.WARNING_MESSAGE);
               }
-              if(pos == PositionEntity.top){
+              else   if(pos == PositionEntity.top){
             	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
             	  g.drawLine(intersection1.x+10, intersection1.y-10, intersection1.x, intersection1.y);
               }
-              if(pos == PositionEntity.down){
+              else if(pos == PositionEntity.down){
             	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
             	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
               }
@@ -405,7 +429,8 @@ public class UmlRelation{
         	    
         	    Polygon pol = new Polygon(polx,poly,4);       
         	    g.fillPolygon(pol);
-                g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLineDraw.x, endLineDraw.y);      
+            if(!self) g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLineDraw.x, endLineDraw.y);      
+            else  g.drawLine(intersection1.x+15, intersection1.y,l31.x,l31.y);
            }   
           
            else   if(typeRelation == EnumRelation.heritage){
@@ -420,7 +445,8 @@ public class UmlRelation{
             	    int [] polx = {p11.x,p12.x,p13.x};
             	    int [] poly = {p11.y,p12.y,p13.y};
 
-                    g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLineDraw.x, endLineDraw.y); 
+                  if(!self)  g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLineDraw.x, endLineDraw.y); 
+                  else JOptionPane.showMessageDialog(null, "la class n'hérite pas d'elle meme", "Warning",JOptionPane.WARNING_MESSAGE);
                     g.drawPolygon(polx,poly,3);
            }
         

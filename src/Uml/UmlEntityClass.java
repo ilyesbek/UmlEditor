@@ -11,6 +11,7 @@ import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
@@ -26,7 +27,7 @@ import WindowUml.PanelCenter;
 public class UmlEntityClass extends Uml{
 	
 	private static final long serialVersionUID = 1L;
-	private JLabel nameClass = new JLabel("Class",JLabel.CENTER);	
+	private JLabel nameClass = new JLabel("Class");	
 	private DefaultListModel<String> modelAttribute = new DefaultListModel<String>();	
 	private DefaultListModel<String> modelMethod = new DefaultListModel<String>();	
 	
@@ -44,12 +45,16 @@ public class UmlEntityClass extends Uml{
 	    
 	    listMethod .setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 	    listMethod .setVisibleRowCount(-1);
-	    		
+	    
+	    JPanel pan = new JPanel();	 
+	    
+	  //  pan.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 	    add (nameClass);
-        add(new JSeparator(SwingConstants.HORIZONTAL));
-		add(listAttribute,BorderLayout.LINE_START);	
-		add(new JSeparator(SwingConstants.HORIZONTAL));
-		add(listMethod);
+	    add(new JSeparator(SwingConstants.VERTICAL));
+	    add(listAttribute);	
+	   add(new JSeparator(SwingConstants.VERTICAL));
+	    add(listMethod);
+	 
 	    	   
 		this.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent e) { 
