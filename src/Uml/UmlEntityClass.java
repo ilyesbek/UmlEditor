@@ -48,17 +48,20 @@ public class UmlEntityClass extends Uml{
 	    listMethod .setVisibleRowCount(-1);
 	    
 	 //   JPanel pan = new JPanel();	 
-	    JSeparator jSeparator1= new JSeparator(SwingConstants.HORIZONTAL);
-	  //  pan.setLayout(new BoxLayout(pan, BoxLayout.PAGE_AXIS));
+	 //   JSeparator jSeparator1= new JSeparator(SwingConstants.HORIZONTAL);
+	  setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+	  
 	    add (nameClass);
 	 //   add(new JSeparator(SwingConstants.HORIZONTAL));
 	    
-	    jSeparator1.setForeground(new java.awt.Color(255, 51, 51));
-	    //jSeparator1.setBorder(new LineBorder(Color.black, 1, false));
-   //     jSeparator1.setPreferredSize(new java.awt.Dimension(1, 20));
-        add(jSeparator1);
+	/*    jSeparator1.setForeground(new java.awt.Color(255, 51, 51));
+          jSeparator1.setPreferredSize(new java.awt.Dimension(1, 20));
+       add(jSeparator1);*/
+       
+       add(new JSeparator(SwingConstants.HORIZONTAL));
+       
 	    add(listAttribute,BorderLayout.LINE_START);	
-	 //   add(new JSeparator(SwingConstants.HORIZONTAL));
+	   add(new JSeparator(SwingConstants.HORIZONTAL));
 	    add(listMethod,BorderLayout.LINE_START);
 	 
 	// add(pan)  	;   

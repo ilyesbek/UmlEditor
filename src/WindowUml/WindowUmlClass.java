@@ -79,7 +79,7 @@ public class WindowUmlClass extends JFrame {
 	              panelCenter.updateUI();
 	            }
 	        });
-
+		  
 		panelCenter.addMouseListener(new MouseAdapter()  
 		  {  
 		      public void mouseClicked(MouseEvent e)  

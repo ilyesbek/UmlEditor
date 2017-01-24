@@ -65,7 +65,7 @@ public class UmlProject extends JPanel {
 	    buttonUmlObject .setBounds(100, 320, 180, 20);
 		
 	    buttonUmlPacket .setText("Diagramme de paquet");
-	    buttonUmlPacket.setBounds(100, 360, 180, 20);
+	    buttonUmlPacket.setBounds(450, 320, 220, 20);
 	    
 		frame.setSize(1000,600);
 		frame.setVisible(true);
@@ -152,9 +152,7 @@ public void paintComponent(Graphics g) {
 		Graphics g2 = (Graphics2D)g;
 		
 		g2.drawImage(this.imgFond, this.xFond, 0, null);
-		g2.drawRect(68,250, 250, 200);
-		g2.drawRect(435, 250, 250, 200);
+		g2.drawRect(68,250, 250, 120);
+		g2.drawRect(435, 250, 250, 120);
 	}
-
-
 }

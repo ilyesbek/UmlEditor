@@ -91,7 +91,7 @@ public class WindowUmlUseCase extends JFrame {
 			      {  
 			    	  
 			    	  if(currentCompenent==1){
-			    		//  UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlUseCase,currentCompenent);
+			    		  new UmlOptionRelationChoice(panelCenter,listUmlUseCase,listUmlActor,listUmlCircle,currentCompenent);
 				    		 currentCompenent=0;
 			    	  }
 			    	  else if(currentCompenent==2){
@@ -99,7 +99,7 @@ public class WindowUmlUseCase extends JFrame {
 					    		 currentCompenent=0;
 				    	  } 
 			    	  else if(currentCompenent==3){
-				   		  //UmlOptionNodeChoice nodeUml = new UmlOptionNodeChoice(panelCenter,listUmlUseCase,currentCompenent);
+			    	   	  new UmlOptionRelationChoice(panelCenter,listUmlUseCase,listUmlActor,listUmlCircle,currentCompenent);
 					    		 currentCompenent=0;
 				    	  } 
 			    	  else if(currentCompenent==4){
@@ -114,7 +114,7 @@ public class WindowUmlUseCase extends JFrame {
 			    	 	  UmlCircle umlCircle = new UmlCircle(panelCenter);
 				    		 listUmlCircle.add(umlCircle);
 				    		panelCenter.add(umlCircle);
-				    		 panelCenter.revalidate();
+				    		 panelCenter.revalidate(); 
 				    	     panelCenter.repaint();
 				    		 currentCompenent=0;
 				    	  } 
@@ -139,7 +139,7 @@ public class WindowUmlUseCase extends JFrame {
 		               .getResource("image/dependance.png")));
 		       JLabel labelLeft2 = new JLabel(new ImageIcon(getClass().getClassLoader()
 		               .getResource("image/association.png")));
-		       JLabel labelleft3 = new JLabel(new ImageIcon(getClass().getClassLoader()
+		       JLabel labelLeft3 = new JLabel(new ImageIcon(getClass().getClassLoader()
 		    		   .getResource("image/heritage.png")));
 		       
 		       JLabel labelStigMan = new JLabel(new ImageIcon(getClass().getClassLoader()	    		   
@@ -156,7 +156,7 @@ public class WindowUmlUseCase extends JFrame {
 			  panelLeft.add(labelLeft2);
 			  panelLeft.add(Box.createVerticalGlue());
 			  
-			  panelLeft.add(labelleft3);
+			  panelLeft.add(labelLeft3);
 			  panelLeft.add(Box.createVerticalGlue());
 			  
 			  panelRight.add(labelStigMan);
@@ -170,11 +170,27 @@ public class WindowUmlUseCase extends JFrame {
 			  
 			 
 			  
+			  labelLeft1.addMouseListener(new MouseAdapter()  
+			  {  
+			      public void mouseClicked(MouseEvent e)  
+			      {  
+			    	  currentCompenent=1;
+	       	      }  
+			  }); 
+			  
 			  labelLeft2.addMouseListener(new MouseAdapter()  
 			  {  
 			      public void mouseClicked(MouseEvent e)  
 			      {  
 			    	  currentCompenent=2;
+	       	      }  
+			  }); 
+			  
+			  labelLeft3.addMouseListener(new MouseAdapter()  
+			  {  
+			      public void mouseClicked(MouseEvent e)  
+			      {  
+			    	  currentCompenent=3;
 	       	      }  
 			  }); 
 			  
@@ -185,7 +201,13 @@ public class WindowUmlUseCase extends JFrame {
 			    	  currentCompenent=4;
 	       	      }  
 			  }); 	
-			  
+			  labelCircle.addMouseListener(new MouseAdapter()  
+			  {  
+			      public void mouseClicked(MouseEvent e)  
+			      {  
+			    	  currentCompenent=5; 
+	       	      }  
+			  }); 
 			  
 			  labelNode.addMouseListener(new MouseAdapter()  
 			  {  

@@ -43,7 +43,6 @@ public class UmlOptionActor extends JFrame{
 		  validate.addActionListener(new ActionListener(){
 			  public void actionPerformed(ActionEvent event){
 				if(!textNameUseCase .getText().isEmpty())  {
-					 label.setText("");
 					 label.setText(textNameUseCase .getText());
 				}	         
 			  }

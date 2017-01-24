@@ -199,9 +199,9 @@ public UmlOptionRelationChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> li
 							  else break;
 						  }
 						 
-			 // if(currentCompenent==1)
-			    	//  panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.aggregation);
-				  if(currentCompenent==2)
+			  if(currentCompenent==1)
+				  panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.dependance);	
+			  else if(currentCompenent==2)
 			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.association);
 				/*  if(currentCompenent==3)
 			    	 panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.dependance);				  
