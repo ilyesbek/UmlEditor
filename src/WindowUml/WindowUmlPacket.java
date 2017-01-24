@@ -2,6 +2,8 @@ package WindowUml;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -11,7 +13,9 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import Uml.UmlPacket;
@@ -38,7 +42,7 @@ public class WindowUmlPacket extends JFrame {
 	
 	 private int currentCompenent=0; 
 	
-	public WindowUmlPacket(final JMenuBar menubar){
+	public WindowUmlPacket(){
 		 super();
 		   	   
 				panelLeft.setLayout(new BoxLayout(panelLeft, BoxLayout.PAGE_AXIS)); // component to bell will add in vertical
@@ -55,7 +59,7 @@ public class WindowUmlPacket extends JFrame {
 			    setVisible(true);
 			    setAlwaysOnTop(true);
 				setLocationRelativeTo(null);
-				setJMenuBar(menubar);
+								
 				insertPanel(panelLeft,panelRight);
 				this.add(panelLeft,BorderLayout.LINE_START); // add panel left in left jframe
 				this.add(panelCenter,BorderLayout.CENTER);// add pannel right in center jframe	

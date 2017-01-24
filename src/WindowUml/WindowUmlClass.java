@@ -3,6 +3,8 @@ package WindowUml;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -12,7 +14,9 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import Uml.UmlEntityClass;
@@ -35,7 +39,7 @@ public class WindowUmlClass extends JFrame {
     private ArrayList<UmlEntityClass> listUmlEntityClass = new ArrayList<UmlEntityClass>();
     
     
-    public WindowUmlClass(final JMenuBar menubar){
+    public WindowUmlClass(){
 			
 		super();
 		
@@ -52,7 +56,7 @@ public class WindowUmlClass extends JFrame {
 	    setVisible(true);
 	    setAlwaysOnTop(true);
 		setLocationRelativeTo(null);
-		setJMenuBar(menubar);
+				
 		insertPanel(panelLeft,panelRight);
 		this.add(panelLeft,BorderLayout.LINE_START); // add panel left in left jframe
 		this.add(panelCenter,BorderLayout.CENTER);// add pannel right in center jframe	

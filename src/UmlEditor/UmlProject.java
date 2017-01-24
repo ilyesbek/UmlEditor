@@ -80,7 +80,7 @@ public class UmlProject extends JPanel {
 		
 		buttonUmlClass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
-				new WindowUmlClass(menubar);
+				new WindowUmlClass();
 				dispose();
 			};});
 		
@@ -88,7 +88,7 @@ public class UmlProject extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e1) {
-				new WindowUmlUseCase(menubar);
+				new WindowUmlUseCase();
 				dispose();				
 			};});
 		
@@ -96,7 +96,7 @@ public class UmlProject extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e1) {
-				new WindowUmlObject(menubar);
+				new WindowUmlObject();
 				dispose();				
 			};});
 
@@ -104,7 +104,7 @@ public class UmlProject extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e1) {
-				new WindowUmlPacket(menubar);
+				new WindowUmlPacket();
 				dispose();				
 			};});
 
