@@ -346,7 +346,7 @@ public class UmlRelation{
            intersection1 = calculIntersection(uml1,uml2,1);
           }
           else 
-          {
+          { 
         	Point l11 = new Point(uml1.getX()+uml1.getWidth(),(int) (uml1.getY()+uml1.getHeight()*0.1));  
         	Point l12 = new Point(uml1.getX()+uml1.getWidth()+30,(int) (uml1.getY()+uml1.getHeight()*0.1)); 
         	
@@ -360,9 +360,9 @@ public class UmlRelation{
             g.drawLine(l21.x, l21.y,l22.x,l22.y);
             
      	    pos=PositionEntity.right;
-     	  
-          }
-
+     	    cardinality1.setLocation(uml1.getX()+uml1.getWidth()+10,(int) (uml1.getY()+uml1.getHeight()*0.1)-cardinality1.getHeight());
+     	    cardinality2.setVisible(false);
+           }
            
            if(typeRelation == EnumRelation.association){
       	      if(!self) g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection1.x,intersection1.y);
@@ -375,8 +375,7 @@ public class UmlRelation{
             	 Point p13 = new Point() ;
             	 Point p14 = new Point() ;
             	 
-          
-            	 calculationPolygon(p11,p12,p13,p14,intersection1);
+              	 calculationPolygon(p11,p12,p13,p14,intersection1);
             	 
             	    int [] polx = {p11.x,p12.x,p13.x,p14.x};
             	    int [] poly = {p11.y,p12.y,p13.y,p14.y};
@@ -384,11 +383,9 @@ public class UmlRelation{
             	    if(!self) g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLineDraw.x, endLineDraw.y); 
             	    else  g.drawLine(intersection1.x+15, intersection1.y,l31.x,l31.y);
                     g.drawPolygon(polx,poly,4);
-                
-           }
+                   }
                
-           
-           else if(typeRelation == EnumRelation.dependance){
+                  else if(typeRelation == EnumRelation.dependance){
         	   Graphics2D g2d = (Graphics2D) g.create();
         	   Stroke dashed = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{10}, 0);
                g2d.setStroke(dashed);
@@ -413,8 +410,7 @@ public class UmlRelation{
             	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
               }
            }
-             
-           
+                       
            else if(typeRelation == EnumRelation.composition)
            {
         	 Point p11 = new Point() ;
@@ -449,8 +445,5 @@ public class UmlRelation{
                   else JOptionPane.showMessageDialog(null, "la class n'hérite pas d'elle meme", "Warning",JOptionPane.WARNING_MESSAGE);
                     g.drawPolygon(polx,poly,3);
            }
-        
-     
+               }
        }
-       
-  }
