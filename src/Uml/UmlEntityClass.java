@@ -4,6 +4,7 @@
 package Uml;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -46,16 +47,16 @@ public class UmlEntityClass extends Uml{
 	    listMethod .setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 	    listMethod .setVisibleRowCount(-1);
 	    
-	    JPanel pan = new JPanel();	 
+	    Container pan = new Container();	 
 	    
-	  //  pan.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-	    add (nameClass);
-	    add(new JSeparator(SwingConstants.VERTICAL));
-	    add(listAttribute);	
-	   add(new JSeparator(SwingConstants.VERTICAL));
-	    add(listMethod);
+	   // pan.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+	    pan.add (nameClass);
+	   // add(new JSeparator(SwingConstants.VERTICAL));
+	   pan.add(listAttribute);	
+	   //add(new JSeparator(SwingConstants.VERTICAL));
+	   pan.add(listMethod);
 	 
-	    	   
+	 add(pan)  	;   
 		this.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent e) { 
 		    	  if(e.getClickCount()==2){

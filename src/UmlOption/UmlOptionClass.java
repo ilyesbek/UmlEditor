@@ -230,11 +230,13 @@ class OptionTabClass3 extends JPanel {
 	private JButton buttonNewMethod=new JButton("Ajoute une methode") ;
 	private JButton buttonDeleteMethod = new JButton("Supprimer methode") ;
 	
-	private JLabel labelNameMethod = new JLabel ("Nom Methode :  ");
-	private JLabel labelTypeMethod = new JLabel ("Type Methode  :  ");
+	private JLabel labelNameMethod = new JLabel ("Nom Methode :  *");
+	private JLabel labelTypeMethod = new JLabel ("Type Methode  :  *");
+	private JLabel labelParameter = new JLabel ("Parametre :  ");
 	
 	private JTextField textNameMethod = new  JTextField();
 	private JTextField textTypeMethod = new  JTextField();
+	private JTextField textParameter= new  JTextField();
 	
 	private JList<String>  list = new JList<String>  (model);
 	
@@ -264,11 +266,19 @@ class OptionTabClass3 extends JPanel {
 		   textTypeMethod.setMaximumSize(new Dimension(Integer.MAX_VALUE,textTypeMethod.getMinimumSize().height));
 		   b2_2.add(textTypeMethod);
 		   
+		   JPanel b2_3 = new JPanel();
+		   b2_3.setLayout(new BoxLayout(b2_3, BoxLayout.LINE_AXIS));
+		   b2_3.add(labelParameter);
+		   textParameter.setMaximumSize(new Dimension(Integer.MAX_VALUE,textTypeMethod.getMinimumSize().height));
+		   b2_3.add(textParameter);
+		   
 		   JPanel b2 = new JPanel();
 		   b2.setLayout(new BoxLayout(b2, BoxLayout.PAGE_AXIS));
 		   b2.add(b2_1);
 		   b2.add(Box.createRigidArea(new Dimension(40,40)));
 		   b2.add(b2_2);
+		   b2.add(Box.createRigidArea(new Dimension(40,40)));
+		   b2.add(b2_3);
 		   b2.add(Box.createRigidArea(new Dimension(40,40)));
 		   b2.add(boxVisibility);
 		  	    
@@ -288,7 +298,7 @@ class OptionTabClass3 extends JPanel {
 			  buttonNewMethod.addActionListener(new ActionListener(){
 				  public void actionPerformed(ActionEvent event){
 					  if(textNameMethod.getText().isEmpty() && textTypeMethod.getText().isEmpty()){
-				    		JOptionPane.showMessageDialog(null, "Veuillez remplir les champs", "Warning",JOptionPane.WARNING_MESSAGE);
+				    		JOptionPane.showMessageDialog(null, "Veuillez remplir les champs *", "Warning",JOptionPane.WARNING_MESSAGE);
 				    	}
 				    	else{
 			    		
@@ -306,7 +316,7 @@ class OptionTabClass3 extends JPanel {
 				    		
 				    		default : break;
 				    		}
-				    		row+= textNameMethod.getText()+" () :  "+textTypeMethod.getText();				    		     
+				    		row+= textNameMethod.getText()+" ("+textParameter.getText()+") :  "+textTypeMethod.getText();				    		     
 				    	    model.addElement(row);			    	 
 				    	}
 				  }
