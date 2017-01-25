@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 
 import Uml.UmlEntityObject;
 import Uml.UmlTool.EnumEntity;
+import Uml.UmlTool.UmlRectangle;
 import UmlOption.UmlOptionRelationChoice;
 
 /**
@@ -38,6 +39,7 @@ public class WindowUmlObject extends JFrame{
     private PanelCenter panelCenter= new PanelCenter ();
     
     private ArrayList<UmlEntityObject> listUmlEntityObject = new ArrayList<UmlEntityObject>();
+    private ArrayList<UmlRectangle> listUmlRectangle = new ArrayList<UmlRectangle>();
     
    public WindowUmlObject() {
 	   
@@ -72,6 +74,7 @@ public class WindowUmlObject extends JFrame{
 	              panelCenter.removeAll();
 	              panelCenter.removeRelation();
 	              listUmlEntityObject.clear();
+	              listUmlRectangle .clear();
 	              panelCenter.updateUI();
 	            }
 	        });
@@ -116,8 +119,19 @@ public class WindowUmlObject extends JFrame{
 		    	     panelCenter.repaint();
 		    		 currentCompenent=0;
 		    	  }
+		    	  
+		      else if(currentCompenent==8){
+		    		 UmlRectangle rectangle = new  UmlRectangle  (panelCenter);
+		    		 listUmlRectangle.add(rectangle);
+		    		 panelCenter.add(rectangle);
+		    		 panelCenter.revalidate();
+		    	     panelCenter.repaint();
+		    		 currentCompenent=0;
+		    	  }
 		      } 	      
 		  }); 
+		
+		
 }	
 
 public void insertPanel(JPanel  panelLeft,JPanel panelRight)
@@ -136,12 +150,8 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 	    		   .getResource("image/heritage.png")));
 	       
 	       JLabel labelClass = new JLabel(new ImageIcon(getClass().getClassLoader()	    		   
-	               .getResource("image/class.png")));
-	       JLabel labelCircle = new JLabel(new ImageIcon(getClass().getClassLoader()
-	    		   .getResource("image/circle.png")));
+	               .getResource("image/objet.png")));
 	       
-	       JLabel labelNode = new JLabel(new ImageIcon(getClass().getClassLoader()
-	    		   .getResource("image/node.png")));
 	       
 		  panelLeft.add(labelLeft1);	
 		  panelLeft.add(Box.createVerticalGlue());  // add space beetwen component
@@ -161,10 +171,6 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		  panelRight.add(labelClass);
 		  panelRight.add(Box.createVerticalGlue());
 		  
-		  panelRight.add(labelCircle);
-		  panelRight.add(Box.createVerticalGlue());
-		  
-		  panelRight.add(labelNode);
 		  
 		  
 		  labelClass.addMouseListener(new MouseAdapter()  
@@ -174,6 +180,27 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		    	  currentCompenent=6;
 		      }  
 		  });
+		  labelLeft1.addMouseListener(new MouseAdapter()  
+		  {  
+		      public void mouseClicked(MouseEvent e)  
+		      {  
+		    	  currentCompenent=1;
+      	      }  
+		  }); 	
+		  labelLeft2.addMouseListener(new MouseAdapter()  
+		  {  
+		      public void mouseClicked(MouseEvent e)  
+		      {  
+		    	  currentCompenent=2;
+      	      }  
+		  }); 	
+		  labelLeft3.addMouseListener(new MouseAdapter()  
+		  {  
+		      public void mouseClicked(MouseEvent e)  
+		      {  
+		    	  currentCompenent=3;
+      	      }  
+		  }); 	
 		  labelLeft4.addMouseListener(new MouseAdapter()  
 		  {  
 		      public void mouseClicked(MouseEvent e)  
@@ -181,6 +208,15 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 		    	  currentCompenent=4;
       	      }  
 		  }); 	  
+		  labelLeft5.addMouseListener(new MouseAdapter()  
+		  {  
+		      public void mouseClicked(MouseEvent e)  
+		      {  
+		    	  currentCompenent=5;
+      	      }  
+		  }); 	
+		  
+
 	  } catch (Exception ex) {
 		    System.out.println(ex);
 		  }

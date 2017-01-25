@@ -32,7 +32,7 @@ public class UmlProject extends JPanel {
 	private  JButton buttonUmlClass = new JButton();
 	private  JButton buttonUmlObject = new JButton();
 	private  JButton buttonUmlUseCase = new JButton();
-	private  JButton buttonUmlPacket= new JButton();
+//	private  JButton buttonUmlPacket= new JButton();
 		
 	private JLabel DiagramChoice;
 	private JLabel DiagramType;
@@ -64,8 +64,8 @@ public class UmlProject extends JPanel {
 	    buttonUmlObject .setText("Diagramme d'objet");
 	    buttonUmlObject .setBounds(100, 320, 180, 20);
 		
-	    buttonUmlPacket .setText("Diagramme de paquet");
-	    buttonUmlPacket.setBounds(450, 320, 220, 20);
+	//    buttonUmlPacket .setText("Diagramme de paquet");
+	 //   buttonUmlPacket.setBounds(450, 320, 220, 20);
 	    
 		frame.setSize(1000,600);
 		frame.setVisible(true);
@@ -76,7 +76,7 @@ public class UmlProject extends JPanel {
 		frame.add(buttonUmlClass);
 		frame.add(buttonUmlUseCase);
 		frame.add(buttonUmlObject);
-		frame.add(buttonUmlPacket);
+//		frame.add(buttonUmlPacket);
 		
 		buttonUmlClass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
@@ -100,13 +100,13 @@ public class UmlProject extends JPanel {
 				dispose();				
 			};});
 
-		buttonUmlPacket.addActionListener(new ActionListener(){
+	/*	buttonUmlPacket.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e1) {
 				new WindowUmlPacket();
 				dispose();				
-			};});
+			};});*/
 
 	}
 	

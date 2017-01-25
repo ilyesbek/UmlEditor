@@ -28,9 +28,9 @@ public class UmlOptionObject extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private JTabbedPane tabbedPane = new JTabbedPane();  
 	
-	public UmlOptionObject(DefaultListModel<String> modelObject,DefaultListModel<String> modelAttribute){
+	public UmlOptionObject(JLabel nameObject,DefaultListModel<String> modelAttribute){
 		
-    makeTab(modelObject,modelAttribute);
+    makeTab(nameObject,modelAttribute);
     add(tabbedPane);
 
 	setSize(600,600);
@@ -38,8 +38,8 @@ public class UmlOptionObject extends JFrame{
 	setAlwaysOnTop(true);
 	setVisible(true);
 	}
-	 private void makeTab (DefaultListModel<String> modelObject, DefaultListModel<String> modelAttribute){
-		tabbedPane.addTab("Classe", new OptionTabObject1(modelObject));
+	 private void makeTab (JLabel nameObject, DefaultListModel<String> modelAttribute){
+		tabbedPane.addTab("Classe", new OptionTabObject1(nameObject));
 		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
 		tabbedPane.addTab("Attributs", new OptionTabObject2(modelAttribute));	
@@ -54,7 +54,7 @@ class OptionTabObject1 extends JPanel {
 	private JLabel nameObject = new JLabel("Nom del'objet : ");
 	private JTextField textNameObject= new  JTextField();
 	
-	 OptionTabObject1(DefaultListModel<String> modelObject ){
+	 OptionTabObject1(JLabel name ){
 		 
 		  this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		 
@@ -73,8 +73,7 @@ class OptionTabObject1 extends JPanel {
 			  validate.addActionListener(new ActionListener(){
 				  public void actionPerformed(ActionEvent event){
 					if(!textNameObject .getText().isEmpty())  {
-						 modelObject.clear();
-						 modelObject.addElement(": "+textNameObject.getText());
+						name.setText(textNameObject.getText());
 					}		         
 				  }
 				});

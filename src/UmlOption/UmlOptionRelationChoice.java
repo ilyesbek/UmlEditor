@@ -200,14 +200,14 @@ public UmlOptionRelationChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> li
 						  }
 						 
 			  if(currentCompenent==1)
-				  panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.dependance,false);	
-			  else if(currentCompenent==2)
+			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.dependance,false);
+				  if(currentCompenent==2)
 			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.association,false);
-			  else  if(currentCompenent==3)
+				  if(currentCompenent==3)
 			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.heritage,false);
-			  else if(currentCompenent==4)
+				  else if(currentCompenent==4)
 			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.association,false);
-			  else	  if(currentCompenent==5)
+				  if(currentCompenent==5)
 			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.association,false);
 			  }
 			});
