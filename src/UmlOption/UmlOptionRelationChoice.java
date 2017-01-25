@@ -96,15 +96,15 @@ public UmlOptionRelationChoice (PanelCenter panelCenter,ArrayList<UmlEntityObjec
 					  entity2=listUmlEntityObject.get(boxClass2.getSelectedIndex());
 				  }
 				  if(currentCompenent==1)
-			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.aggregation);
+			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.aggregation,true);
 				  if(currentCompenent==2)
-			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.composition);
+			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.composition,true);
 				  if(currentCompenent==3)
-			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.dependance);				  
+			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.dependance,true);				  
 				  else if(currentCompenent==4)
-		    	   panelCenter.addDraw(entity1,entity2,EnumRelation.association);
+		    	   panelCenter.addDraw(entity1,entity2,EnumRelation.association,true);
 				  if(currentCompenent==5)
-			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.heritage);
+			    	   panelCenter.addDraw(entity1,entity2,EnumRelation.heritage,true);
 			  }
 			});
  }
@@ -200,15 +200,15 @@ public UmlOptionRelationChoice (PanelCenter panelCenter,ArrayList<UmlUseCase> li
 						  }
 						 
 			  if(currentCompenent==1)
-				  panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.dependance);	
+				  panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.dependance,false);	
 			  else if(currentCompenent==2)
-			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.association);
-				/*  if(currentCompenent==3)
-			    	 panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.dependance);				  
-				  else if(currentCompenent==4)
-		    	  panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.association);
-				  if(currentCompenent==5)
-			    	   panelCenter.addDraw(listUmlEntityClass.get(boxClass1.getSelectedIndex()),listUmlEntityClass.get(boxClass2.getSelectedIndex()),TypeRelation.heritage);*/
+			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.association,false);
+			  else  if(currentCompenent==3)
+			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.heritage,false);
+			  else if(currentCompenent==4)
+			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.association,false);
+			  else	  if(currentCompenent==5)
+			       panelCenter.addDraw(umlUseCase1,umlUseCase2,EnumRelation.association,false);
 			  }
 			});
  }

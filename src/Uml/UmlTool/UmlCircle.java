@@ -29,11 +29,12 @@ public class UmlCircle extends Uml {
 		
 	private static final long serialVersionUID = 1L;
 
-	private JButton circle=null;
 	private JLabel s = new JLabel("Information");
 	public UmlCircle(PanelCenter parent) {
 		super(parent);
-		this.setSize(150,150);	
+		this.setSize(150,51);
+		this.setBorder(BorderFactory.createLineBorder(Color.white));
+
 		this.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent e) { 
 		    	  if(e.getClickCount()==2){
@@ -51,7 +52,7 @@ public class UmlCircle extends Uml {
 	  
 	 public String getTitle()
 	 {
-		 return circle.getText();
+		 return s.getText();
 	 }
 
 }

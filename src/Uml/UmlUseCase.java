@@ -3,6 +3,7 @@
  */
 package Uml;
 
+import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
@@ -22,9 +23,7 @@ private JLabel labelTitle = new JLabel ("Cas utilisation");
 	public UmlUseCase(PanelCenter parent) {
 		super(parent);
 				
-		labelTitle.setLocation(this.getX()+this.getWidth()/2,labelTitle.getHeight()+this.getHeight());
 		this.setSize(300,300);
-		this.add(labelTitle);
 		this.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent e) { 
 		    	  if(e.getClickCount()==2){
@@ -33,6 +32,13 @@ private JLabel labelTitle = new JLabel ("Cas utilisation");
 		    }
 		});
 }
+	
+	  @Override
+	    public void paint(Graphics g) {
+		  g.drawRect (0,0, 299,299); 
+		   g.drawString(labelTitle.getText(),110,25);
+	  }
+	  
 	 public String getTitle()
 	 {
 		 return labelTitle.getText();

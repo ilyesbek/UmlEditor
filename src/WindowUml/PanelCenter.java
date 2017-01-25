@@ -22,8 +22,8 @@ public ArrayList<UmlRelation> relation = new ArrayList<UmlRelation>();
 		super();	
 	}
 	
-	public  void addDraw(Uml uml1, Uml uml2,EnumRelation typeRelation) {
-		relation.add(new UmlRelation(uml1,uml2,typeRelation,this));
+	public  void addDraw(Uml uml1, Uml uml2,EnumRelation typeRelation,boolean cardinality) {
+		relation.add(new UmlRelation(uml1,uml2,typeRelation,this,cardinality));
         repaint();
 	}
 	

@@ -38,7 +38,7 @@ public class UmlRelation{
        
        private EnumRelation typeRelation;
        
-       public UmlRelation(Uml uml1, Uml uml2,EnumRelation type, JPanel panel) {
+       public UmlRelation(Uml uml1, Uml uml2,EnumRelation type, JPanel panel,boolean showCardinality) {
            this.uml1 = uml1;
            this.uml2 = uml2;
            
@@ -53,6 +53,10 @@ public class UmlRelation{
            panel.add(cardinality1);
            panel.add(cardinality2);
            
+           if(!showCardinality){
+        	   cardinality1.setVisible(false);
+        	   cardinality2.setVisible(false);
+           }
            cardinality1.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent e) { 
 		    	  if(e.getClickCount()==2){
@@ -339,11 +343,15 @@ public class UmlRelation{
     	   
            Point p1 = uml1.getLocation();
            Point intersection1 = null ;
+           Point intersection2 = null ;
+           
            Point l31 = null;
            
           if(!self){ 
            calculIntersection(uml2,uml1,0);
+           intersection2 = calculIntersection(uml2,uml1,0);
            intersection1 = calculIntersection(uml1,uml2,1);
+      
           }
           else 
           { 
@@ -365,7 +373,7 @@ public class UmlRelation{
            }
            
            if(typeRelation == EnumRelation.association){
-      	      if(!self) g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection1.x,intersection1.y);
+      	      if(!self) g.drawLine(intersection2.x, intersection2.y,intersection1.x,intersection1.y);
       	    else  g.drawLine(intersection1.x, intersection1.y,l31.x,l31.y);
            }
            
@@ -380,7 +388,7 @@ public class UmlRelation{
             	    int [] polx = {p11.x,p12.x,p13.x,p14.x};
             	    int [] poly = {p11.y,p12.y,p13.y,p14.y};
             	                   	   
-            	    if(!self) g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLineDraw.x, endLineDraw.y); 
+            	    if(!self) g.drawLine(intersection2.x,intersection2.y, endLineDraw.x, endLineDraw.y); 
             	    else  g.drawLine(intersection1.x+15, intersection1.y,l31.x,l31.y);
                     g.drawPolygon(polx,poly,4);
                    }
@@ -389,7 +397,7 @@ public class UmlRelation{
         	   Graphics2D g2d = (Graphics2D) g.create();
         	   Stroke dashed = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{10}, 0);
                g2d.setStroke(dashed);
-               g2d.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2,intersection1.x,intersection1.y);
+               g2d.drawLine(intersection2.x,intersection2.y,intersection1.x,intersection1.y);
 
               if(pos == PositionEntity.left){
             	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
@@ -399,15 +407,15 @@ public class UmlRelation{
             	 if(!self){
             	  g.drawLine(intersection1.x, intersection1.y, intersection1.x+10, intersection1.y-10);
             	  g.drawLine(intersection1.x, intersection1.y, intersection1.x+10, intersection1.y+10);
-            	 }else JOptionPane.showMessageDialog(null, "Une clas ne peut etre dépendente d'elle meme", "Warning",JOptionPane.WARNING_MESSAGE);
+            	 }else JOptionPane.showMessageDialog(null, "Une class ne peut etre dépendente d'elle meme", "Warning",JOptionPane.WARNING_MESSAGE);
               }
               else   if(pos == PositionEntity.top){
             	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
             	  g.drawLine(intersection1.x+10, intersection1.y-10, intersection1.x, intersection1.y);
               }
               else if(pos == PositionEntity.down){
-            	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
-            	  g.drawLine(intersection1.x-10, intersection1.y-10, intersection1.x, intersection1.y);
+            	  g.drawLine(intersection1.x-10, intersection1.y+10, intersection1.x, intersection1.y);
+            	  g.drawLine(intersection1.x+10, intersection1.y+10, intersection1.x, intersection1.y);
               }
            }
                        
@@ -425,7 +433,7 @@ public class UmlRelation{
         	    
         	    Polygon pol = new Polygon(polx,poly,4);       
         	    g.fillPolygon(pol);
-            if(!self) g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLineDraw.x, endLineDraw.y);      
+            if(!self) g.drawLine(intersection2.x,intersection2.y, endLineDraw.x, endLineDraw.y);      
             else  g.drawLine(intersection1.x+15, intersection1.y,l31.x,l31.y);
            }   
           
@@ -441,7 +449,7 @@ public class UmlRelation{
             	    int [] polx = {p11.x,p12.x,p13.x};
             	    int [] poly = {p11.y,p12.y,p13.y};
 
-                  if(!self)  g.drawLine(p1.x+uml1.getWidth()/2, p1.y+uml1.getHeight()/2, endLineDraw.x, endLineDraw.y); 
+                  if(!self)  g.drawLine(intersection2.x, intersection2.y, endLineDraw.x, endLineDraw.y); 
                   else JOptionPane.showMessageDialog(null, "la class n'hérite pas d'elle meme", "Warning",JOptionPane.WARNING_MESSAGE);
                     g.drawPolygon(polx,poly,3);
            }
