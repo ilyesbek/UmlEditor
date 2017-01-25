@@ -32,21 +32,9 @@ public class Main {
 		file.add(newProject);
 		JMenuItem newUmlProject = new JMenuItem("New UML Project");
 		newProject.add(newUmlProject);
-		JMenuItem save = new JMenuItem("Save");
-		file.add(save);
 		JMenuItem exit = new JMenuItem("Exit");
 		file.add(exit);
 		
-		JMenu edit = new JMenu("Edit");
-		menubar.add(edit);
-		
-		JMenu view = new JMenu("View");
-		menubar.add(view);
-		
-		JMenu help = new JMenu("Help");
-		menubar.add(help);
-		JMenuItem about = new JMenuItem("About");
-		help.add(about);
 		
 		newUmlProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
