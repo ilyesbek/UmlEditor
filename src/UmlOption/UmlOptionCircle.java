@@ -21,7 +21,7 @@ public class UmlOptionCircle extends JFrame{
           JTextField textLabel = new  JTextField();
 		  JButton validate = new JButton("Valider") ;	
 		
-			setSize(400,400);
+			setSize(400,100);
 			setLocationRelativeTo(null);
 			setAlwaysOnTop(true);
 			setVisible(true);
@@ -29,7 +29,7 @@ public class UmlOptionCircle extends JFrame{
 		   JPanel b1 = new JPanel();	  
 		   b1.setLayout(new BoxLayout(b1, BoxLayout.LINE_AXIS));
 		   b1.add(labelInfo );
-		   b1.add(Box.createRigidArea(new Dimension(20,20)));
+		   b1.add(Box.createRigidArea(new Dimension(10,30)));
 		   b1.add(textLabel);
 		   textLabel .setMaximumSize(new Dimension(Integer.MAX_VALUE, textLabel.getMinimumSize().height));
 		   

@@ -45,9 +45,14 @@ private void proprietesEditeur(){
 	private void proprietesEtiquette(){
 		
 		labelWelcome = new JLabel();
+		JLabel labelWelcome2 = new JLabel();
+		
 		this.labelWelcome.setBounds(200, 200, 700, 50);
+		labelWelcome2.setBounds(200,250,700,50);
 		this.labelWelcome.setText("Bienvenue dans votre editeur UML Pour commencer un nouveau projet,cliquer sur File,New,New UML project ");
+		labelWelcome2.setText("Obligatroire !! Veuillez cliquer sur le menu '?' puis sur help, afin de savoir comment utiliser le programme ");
 		this.add(labelWelcome);
+		this.add(labelWelcome2);
 	}
 	
 	public void paintComponent(Graphics g) {

@@ -47,12 +47,12 @@ public class WindowUmlClass extends JFrame {
         panelCenter.setLayout(null);
 		
 	    getContentPane().setBackground(Color.WHITE); // change background to white
-	    panelLeft.setBackground(Color.WHITE); // change panelLeft to white
+	    panelLeft.setBackground(Color.WHITE); // change panelLeft to white   
 	    panelRight.setBackground(Color.WHITE); // change panelRight to white
 	    panelCenter.setBackground(Color.WHITE); // change panelCenter to white   
-	
+	   
 		setTitle("Diagramme de classe");
-		setSize(800,600);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
 	    setVisible(true);
 	    setAlwaysOnTop(true);
 		setLocationRelativeTo(null);
@@ -136,7 +136,7 @@ public void insertPanel(JPanel  panelLeft,JPanel panelRight)
 	       
 	       JLabel labelClass =new JLabel(new ImageIcon(getClass().getClassLoader()	    		   
 	               .getResource("image/class.png")));
-	       
+	      
 		  panelLeft.add(labelLeft1);	
 		  panelLeft.add(Box.createVerticalGlue());  // add space beetwen component
 		  

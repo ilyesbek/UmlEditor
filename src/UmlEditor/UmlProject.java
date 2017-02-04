@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 
 import WindowUml.WindowUmlClass;
 import WindowUml.WindowUmlObject;
-import WindowUml.WindowUmlPacket;
 import WindowUml.WindowUmlUseCase;
 
 /**

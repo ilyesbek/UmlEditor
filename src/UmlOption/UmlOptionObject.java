@@ -12,7 +12,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -33,7 +32,7 @@ public class UmlOptionObject extends JFrame{
     makeTab(nameObject,modelAttribute);
     add(tabbedPane);
 
-	setSize(600,600);
+	setSize(850,600);
 	setLocationRelativeTo(null);
 	setAlwaysOnTop(true);
 	setVisible(true);
@@ -131,6 +130,9 @@ class OptionTabObject2 extends JPanel{
 		   		   
 		   JPanel b2 = new JPanel();
 		   b2.setLayout(new BoxLayout(b2, BoxLayout.PAGE_AXIS));
+		   b2.add(new JLabel("Pour ajouter les champs nom et type de l'attribut obligatoire, puis cliquer sur le boutton en haut a droite ajouter attribut"));
+		   b2.add(Box.createRigidArea(new Dimension(40,40)));
+		   
 		   b2.add(b2_1);
 		   b2.add(Box.createRigidArea(new Dimension(40,40)));
 		   b2.add(b2_2);
@@ -155,7 +157,7 @@ class OptionTabObject2 extends JPanel{
 			  buttonNewAttribute.addActionListener(new ActionListener(){
 				  public void actionPerformed(ActionEvent event){
 					  if(textNameAttribute.getText().isEmpty() && textValueAttribute.getText().isEmpty()){
-				    		JOptionPane.showMessageDialog(null, "Veuillez remplir les champs", "Warning",JOptionPane.WARNING_MESSAGE);
+				    	
 				    	}
 				    	else{
 			    		

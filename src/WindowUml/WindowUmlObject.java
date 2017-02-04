@@ -55,7 +55,7 @@ public class WindowUmlObject extends JFrame{
 	    panelCenter.setBackground(Color.WHITE); // change panelCenter to white   
 	
 		setTitle("Diagramme d'objet");
-		setSize(800,600);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
 	    setVisible(true);
 	    setAlwaysOnTop(true);
 		setLocationRelativeTo(null);

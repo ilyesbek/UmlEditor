@@ -27,9 +27,16 @@ public class Main {
 		
 
 		JMenu file = new JMenu("File");
+		JMenu menuHelp = new JMenu("?");
 		menubar.add(file);
+		menubar.add(menuHelp);
+		
 		JMenu newProject = new JMenu("New");
+		JMenuItem help = new JMenuItem("Aide");
+		
 		file.add(newProject);
+		menuHelp.add(help);
+		
 		JMenuItem newUmlProject = new JMenuItem("New UML Project");
 		newProject.add(newUmlProject);
 		JMenuItem exit = new JMenuItem("Exit");
@@ -39,6 +46,12 @@ public class Main {
 		newUmlProject.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
 				projet = new UmlProject(menubar);	 /*transfert parameteter*/	
+			};}
+		);
+		
+		help.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Help();
 			};}
 		);
 		

@@ -28,7 +28,7 @@ public class UmlEntityObject extends Uml {
 	
 	public UmlEntityObject(PanelCenter panel) {
 		super(panel);
-		this.setSize(120,150);
+		this.setSize(180,160);
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
 		   

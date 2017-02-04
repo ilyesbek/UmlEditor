@@ -341,7 +341,6 @@ public class UmlRelation{
 
        public void draw(Graphics g) {
     	   
-           Point p1 = uml1.getLocation();
            Point intersection1 = null ;
            Point intersection2 = null ;
            
@@ -449,9 +448,9 @@ public class UmlRelation{
             	    int [] polx = {p11.x,p12.x,p13.x};
             	    int [] poly = {p11.y,p12.y,p13.y};
 
-                  if(!self)  g.drawLine(intersection2.x, intersection2.y, endLineDraw.x, endLineDraw.y); 
-                  else JOptionPane.showMessageDialog(null, "la class n'hérite pas d'elle meme", "Warning",JOptionPane.WARNING_MESSAGE);
-                    g.drawPolygon(polx,poly,3);
+                  if(!self){  g.drawLine(intersection2.x, intersection2.y, endLineDraw.x, endLineDraw.y);   g.drawPolygon(polx,poly,3);}
+      
+                  
            }
                }
        }

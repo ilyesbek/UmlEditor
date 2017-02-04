@@ -29,8 +29,9 @@ import javax.swing.ListSelectionModel;
  *  When double click in entity, this menu appear
  */
 
-public class UmlOptionClass extends JFrame{
 
+public class UmlOptionClass extends JFrame{
+  static JPanel pan=null;
 	private static final long serialVersionUID = 1L;
 	private JTabbedPane tabbedPane = new JTabbedPane();  
 	
@@ -39,7 +40,7 @@ public class UmlOptionClass extends JFrame{
     makeTab(nameClass,modelAttribute,modelMethod);
     add(tabbedPane);
 
-	setSize(600,600);
+	setSize(850,600);
 	setLocationRelativeTo(null);
 	setAlwaysOnTop(true);
 	setVisible(true);
@@ -150,12 +151,15 @@ class OptionTabClass2 extends JPanel{
 		   		   
 		   JPanel b2 = new JPanel();
 		   b2.setLayout(new BoxLayout(b2, BoxLayout.PAGE_AXIS));
+		   b2.add(new JLabel("Pour ajouter les champs nom et type de l'attribut sont obligatoire, puis cliquer sur le boutton en haut a droite ajouter attribut"));
+		   b2.add(Box.createRigidArea(new Dimension(40,40)));
+		   
 		   b2.add(b2_1);
 		   b2.add(Box.createRigidArea(new Dimension(40,40)));
 		   b2.add(b2_2);
 		   b2.add(Box.createRigidArea(new Dimension(40,40)));
 		   b2.add(b2_3);
-		   b2.add(Box.createRigidArea(new Dimension(40,40)));
+		   b2.add(Box.createRigidArea(new Dimension(40,75)));
 		   b2.add(boxVisibility);
 		   
 		   JPanel b3 = new JPanel();
@@ -174,9 +178,7 @@ class OptionTabClass2 extends JPanel{
 			  // event button ajouter un attribut click		  
 			  buttonNewAttribute.addActionListener(new ActionListener(){
 				  public void actionPerformed(ActionEvent event){
-					  if(textNameAttribute.getText().isEmpty() && textTypeAttribute.getText().isEmpty()){
-				    		JOptionPane.showMessageDialog(null, "Veuillez remplir les champs", "Warning",JOptionPane.WARNING_MESSAGE);
-				    	}
+					  if(textNameAttribute.getText().isEmpty() || textTypeAttribute.getText().isEmpty()){}
 				    	else{
 			    		
 				    		String row ="";
@@ -204,7 +206,7 @@ class OptionTabClass2 extends JPanel{
 				  public void actionPerformed(ActionEvent event){
 					 modelAttribute.clear();						 
 					 for(int i = 0; i < model.getSize(); i++) 
-						  modelAttribute.addElement(model.getElementAt(i));
+						  modelAttribute.addElement(model.getElementAt(i));UmlOptionClass.pan.revalidate();
 				  }
 				});
 			  
@@ -274,6 +276,9 @@ class OptionTabClass3 extends JPanel {
 		   
 		   JPanel b2 = new JPanel();
 		   b2.setLayout(new BoxLayout(b2, BoxLayout.PAGE_AXIS));
+		   b2.add(new JLabel("Pour ajouter les champs nom et type de la méthode sont obligatoire, puis cliquer sur le boutton en haut a droite ajouter methode"));
+		   b2.add(Box.createRigidArea(new Dimension(40,40)));
+
 		   b2.add(b2_1);
 		   b2.add(Box.createRigidArea(new Dimension(40,40)));
 		   b2.add(b2_2);

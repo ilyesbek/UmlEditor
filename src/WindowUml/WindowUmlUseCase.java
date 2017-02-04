@@ -54,7 +54,7 @@ public class WindowUmlUseCase extends JFrame {
 		    panelCenter.setBackground(Color.WHITE); // change panelCenter to Red
 		    
 			setTitle("Diagramme cas d'Utilisation");
-			setSize(800,600);
+			setExtendedState(JFrame.MAXIMIZED_BOTH);
 		    setVisible(true);
 		    setAlwaysOnTop(true);
 			setLocationRelativeTo(null);

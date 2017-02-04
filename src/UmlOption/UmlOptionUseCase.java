@@ -25,7 +25,7 @@ public class UmlOptionUseCase extends JFrame{
 
 	public	UmlOptionUseCase(JLabel label){
 	 		
-		setSize(400,400);
+		setSize(400,100);
 		setLocationRelativeTo(null);
 		setAlwaysOnTop(true);
 		setVisible(true);

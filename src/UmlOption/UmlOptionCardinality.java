@@ -27,13 +27,14 @@ public class UmlOptionCardinality extends JFrame{
 		JComboBox<String>  boxVisibility = new JComboBox<String>  (stringVisibility);
 		JButton validate = new JButton("Valider") ;	
 		
+		setSize(400,100);
 		
 		   JPanel b1 = new JPanel();
 		   
 		   b1.setLayout(new BoxLayout(b1, BoxLayout.LINE_AXIS));
 		   b1.add(Box.createRigidArea(new Dimension(20,20)));
 		   b1.add(new JLabel("Cardinalité : "));
-		   b1.add(Box.createRigidArea(new Dimension(40,50)));
+	//	   b1.add(Box.createRigidArea(new Dimension(40,50)));
 	       b1.add(boxVisibility);
 		   boxVisibility.setMaximumSize(new Dimension(Integer.MAX_VALUE, boxVisibility.getMinimumSize().height));
 

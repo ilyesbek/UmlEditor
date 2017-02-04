@@ -55,7 +55,7 @@ public class WindowUmlPacket extends JFrame {
 			    panelCenter.setBackground(Color.WHITE); // change panelCenter to Red
 			    
 				setTitle("Diagramme de paquet ");
-				setSize(800,600);
+				setExtendedState(JFrame.MAXIMIZED_BOTH);
 			    setVisible(true);
 			    setAlwaysOnTop(true);
 				setLocationRelativeTo(null);

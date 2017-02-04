@@ -26,7 +26,7 @@ public class UmlOptionActor extends JFrame{
 
 	public	UmlOptionActor(JLabel label){
 	 		
-		setSize(400,400);
+		setSize(400,100);
 		setLocationRelativeTo(null);
 		setAlwaysOnTop(true);
 		setVisible(true);
